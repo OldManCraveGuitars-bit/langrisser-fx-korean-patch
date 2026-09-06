@@ -1,3 +1,5 @@
+<img width="1254" height="1254" alt="랑그_new" src="https://github.com/user-attachments/assets/f134092a-949d-47f3-b475-7084703d791f" />
+
 # Langrisser FX Korean Translation Patch
 
 This repository candidate documents and distributes a Korean translation patch for the Japanese PC-FX release of **Der Langrisser FX**. It contains a source-verified delta patch, a dependency-free patch applier, selected project-authored source code, and technical documentation. It does **not** contain the original game, a fully patched disc image, PC-FX BIOS files, emulator binaries, or extracted game media.
