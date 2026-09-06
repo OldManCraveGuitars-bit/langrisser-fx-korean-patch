@@ -1,0 +1,1180 @@
+{
+  "schema": "langrisser-fx-translation-editor/v4",
+  "base": "r80-successor189-s12-condition-repair-successor190",
+  "base_cooked_sha256": "3F61AA060AB8F2FF2F866F7F0FC6EA7ACBE9DDD5957F4CEC4D54D81EADD1318E",
+  "saved_at": "2026-09-05T00:56:21+09:00",
+  "dialogue_edits": {
+    "scenario01/dialogue/001": "야, 여자! 죽고 싶지 않으면\n내 질문에 대답해라!{page}{name:01}라는 계집애가 사는 곳이\n저 집이냐?",
+    "scenario01/dialogue/004": "{name:0C}님!\n여기 있습니다!",
+    "scenario01/dialogue/027": "{raw:02}‥‥\n이라고 했나, 애송이!{page}건방지게 굴던 것치고 아무것도\n못 하는 놈이군. 하하하‥‥",
+    "scenario01/dialogue/040": "아아, 제발! \n나는 신경 쓰지 말고 도망쳐!{page}나 때문에 상관없는 사람들까지\n다치다니, 그런‥‥",
+    "scenario01/dialogue/096": "홍, 시시하군. 칼도 못 쓰는\n작전 따위 재미도 없다!{page}모처럼이니 저기 있는\n계집애들이나 겁줘 볼까!",
+    "scenario02/dialogue/173": "레아드 님!{page}레아드 님께서 \n무슨 일이라도 생기면, \n레온 님이 슬퍼하실 겁니다. \n여기서는 퇴각을!"
+  },
+  "subtitle_edits": {
+    "movie003/cue/004": {
+      "deleted": true
+    },
+    "movie004/cue/003": {
+      "deleted": true
+    },
+    "movie001/cue/000": {
+      "start": 12.7,
+      "end": 13.7,
+      "ko": [
+        "여기입니다, 폐하."
+      ],
+      "list_order": 0
+    },
+    "movie001/cue/001": {
+      "start": 14.2,
+      "end": 25.0,
+      "ko": [
+        "오오, 저것이 마검 알하자드…"
+      ],
+      "list_order": 1
+    },
+    "movie001/cue/002": {
+      "start": 25.2,
+      "end": 27.8,
+      "ko": [
+        "폐하, 위험합니다! 기다리십시오!"
+      ],
+      "list_order": 2
+    },
+    "movie001/cue/003": {
+      "start": 28.4,
+      "end": 29.3,
+      "ko": [
+        "폐하는 괜찮으신 건가?"
+      ],
+      "list_order": 3
+    },
+    "movie001/cue/004": {
+      "start": 30.3,
+      "end": 35.3,
+      "ko": [
+        "모르겠다. 저 검은 주인을 고른다고 한다만…"
+      ],
+      "list_order": 4
+    },
+    "movie001/cue/005": {
+      "start": 41.5,
+      "end": 42.6,
+      "ko": [
+        "안심해라!!"
+      ],
+      "list_order": 6
+    },
+    "movie001/cue/006": {
+      "start": 42.7,
+      "end": 48.5,
+      "ko": [
+        "만일 짐이 알하자드를 손에 넣지 못한다면,",
+        "대륙 통일 따위 애초부터 이룰 수 없는 것."
+      ],
+      "list_order": 7
+    },
+    "movie001/cue/007": {
+      "start": 49.6,
+      "end": 55.2,
+      "ko": [
+        "이 베른하르트, 그대의 주군이 될",
+        "자격조차 없다!"
+      ],
+      "list_order": 8
+    },
+    "movie001/cue/008": {
+      "start": 58.9,
+      "end": 65.4,
+      "ko": [
+        "베른하르트라 했던가. 네놈이라면",
+        "이 저주스러운 빛의 봉인을 풀 수 있겠지."
+      ],
+      "list_order": 9
+    },
+    "movie001/cue/009": {
+      "start": 67.9,
+      "end": 69.5,
+      "ko": [
+        "하지만 그 전에 한 가지 묻겠다."
+      ],
+      "list_order": 11
+    },
+    "movie001/cue/010": {
+      "start": 70.4,
+      "end": 74.9,
+      "ko": [
+        "나를 해방하면 지상에 다시",
+        "큰 재앙이 일어날 것이다."
+      ],
+      "list_order": 12
+    },
+    "movie001/cue/011": {
+      "start": 75.0,
+      "end": 76.8,
+      "ko": [
+        "그래도 나를 원하는가?"
+      ],
+      "list_order": 13
+    },
+    "movie001/cue/012": {
+      "start": 77.2,
+      "end": 80.5,
+      "ko": [
+        "가소롭군. 이 세상은 이미",
+        "재앙으로 가득하지 않은가."
+      ],
+      "list_order": 14
+    },
+    "movie001/cue/013": {
+      "start": 81.4,
+      "end": 86.9,
+      "ko": [
+        "그러므로 짐은 재앙의 근원을 없애기 위해",
+        "대륙을 통일하고 영원한 왕국을 세울 것이다."
+      ],
+      "list_order": 15
+    },
+    "movie001/cue/014": {
+      "start": 87.2,
+      "end": 90.8,
+      "ko": [
+        "그 과정에서 수많은 피가 흐른다 해도?"
+      ],
+      "list_order": 16
+    },
+    "movie001/cue/015": {
+      "start": 91.0,
+      "end": 95.3,
+      "ko": [
+        "물론이다. 짐은 그 잘못을 짊어지고",
+        "패도를 이룰 것이다."
+      ],
+      "list_order": 17
+    },
+    "movie001/cue/016": {
+      "start": 95.8,
+      "end": 97.5,
+      "ko": [
+        "알겠다…"
+      ],
+      "list_order": 18
+    },
+    "movie001/cue/custom-001": {
+      "start": 40.0,
+      "end": 41.2,
+      "ko": [
+        "폐하!!"
+      ],
+      "list_order": 5,
+      "added": true,
+      "movie_id": 1,
+      "movie_title": "오프닝 2",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie001/cue/custom-002": {
+      "start": 66.733,
+      "end": 67.733,
+      "ko": [
+        "뭐라?"
+      ],
+      "list_order": 10,
+      "added": true,
+      "movie_id": 1,
+      "movie_title": "오프닝 2",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie002/cue/000": {
+      "start": 10.2,
+      "end": 11.7,
+      "ko": [
+        "리아나?"
+      ],
+      "list_order": 1
+    },
+    "movie002/cue/001": {
+      "start": 16.7,
+      "end": 22.0,
+      "ko": [
+        "나도 … 전투는 처음이라…"
+      ],
+      "list_order": 3
+    },
+    "movie002/cue/002": {
+      "start": 24.0,
+      "end": 26.1,
+      "ko": [
+        "그래도...나는 기뻤어..."
+      ],
+      "list_order": 4
+    },
+    "movie002/cue/003": {
+      "start": 26.5,
+      "end": 27.2,
+      "ko": [
+        "어?"
+      ],
+      "list_order": 5
+    },
+    "movie002/cue/004": {
+      "start": 28.0,
+      "end": 31.0,
+      "ko": [
+        "엘윈이 나를 지켜줬으니까~"
+      ],
+      "list_order": 6
+    },
+    "movie002/cue/005": {
+      "start": 35.0,
+      "end": 35.8,
+      "ko": [
+        "어…!"
+      ],
+      "list_order": 8
+    },
+    "movie002/cue/custom-001": {
+      "start": 8.05,
+      "end": 10.1,
+      "ko": [
+        "엘윈?"
+      ],
+      "list_order": 0,
+      "added": true,
+      "movie_id": 2,
+      "movie_title": "실버 나이트",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie002/cue/custom-002": {
+      "start": 12.6,
+      "end": 14.4,
+      "ko": [
+        "잠이 안오나봐.."
+      ],
+      "list_order": 2,
+      "added": true,
+      "movie_id": 2,
+      "movie_title": "실버 나이트",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie002/cue/custom-003": {
+      "start": 32.2,
+      "end": 34.2,
+      "ko": [
+        "그래서 기뻤어."
+      ],
+      "list_order": 7,
+      "added": true,
+      "movie_id": 2,
+      "movie_title": "실버 나이트",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie003/cue/000": {
+      "start": 14.3,
+      "end": 14.8,
+      "ko": [
+        "무슨 일이지?"
+      ],
+      "list_order": 1
+    },
+    "movie003/cue/001": {
+      "start": 15.0,
+      "end": 16.0,
+      "ko": [
+        "적인가!"
+      ],
+      "list_order": 2
+    },
+    "movie003/cue/002": {
+      "start": 17.6,
+      "end": 18.9,
+      "ko": [
+        "무슨 일이야?"
+      ],
+      "list_order": 3
+    },
+    "movie003/cue/003": {
+      "start": 19.2,
+      "end": 22.365,
+      "ko": [
+        "리아나 님, 피하십시오!",
+        "제국군입니다. 어서!"
+      ],
+      "list_order": 4
+    },
+    "movie003/cue/005": {
+      "start": 25.8,
+      "end": 27.43,
+      "ko": [
+        "놓치지 마라!"
+      ],
+      "list_order": 6
+    },
+    "movie003/cue/006": {
+      "start": 28.8,
+      "end": 31.6,
+      "ko": [
+        "어디로 가려는 거지?"
+      ],
+      "list_order": 7
+    },
+    "movie003/cue/007": {
+      "start": 32.5,
+      "end": 34.8,
+      "ko": [
+        "빛의 무녀."
+      ],
+      "list_order": 8
+    },
+    "movie003/cue/008": {
+      "start": 35.0,
+      "end": 36.3,
+      "ko": [
+        "에그베르트!"
+      ],
+      "list_order": 9
+    },
+    "movie003/cue/009": {
+      "start": 36.4,
+      "end": 41.59,
+      "ko": [
+        "쓸데없는 저항은 피해만 키울 뿐이다.",
+        "알겠나?"
+      ],
+      "list_order": 10
+    },
+    "movie003/cue/010": {
+      "start": 43.8,
+      "end": 46.63,
+      "ko": [
+        "좋다. 이리 오너라."
+      ],
+      "list_order": 11
+    },
+    "movie003/cue/custom-001": {
+      "start": 24.833,
+      "end": 25.7,
+      "ko": [
+        "여기다!! 가라!!"
+      ],
+      "list_order": 5,
+      "added": true,
+      "movie_id": 3,
+      "movie_title": "빛의 무녀 납치",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie003/cue/custom-002": {
+      "start": 8.5,
+      "end": 9.3,
+      "ko": [
+        "엘윈..."
+      ],
+      "list_order": 0,
+      "added": true,
+      "movie_id": 3,
+      "movie_title": "빛의 무녀 납치",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie004/cue/000": {
+      "start": 5.02,
+      "end": 6.13,
+      "ko": [
+        "이것은…"
+      ]
+    },
+    "movie004/cue/001": {
+      "start": 6.23,
+      "end": 12.2,
+      "ko": [
+        "두려워할 것 없다. 모두가 제국의 새 영웅을",
+        "한 번 보고 싶어 하는 것이다.  가지.."
+      ]
+    },
+    "movie004/cue/002": {
+      "start": 13.04,
+      "end": 14.45,
+      "ko": [
+        "가자고.."
+      ]
+    },
+    "movie004/cue/004": {
+      "start": 29.2,
+      "end": 31.8,
+      "ko": [
+        "저자가…"
+      ]
+    },
+    "movie004/cue/005": {
+      "start": 32.0,
+      "end": 34.94,
+      "ko": [
+        "황제 베른하르트."
+      ]
+    },
+    "movie005/cue/000": {
+      "start": 1.3,
+      "end": 4.9,
+      "ko": [
+        "빛과 법의 여신 루시리스의",
+        "가호를 받은"
+      ]
+    },
+    "movie005/cue/001": {
+      "start": 5.1,
+      "end": 6.6,
+      "ko": [
+        "성스러운 검, 랑그릿사여."
+      ]
+    },
+    "movie005/cue/002": {
+      "start": 6.8,
+      "end": 10.0,
+      "ko": [
+        "오랜 세월 끝에",
+        "대지는 어둠으로 차고"
+      ]
+    },
+    "movie005/cue/003": {
+      "start": 10.35,
+      "end": 12.4,
+      "ko": [
+        "그러므로 우리는 빛을 구한다."
+      ]
+    },
+    "movie005/cue/004": {
+      "start": 12.5,
+      "end": 16.9,
+      "ko": [
+        "우리 안에 있는",
+        "빛의 봉인을 풀어"
+      ]
+    },
+    "movie005/cue/005": {
+      "start": 18.4,
+      "end": 23.0,
+      "ko": [
+        "우리 안의 빛의 힘을",
+        "검에 내려라!"
+      ]
+    },
+    "movie005/cue/006": {
+      "start": 27.0,
+      "end": 28.9,
+      "ko": [
+        "이것이...진정한 랑그릿사!"
+      ]
+    },
+    "movie005/cue/007": {
+      "start": 32.1,
+      "end": 35.4,
+      "ko": [
+        "빛의 후예여, 이 검을 휘둘러"
+      ]
+    },
+    "movie005/cue/008": {
+      "start": 35.5,
+      "end": 39.21,
+      "ko": [
+        "영원한 평화를 가져오라!"
+      ]
+    },
+    "movie006/cue/000": {
+      "start": 1.99,
+      "end": 7.1,
+      "ko": [
+        "으윽...작별이다...빛에 이끌린 자들이여."
+      ]
+    },
+    "movie006/cue/001": {
+      "start": 7.2,
+      "end": 14.2,
+      "ko": [
+        "하지만 나는 사라지는 것이 아니다.",
+        "어둠으로 돌아갈 뿐."
+      ]
+    },
+    "movie006/cue/002": {
+      "start": 15.6,
+      "end": 20.2,
+      "ko": [
+        "너희 세계가 다시",
+        "어둠으로 가득 찰 때"
+      ]
+    },
+    "movie007/cue/000": {
+      "start": 3.2,
+      "end": 5.2,
+      "ko": [
+        "용케도 짐을 쓰러뜨렸구나."
+      ]
+    },
+    "movie007/cue/001": {
+      "start": 7.2,
+      "end": 9.0,
+      "ko": [
+        "젊은이여, 엘윈이라 했던가."
+      ]
+    },
+    "movie007/cue/002": {
+      "start": 10.7,
+      "end": 14.27,
+      "ko": [
+        "이 뒤는 네가 짊어지고 가라."
+      ]
+    },
+    "movie008/cue/000": {
+      "start": 1.45,
+      "end": 3.7,
+      "ko": [
+        "랑그릿사, 마지막 사명입니다."
+      ],
+      "list_order": 0
+    },
+    "movie008/cue/001": {
+      "start": 4.0,
+      "end": 7.6,
+      "ko": [
+        "마검 알하자드의 힘을 봉인하세요."
+      ],
+      "list_order": 1
+    },
+    "movie008/cue/002": {
+      "start": 8.0,
+      "end": 11.0,
+      "ko": [
+        "어둠은 빛으로, 빛은 어둠으로."
+      ],
+      "list_order": 2
+    },
+    "movie008/cue/003": {
+      "start": 11.6,
+      "end": 15.0,
+      "ko": [
+        "영원한 윤회의 고리로 돌아가세요.",
+        "알하자드..."
+      ],
+      "list_order": 3
+    },
+    "movie008/cue/004": {
+      "start": 20.4,
+      "end": 22.99,
+      "ko": [
+        "작별이다...랑그릿사!"
+      ],
+      "list_order": 5
+    },
+    "movie008/cue/005": {
+      "start": 32.4,
+      "end": 37.48,
+      "ko": [
+        "이것 봐...",
+        "날이 개고 있어."
+      ],
+      "list_order": 6
+    },
+    "movie008/cue/006": {
+      "start": 38.48,
+      "end": 40.46,
+      "ko": [
+        "이제 평화가 돌아오는 거네."
+      ],
+      "list_order": 7
+    },
+    "movie008/cue/007": {
+      "start": 41.8,
+      "end": 47.28,
+      "ko": [
+        "그래. 알하자드의 악한 힘에서",
+        "마침내 해방되었으니까."
+      ],
+      "list_order": 8
+    },
+    "movie008/cue/008": {
+      "start": 47.28,
+      "end": 52.29,
+      "ko": [
+        "아니, 아직이야. 세상에서 싸움이",
+        "완전히 사라진 것은 아니야."
+      ],
+      "list_order": 9
+    },
+    "movie008/cue/009": {
+      "start": 52.29,
+      "end": 55.48,
+      "ko": [
+        "그래. 모든 것은 이제부터야."
+      ],
+      "list_order": 10
+    },
+    "movie008/cue/010": {
+      "start": 55.48,
+      "end": 65.02,
+      "ko": [
+        "응. 그래서 난 여행을 계속할 거야.",
+        "내가 할 수 있는 더 나은 길을 찾아서."
+      ],
+      "list_order": 11
+    },
+    "movie008/cue/011": {
+      "start": 66.5,
+      "end": 73.08,
+      "ko": [
+        "인간들은...긴 세월을 거쳐 천천히",
+        "성장하는 것이군요, 제시카."
+      ],
+      "list_order": 12
+    },
+    "movie008/cue/012": {
+      "start": 73.08,
+      "end": 75.57,
+      "ko": [
+        "예, 루시리스 님."
+      ],
+      "list_order": 13
+    },
+    "movie008/cue/013": {
+      "start": 75.57,
+      "end": 81.95,
+      "ko": [
+        "이제 그들에게 랑그릿사도",
+        "우리 신들도 필요 없을지 모르겠군요."
+      ],
+      "list_order": 14
+    },
+    "movie008/cue/014": {
+      "start": 81.95,
+      "end": 83.35,
+      "ko": [
+        "그게…"
+      ],
+      "list_order": 15
+    },
+    "movie008/cue/015": {
+      "start": 83.35,
+      "end": 90.48,
+      "ko": [
+        "아니, 괜찮습니다. 난 여기서 조용히",
+        "그들이 갈 길을 지켜보겠어요."
+      ],
+      "list_order": 16
+    },
+    "movie008/cue/016": {
+      "start": 90.48,
+      "end": 93.46,
+      "ko": [
+        "제시카, 당신은 어쩌겠나요?"
+      ],
+      "list_order": 17
+    },
+    "movie008/cue/017": {
+      "start": 93.46,
+      "end": 97.23,
+      "ko": [
+        "당신은 이제 천계에서 살",
+        "자격이 있습니다."
+      ],
+      "list_order": 18
+    },
+    "movie008/cue/018": {
+      "start": 97.23,
+      "end": 100.67,
+      "ko": [
+        "감사합니다, 루시리스 님."
+      ],
+      "list_order": 19
+    },
+    "movie008/cue/019": {
+      "start": 100.67,
+      "end": 105.99,
+      "ko": [
+        "하지만 나는 조금 더",
+        "그들과 함께 살아가고 싶습니다."
+      ],
+      "list_order": 20
+    },
+    "movie008/cue/020": {
+      "start": 105.99,
+      "end": 108.07,
+      "ko": [
+        "저 사랑스러운 이들과."
+      ],
+      "list_order": 21
+    },
+    "movie008/cue/021": {
+      "start": 113.2,
+      "end": 116.0,
+      "ko": [
+        "제시카 님…"
+      ],
+      "list_order": 22
+    },
+    "movie008/cue/022": {
+      "start": 116.2,
+      "end": 122.05,
+      "ko": [
+        "그래요..",
+        "미래는 사람이 만들어 가는군요."
+      ],
+      "list_order": 23
+    },
+    "movie008/cue/custom-001": {
+      "start": 16.2,
+      "end": 17.7,
+      "ko": [
+        "랑그릿사와 함께!"
+      ],
+      "list_order": 4,
+      "added": true,
+      "movie_id": 8,
+      "movie_title": "빛의 결말",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie010/cue/005": {
+      "start": 18.2,
+      "end": 22.66,
+      "ko": [
+        "앞으로 어떻게 살아야 할지조차",
+        "나도 모르겠어."
+      ]
+    },
+    "movie010/cue/006": {
+      "start": 24.1,
+      "end": 30.33,
+      "ko": [
+        "하지만 이런 나라도 여행 중에",
+        "무언가 찾을 수 있다면…"
+      ]
+    },
+    "movie011/cue/000": {
+      "start": 26.0,
+      "end": 31.0,
+      "ko": [
+        "대륙을 통일할 때까지",
+        "이런 무의미한 싸움이 얼마나 계속될까."
+      ],
+      "list_order": 5
+    },
+    "movie011/cue/001": {
+      "start": 33.0,
+      "end": 36.0,
+      "ko": [
+        "믿을 수밖에 없어.",
+        "우리의 이상을."
+      ],
+      "list_order": 6
+    },
+    "movie011/cue/custom-001": {
+      "start": 14.1,
+      "end": 15.0,
+      "ko": [
+        "멈춰!!"
+      ],
+      "list_order": 0,
+      "added": true,
+      "movie_id": 11,
+      "movie_title": "제국의 이상",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie011/cue/custom-002": {
+      "start": 15.55,
+      "end": 17.3,
+      "ko": [
+        "제발 멈춰!!"
+      ],
+      "list_order": 1,
+      "added": true,
+      "movie_id": 11,
+      "movie_title": "제국의 이상",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie011/cue/custom-003": {
+      "start": 37.5,
+      "end": 38.2,
+      "ko": [
+        "이상인가..."
+      ],
+      "list_order": 7,
+      "added": true,
+      "movie_id": 11,
+      "movie_title": "제국의 이상",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie011/cue/custom-004": {
+      "start": 20.1,
+      "end": 22.1,
+      "ko": [
+        "더이상의 전투는 필요없다!!"
+      ],
+      "list_order": 3,
+      "added": true,
+      "movie_id": 11,
+      "movie_title": "제국의 이상",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie011/cue/custom-005": {
+      "start": 17.483,
+      "end": 19.9,
+      "ko": [
+        "이싸움 레이갈드 제국의 승리다!!"
+      ],
+      "list_order": 2,
+      "added": true,
+      "movie_id": 11,
+      "movie_title": "제국의 이상",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie011/cue/custom-006": {
+      "start": 22.5,
+      "end": 24.5,
+      "ko": [
+        "멈춰!!"
+      ],
+      "list_order": 4,
+      "added": true,
+      "movie_id": 11,
+      "movie_title": "제국의 이상",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie012/cue/007": {
+      "start": 29.0,
+      "end": 34.66,
+      "ko": [
+        "제국은 평화의 수호자다.",
+        "그 제국에 군사를 겨누다니 무슨 셈이냐!"
+      ]
+    },
+    "movie012/cue/008": {
+      "start": 34.66,
+      "end": 37.72,
+      "ko": [
+        "물러서지마라!! 무슨 수를 써서라도",
+        "알하자드를 손에 넣어라!"
+      ]
+    },
+    "movie013/cue/000": {
+      "start": 2.0,
+      "end": 5.06,
+      "ko": [
+        "이제 아무 힘도 느껴지지 않아."
+      ]
+    },
+    "movie013/cue/002": {
+      "start": 11.4,
+      "end": 12.3,
+      "ko": [
+        "보젤!"
+      ]
+    },
+    "movie013/cue/003": {
+      "start": 12.5,
+      "end": 17.97,
+      "ko": [
+        "랑그릿사가 힘을 잃은 지금",
+        "우리를 막을 것은 아무것도 없다."
+      ]
+    },
+    "movie013/cue/006": {
+      "start": 32.0,
+      "end": 39.63,
+      "ko": [
+        "이리오렴, 형제들아!",
+        "이 세계는 이제 우리의 것이다!"
+      ]
+    },
+    "movie014/cue/000": {
+      "start": 8.6,
+      "end": 12.5,
+      "ko": [
+        "이걸로 끝이다.",
+        "쓸데없는 저항은 그만해라."
+      ],
+      "list_order": 0
+    },
+    "movie014/cue/001": {
+      "start": 12.5,
+      "end": 15.2,
+      "ko": [
+        "하는 수 없군, 헤인."
+      ],
+      "list_order": 1
+    },
+    "movie014/cue/002": {
+      "start": 16.2,
+      "end": 17.2,
+      "ko": [
+        "알겠습니다!"
+      ],
+      "list_order": 2
+    },
+    "movie014/cue/003": {
+      "start": 38.63,
+      "end": 44.9,
+      "ko": [
+        "그런가?...잘해 주었다. ",
+        "이제 모든 나라를 제압했다."
+      ],
+      "list_order": 4
+    },
+    "movie014/cue/004": {
+      "start": 49.0,
+      "end": 50.0,
+      "ko": [
+        "엘윈은?"
+      ],
+      "list_order": 6
+    },
+    "movie014/cue/005": {
+      "start": 50.31,
+      "end": 54.63,
+      "ko": [
+        "한동안 전투는 없을 것이다.",
+        "푹 쉬도록 해라."
+      ],
+      "list_order": 7
+    },
+    "movie014/cue/006": {
+      "start": 54.63,
+      "end": 55.84,
+      "ko": [
+        "예!"
+      ],
+      "list_order": 8
+    },
+    "movie014/cue/custom-001": {
+      "start": 28.117,
+      "end": 31.117,
+      "ko": [
+        "자 돌아갈까?"
+      ],
+      "list_order": 3,
+      "added": true,
+      "movie_id": 14,
+      "movie_title": "대륙 통일",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie014/cue/custom-002": {
+      "start": 45.1,
+      "end": 47.85,
+      "ko": [
+        "마침내 대륙 통일을 이뤘구나."
+      ],
+      "list_order": 5,
+      "added": true,
+      "movie_id": 14,
+      "movie_title": "대륙 통일",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie015/cue/000": {
+      "start": 2.92,
+      "end": 7.8,
+      "ko": [
+        "그토록 바라던 일을 이뤘는데",
+        "어째서 이렇게 허무한 걸까."
+      ],
+      "list_order": 0
+    },
+    "movie015/cue/001": {
+      "start": 8.2,
+      "end": 12.5,
+      "ko": [
+        "이유는 알고 있어.",
+        "네가 없기 때문이야, 리아나."
+      ],
+      "list_order": 1
+    },
+    "movie015/cue/002": {
+      "start": 19.69,
+      "end": 21.96,
+      "ko": [
+        "리아나, 어떻게?"
+      ],
+      "list_order": 2
+    },
+    "movie015/cue/003": {
+      "start": 21.96,
+      "end": 30.23,
+      "ko": [
+        "고마워. 엘윈. 약속을 지키고",
+        "세계를 평화롭게 해 주어서."
+      ],
+      "list_order": 3
+    },
+    "movie015/cue/004": {
+      "start": 30.23,
+      "end": 32.59,
+      "ko": [
+        "날 용서해 주는 거야?"
+      ],
+      "list_order": 4
+    },
+    "movie015/cue/005": {
+      "start": 32.59,
+      "end": 34.96,
+      "ko": [
+        "용서라니, 그런…"
+      ],
+      "list_order": 5
+    },
+    "movie015/cue/006": {
+      "start": 34.96,
+      "end": 39.76,
+      "ko": [
+        "하지만 난 너를… 리아나."
+      ],
+      "list_order": 6
+    },
+    "movie015/cue/007": {
+      "start": 39.76,
+      "end": 40.5,
+      "ko": [
+        "아무 말도 하지 마."
+      ],
+      "list_order": 7
+    },
+    "movie015/cue/008": {
+      "start": 45.8,
+      "end": 54.5,
+      "ko": [
+        "당신은 자신이 믿은 길을",
+        "나아가는 사람이란 걸."
+      ],
+      "list_order": 10
+    },
+    "movie015/cue/009": {
+      "start": 58.0,
+      "end": 59.0,
+      "ko": [
+        "자...이제 떠날 시간이야.."
+      ],
+      "list_order": 11
+    },
+    "movie015/cue/010": {
+      "start": 60.5,
+      "end": 61.7,
+      "ko": [
+        "기다려 줘, 리아나!"
+      ],
+      "list_order": 12
+    },
+    "movie015/cue/011": {
+      "start": 66.34,
+      "end": 72.02,
+      "ko": [
+        "나는...언제나 믿으니까.…"
+      ],
+      "list_order": 14
+    },
+    "movie015/cue/012": {
+      "start": 72.02,
+      "end": 73.02,
+      "ko": [
+        "가지 마!"
+      ],
+      "list_order": 15
+    },
+    "movie015/cue/013": {
+      "start": 73.02,
+      "end": 78.39,
+      "ko": [
+        "내가 지켜 내겠어."
+      ],
+      "list_order": 16
+    },
+    "movie015/cue/014": {
+      "start": 78.39,
+      "end": 86.38,
+      "ko": [
+        "네가 사랑한 이 세계를.",
+        "지켜봐 줘, 리아나."
+      ],
+      "list_order": 17
+    },
+    "movie015/cue/custom-001": {
+      "start": 41.0,
+      "end": 44.0,
+      "ko": [
+        "나는 당신의 기분을 알고 있으니까..."
+      ],
+      "list_order": 8,
+      "added": true,
+      "movie_id": 15,
+      "movie_title": "리아나의 약속",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie015/cue/custom-002": {
+      "start": 44.2,
+      "end": 45.0,
+      "ko": [
+        "그러니까"
+      ],
+      "list_order": 9,
+      "added": true,
+      "movie_id": 15,
+      "movie_title": "리아나의 약속",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie015/cue/custom-003": {
+      "start": 64.2,
+      "end": 66.1,
+      "ko": [
+        "힘내...엘윈.."
+      ],
+      "list_order": 13,
+      "added": true,
+      "movie_id": 15,
+      "movie_title": "리아나의 약속",
+      "ja": "",
+      "speaker": ""
+    },
+    "movie021/cue/000": {
+      "start": 5.2,
+      "end": 6.9,
+      "ko": [
+        "죽어주세요."
+      ]
+    }
+  },
+  "narration_edits": {
+    "presentation078/narration/002": "마치 성 자체가 살아 있는 듯한\n벨제리아성 안에는 바깥 빛이\n전혀 들지 않고 곳곳에\n어둠이 웅크리고 있었다.",
+    "presentation079/narration/001": "대륙 곳곳에서 작은 전쟁이\n일어났다 사라지고\n다시 일어나던,\n다툼이 끊이지 않던 시대였다.",
+    "presentation081/narration/001": "조금만 더 가면 되는 순간\nT마쓰가 연기한 {name:0F}에게\n다크 로드를 빼앗긴\n주인공 일행은,",
+    "presentation082/narration/009": "힘든 일도 많았지만\n이 프로젝트에 참여한 모든 분께\n감사하고 수고하셨다고\n말하고 싶습니다.",
+    "presentation082/narration/032": "좋은 기회니 말씀드릴게요!\n‘아군 5’는 아코 낭사가\n아니에요.\n‘보젤’은 중국인이 아니에요.",
+    "presentation082/narration/034": "그런데 그래픽 담당자들은\n전멸했고, 디버깅을 도와준\n사람은 풍진으로\n쓰러졌습니다(땀).",
+    "presentation085/narration/001": "강대한 힘을 자랑하던\n레이갈드 제국은 제왕\nT야마의 죽음으로 붕괴했다.",
+    "scenario01/narration/001": "대륙 곳곳에서 작은 전쟁이\n일어났다 사라지고\n다시 일어나던, \n다툼이 끊이지 않던 시대였다.",
+    "scenario03/narration/002": "빛의 신전 본산인 대신전은\n수많은 신관 전사를\n거느린 것으로 유명했다.",
+    "scenario27/narration/003": "후미를 찾아 상륙하려던 때\n{name:16}에게 조종당하는\n{name:14}가 그들 앞을\n막아섰다.",
+    "scenario30/narration/005": "이는 바로 지금 알하자드의\n봉인이 풀리려 한다는 사실을\n말해 주고 있었다.",
+    "scenario31/narration/007": "그래서 랑그릿사 해방의 열쇠인\n홀리 로드를 얻으려고\n엘라드 유적으로 향했다.",
+    "scenario33/narration/002": "하지만 그곳에 죽은 줄 알았던\n{name:15}가 나타나\n{name:16}에게서 알하자드를 빼앗았다.",
+    "scenario43/narration/004": "그래서 {raw:02} 일행은\n인근 마을을 수색하기 시작했다.",
+    "scenario43/narration/005": "그러다 지나던 요새 하나에서\n노검사 {name:07}이\n방어진을 펼치고 제국의 통과를\n막으려고 기다렸다.",
+    "scenario53/narration/004": "레이갈드의 위기를 안 일행은\n피로를 풀 틈도 없이\n서둘러 성으로 향했다…….",
+    "scenario62/narration/001": "황제 {name:15}를 달아나게\n하려고 앞을 막은 맹장 {name:0D}를\n무찌른 {raw:02}은\n추격을 계속했다.",
+    "scenario64/narration/003": "제국과의 마지막 싸움이\n시작되려 했다.",
+    "scenario65/narration/005": "빛과 어둠의 마지막 싸움이\n다가오고 있었다.",
+    "scenario67/narration/003": "하지만 그들 앞에는 성문을\n지키듯 청룡기사단\n{name:0C}가 가로막았다.",
+    "scenario70/narration/001": "빛의 신 루시리스가 있는 신계.\n그곳은 고결하면서도\n이질적인 공간이었다."
+  },
+  "condition_edits": {},
+  "epilogue_edits": {}
+}

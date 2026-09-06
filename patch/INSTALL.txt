@@ -1,0 +1,69 @@
+LANGRISSER FX KOREAN PATCH — PRE-RELEASE INSTALLATION
+
+This package does not contain the original game or a patched disc image.
+You must supply a legally obtained Japanese PC-FX dump.
+
+Required original Track 2
+  Representation: raw MODE1/2352 with the 225-sector pregap
+  Size:           755,535,312 bytes
+  SHA-256:        1013D1AECCD42BB46DEA36CF3BD088CAE02FAC5D25BF4BC0187821ACAB9F8AD0
+
+WINDOWS AUTOMATIC INSTALLATION
+
+1. Run Langrisser-FX-KR-Auto-Patcher.exe.
+2. Select the original Japanese .cue file. Keep all three original BIN files
+   beside that CUE under the filenames referenced by it.
+3. Select an output location and press the build button.
+4. Open Langrisser FX Korean Patch\Langrisser-FX-KR.cue in your emulator.
+
+The automatic patcher verifies all three original tracks, creates a separate
+complete disc set, and never overwrites the originals or an existing output.
+
+COMMAND-LINE FALLBACK
+
+1. Install Python 3.
+2. Put apply_patch.py and Langrisser-FX-KR-successor264.lfxpatch together.
+3. Run:
+
+   python apply_patch.py "original Track 2.bin" "Track-2.KR.bin" --patch Langrisser-FX-KR-successor264.lfxpatch
+
+4. A successful run must report:
+
+   Size:     762,048,000 bytes
+   SHA-256:  E9F3E5D6C6AAD6C15FB554A440F2D8F9D22AE59756D3ABF11E5CF1941D3B04B3
+
+5. Copy your unchanged original Track 1 and Track 3 into the same folder,
+   named Track-1.bin and Track-3.bin.
+6. Put Langrisser-FX-KR.cue in that folder and open the CUE in your emulator.
+7. Keep backups and do not overwrite the original tracks.
+
+The applier refuses an unknown source and refuses to overwrite an existing
+output. If final verification fails, the incomplete newly created output is
+removed.
+
+한국어 설치 안내
+
+이 패키지에는 원본 게임이나 완성된 게임 이미지가 없습니다. 위 크기와
+SHA-256이 정확히 일치하는 일본판 RAW Track 2를 직접 준비해야 합니다.
+
+자동 설치
+
+1. Langrisser-FX-KR-Auto-Patcher.exe를 실행합니다.
+2. 원본 일본판 CUE 파일을 선택합니다. CUE가 참조하는 원본 BIN 3개는
+   CUE와 같은 폴더에 그대로 두어야 합니다.
+3. 출력 위치를 고르고 ‘한국어판 만들기’를 누릅니다.
+4. 생성된 Langrisser FX Korean Patch 폴더의 Langrisser-FX-KR.cue를 엽니다.
+
+원본과 기존 출력은 덮어쓰지 않습니다. 세 원본 트랙이 지원판과 정확히
+일치하는지도 자동으로 검사합니다.
+
+수동 설치
+
+1. Python 3을 설치합니다.
+2. 위 명령으로 원본 Track 2를 입력하고 새 Track-2.KR.bin을 만듭니다.
+3. 성공 메시지의 결과 크기와 SHA-256이 위 값과 같은지 확인합니다.
+4. 원본 Track 1과 Track 3을 각각 Track-1.bin, Track-3.bin으로 복사합니다.
+5. 네 파일을 같은 폴더에 두고 Langrisser-FX-KR.cue를 실행합니다.
+
+원본을 덮어쓰지 마십시오. 패처는 지원하지 않는 원본과 이미 존재하는 출력
+파일을 거부합니다.

@@ -1,0 +1,86 @@
+# Original, reconstructed, and fully patched game media
+*.bin
+*.iso
+*.rom
+*.chd
+*.img
+*.mdf
+*.mds
+*.ccd
+*.sub
+*.wav
+*.flac
+*.mp3
+*.mp4
+*.mkv
+
+# CUE sheets are normally private media metadata; keep only the reviewed template
+*.cue
+!patch/Langrisser-FX-KR.cue
+
+# Saves, states, RAM/VRAM dumps, and personal test data
+*.srm
+*.sav
+*.fxb
+*.mc0
+*.state
+*.state.*
+*.dmp
+
+# Build, analysis, evidence, and private source injection
+work/
+analysis/
+evidence/
+dist/
+deliverables/
+releases/
+review/
+outputs/
+roms/
+bios/
+private/
+source_media/
+original/
+
+# GitHub Release archives are prepared locally and uploaded separately
+release/*.zip
+
+# Caches, temporary files, logs, and editor state
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.log
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*~
+.DS_Store
+Thumbs.db
+
+# Local environments and credentials
+.venv/
+venv/
+env/
+.build-tools-venv/
+.pyinstaller-work/
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+*.user
+*.suo
+
+# User-supplied or source-derived artwork is not part of the public candidate
+assets/title-inputs/
+assets/title-concepts/
+screenshots/private/
+
+# Locally built Windows patcher executable
+release/windows-patcher/

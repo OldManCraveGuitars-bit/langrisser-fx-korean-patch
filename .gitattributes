@@ -1,0 +1,20 @@
+# Keep public manifests and generated text stable across Windows/Linux clones.
+* text=auto
+
+.gitattributes text eol=lf
+.gitignore text eol=lf
+LICENSE text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.cue text eol=lf
+
+*.lfxpatch binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.exe binary
+*.zip binary
