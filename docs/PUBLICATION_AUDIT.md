@@ -73,6 +73,6 @@ The personal and host-specific paths are portability/privacy findings, not crede
 
 ## Release-readiness constraint
 
-The exact successor263 verification report records 131 tests with 8 known failures and 1 known error, and it explicitly says that all scenarios were not played. The public material therefore describes the result as a **development/pre-release candidate**, not a completed or fully verified release.
+The exact cumulative verification report records 131 tests with 8 known failures and 1 known error, and it explicitly says that all scenarios were not played. The public material therefore describes v0.8 as a **development/pre-release candidate**, not a completed or fully verified release.
 
-The newest `successor264` package is a filename/CUE repackaging of the verified successor263 game data. Its complete BIN/CUE ZIP is excluded. The public Release candidate is instead a source-hash-gated delta patch for Track 2.
+The current internal package is a filename/CUE repackaging of the verified cumulative game data. Its complete BIN/CUE ZIP is excluded. The public v0.8 Release is instead a source-hash-gated delta patch for Track 2.

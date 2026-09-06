@@ -26,7 +26,7 @@ $VenvPython = Join-Path $Venv "Scripts\python.exe"
     --workpath $WorkDir `
     --specpath $WorkDir `
     --paths $PatchDir `
-    --add-data "$(Join-Path $PatchDir 'Langrisser-FX-KR-successor264.lfxpatch');." `
+    --add-data "$(Join-Path $PatchDir 'Langrisser-FX-KR-v0.8.lfxpatch');." `
     (Join-Path $PatchDir "langrisser_fx_auto_patcher.py")
 
 Write-Host "Built: $(Join-Path $DistDir 'Langrisser-FX-KR-Auto-Patcher.exe')"

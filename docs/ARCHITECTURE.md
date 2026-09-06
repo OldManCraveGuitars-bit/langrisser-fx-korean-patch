@@ -38,15 +38,15 @@ Font binaries and generated game-ready glyph banks are not copied into the publi
 
 The selected `src/patch_pipeline/` snapshot contains the dependency closure for the newest final-stage work:
 
-1. A pinned successor260 cooked/raw product is validated by exact hashes.
+1. A pinned private cumulative cooked/raw product is validated by exact hashes.
 2. Shop insufficient-funds dictionary writes and bottom-HUD class-map writes are planned.
-3. Writes are checked against the immutable successor260 preimage.
+3. Writes are checked against the immutable cumulative preimage.
 4. Overlap is rejected and the complete cooked diff is compared with the registered write set.
 5. Only the affected raw MODE1 sectors are rebuilt with EDC/ECC repair.
 6. Track 1, Track 3, subtitle payload, and other protected files are required to remain byte-identical at this stage.
 7. Static and targeted cold-emulator evidence is checked before the private full-image package is made.
 
-This is a reproducible *final stage*, but it is not yet a public primary build from the untouched Japanese source. Earlier adopted changes are embodied in the private successor260 input. Consolidating the full successor chain into one source-to-product graph is still required.
+This is a reproducible *final stage*, but it is not yet a public primary build from the untouched Japanese source. Earlier adopted changes are embodied in a private cumulative input. Consolidating the full historical chain into one source-to-product graph is still required.
 
 ## Editor boundary
 
@@ -61,5 +61,4 @@ The public `LFXPAT01` patch is an ordered collection of zlib-compressed replacem
 - raw-disc representation;
 - chunk count and compression parameters.
 
-Application never edits the source. The applier refuses an existing output, validates non-overlap/bounds, and hashes the complete result. The patch was regenerated from the exact original Track 2 and successor264 target and independently applied back to the target hash.
-
+Application never edits the source. The applier refuses an existing output, validates non-overlap/bounds, and hashes the complete result. The patch was regenerated from the exact original Track 2 and v0.8 target and independently applied back to the target hash.

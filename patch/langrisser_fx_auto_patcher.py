@@ -26,7 +26,7 @@ from apply_patch import PatchError, apply_patch, sha256_file
 
 
 APP_TITLE = "랑그릿사 FX 한국어 자동 패처"
-PATCH_FILENAME = "Langrisser-FX-KR-successor264.lfxpatch"
+PATCH_FILENAME = "Langrisser-FX-KR-v0.8.lfxpatch"
 OUTPUT_DIRECTORY_NAME = "Langrisser FX Korean Patch"
 OUTPUT_CUE_NAME = "Langrisser-FX-KR.cue"
 MIN_FREE_MARGIN = 256 * 1024 * 1024

@@ -22,10 +22,10 @@ complete disc set, and never overwrites the originals or an existing output.
 COMMAND-LINE FALLBACK
 
 1. Install Python 3.
-2. Put apply_patch.py and Langrisser-FX-KR-successor264.lfxpatch together.
+2. Put apply_patch.py and Langrisser-FX-KR-v0.8.lfxpatch together.
 3. Run:
 
-   python apply_patch.py "original Track 2.bin" "Track-2.KR.bin" --patch Langrisser-FX-KR-successor264.lfxpatch
+   python apply_patch.py "original Track 2.bin" "Track-2.KR.bin" --patch Langrisser-FX-KR-v0.8.lfxpatch
 
 4. A successful run must report:
 

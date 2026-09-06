@@ -15,16 +15,16 @@ Dates are omitted where the project records do not establish a single release da
 - Added English/Korean documentation, Git ignore rules, rights-risk audit, and third-party notices.
 - Applied the MIT License to project-owned contributions under the explicit scope boundary in `LICENSE_SCOPE.md`.
 
-## successor264
+## v0.8
 
-- Repackaged successor263 game data with short, fresh CUE/track names for device-side testing.
-- No game-data or subtitle-data change relative to successor263.
+- Packaged the current verified game data with short CUE/track names for device-side testing.
+- Added the source-verified automatic Windows patcher and public patch package.
 
-## successor263
+## Current cumulative source build
 
 - Applied the insufficient-funds message fix across the registered shop dictionary copies.
 - Restored missing 8×8 bottom-HUD commander class mappings, including the Scenario 3 Morgan/Sorcerer case.
-- Retained the cumulative successor260 media/subtitle data outside the owned write ranges.
+- Retained the cumulative private baseline media/subtitle data outside the owned write ranges.
 - Recorded cold-emulator checks for the Scenario 2 shop warning and Scenario 3 Hain dialogue.
 
 ## Earlier cumulative work visible in the project

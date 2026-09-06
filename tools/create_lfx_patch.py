@@ -90,7 +90,7 @@ def create_patch(source: Path, target: Path, output: Path) -> dict[str, object]:
 
     header = {
         "schema": "langrisser-fx-sparse-patch/v1",
-        "description": "Der Langrisser FX (PC-FX) Korean Track 2 pre-release delta",
+        "description": "Der Langrisser FX (PC-FX) Korean Track 2 v0.8 delta",
         "source_representation": "raw MODE1/2352 Track 2 with 225-sector pregap",
         "source_size": source.stat().st_size,
         "source_sha256": sha256_file(source),
@@ -136,4 +136,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

@@ -6,7 +6,10 @@ This repository candidate documents and distributes a Korean translation patch f
 
 ## Project status
 
-This is a **development/pre-release snapshot**, not a final-completion claim. The newest game data is the `successor263` cumulative product; `successor264` only repackaged that exact game data with shorter filenames for device testing. The exact successor263 verification record reports 131 checks with 8 known failures and 1 known error, and it does not claim an all-scenario playthrough.
+The current public version is **v0.8**. It is a development/pre-release
+snapshot, not a final-completion claim. The exact cumulative verification
+record reports 131 checks with 8 known failures and 1 known error, and it does
+not claim an all-scenario playthrough.
 
 The translation editor's current catalogs enumerate these working domains:
 
@@ -58,7 +61,7 @@ rebuild the Windows executable with `tools/build_windows_patcher.ps1`.
 Python 3 is required. The applier uses only the Python standard library.
 
 ```powershell
-python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-successor264.lfxpatch
+python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-v0.8.lfxpatch
 ```
 
 Successful application produces:
@@ -70,12 +73,12 @@ Copy your unchanged original Track 1 and Track 3 into the same directory as `Tra
 
 ## Build and patch generation
 
-The public `src/patch_pipeline/` directory is a curated snapshot of the current final-stage implementation. It shows the adopted PC-FX media logic, V810 helpers, current class/category/HUD/shop fixes, and final write verification. The current working project, however, accumulated as a successor chain. Its newest builder starts from a pinned private `successor260` intermediate rather than rebuilding every historical change from the untouched Japanese disc in one command.
+The public `src/patch_pipeline/` directory is a curated snapshot of the current final-stage implementation. It shows the adopted PC-FX media logic, V810 helpers, current class/category/HUD/shop fixes, and final write verification. The current working project, however, accumulated through a long chain of private intermediate builds. Its newest builder starts from a pinned private cumulative intermediate rather than rebuilding every historical change from the untouched Japanese disc in one command.
 
 For that reason, this candidate does **not** claim a complete clean-room, one-command product build from the original disc. Source-derived catalogs and private intermediates are deliberately excluded. Maintainers who already possess the exact original and exact verified target can regenerate the distributable delta with:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-successor264.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.8.lfxpatch
 ```
 
 The generator requires NumPy. See [Building and verification](docs/BUILDING.md) for current limitations and consolidation work still needed.
@@ -86,8 +89,8 @@ Project records identify GNU Unifont 17.0.05 as the byte-pinned source for the c
 
 ## Known issues and limits
 
-- The recorded cumulative test baseline is not fully green: 8 known failures and 1 known error remain in the exact successor263 report.
-- An all-scenario playthrough and physical-console/iPhone verification are not recorded for successor263.
+- The recorded cumulative test baseline is not fully green: 8 known failures and 1 known error remain in the exact v0.8 source-build report.
+- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete v0.8 scope.
 - Some editor/build data catalogs contain substantial extracted Japanese text and are withheld pending a rights decision.
 - The public source snapshot cannot reproduce the full patched disc without private/source-derived intermediate data.
 - Emulator compatibility outside the recorded Mednafen/Beetle PC-FX routes is not guaranteed.
@@ -140,7 +143,9 @@ This is an unofficial, non-commercial fan translation. You must own and supply t
 
 이 폴더는 일본 PC-FX판 **데어 랑그릿사 FX** 한국어 패치를 GitHub 공개 후보 형태로 정리한 것입니다. 원본 게임, 완성된 BIN/CUE 디스크, BIOS, 에뮬레이터, 원본 영상·음원·그래픽 추출물은 포함하지 않습니다.
 
-현재 상태는 완성판이 아니라 **개발/사전 공개 후보**입니다. 최신 게임 데이터는 successor263이고 successor264는 같은 데이터를 짧은 파일명으로 다시 묶은 패키지 번호입니다. successor263 기록에는 131개 검사 중 기존 실패 8개와 오류 1개가 남아 있으며, 모든 시나리오 완주 검증도 기록되어 있지 않습니다.
+현재 공개 버전은 **v0.8**이며 완성판이 아니라 개발/사전 공개
+후보입니다. 누적 검증 기록에는 131개 검사 중 기존 실패 8개와 오류 1개가
+남아 있으며, 모든 시나리오 완주 검증도 기록되어 있지 않습니다.
 
 Windows에서는 자동 패처를 실행하여 원본 일본판 CUE와 출력 위치만 선택하면 됩니다. 자동 패처는 세 트랙을 모두 검사한 뒤 별도 폴더에 완성된 한국어판 BIN/CUE 세트를 만들며 원본과 기존 출력은 덮어쓰지 않습니다. 수동 방식에서는 위 표와 정확히 일치하는 원본 일본판 RAW MODE1/2352 Track 2가 필요합니다. `patch/apply_patch.py`는 원본 크기와 SHA-256을 먼저 검사하고, 새 출력 파일만 만든 뒤 결과 전체 SHA-256을 다시 검사합니다.
 

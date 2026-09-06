@@ -147,7 +147,7 @@ def main() -> int:
     parser.add_argument(
         "--patch",
         type=Path,
-        default=Path(__file__).with_name("Langrisser-FX-KR-successor264.lfxpatch"),
+        default=Path(__file__).with_name("Langrisser-FX-KR-v0.8.lfxpatch"),
     )
     args = parser.parse_args()
     try:
@@ -161,4 +161,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

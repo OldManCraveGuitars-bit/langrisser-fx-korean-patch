@@ -27,7 +27,7 @@ Python command-line fallback.
 The supported public operation is applying the delta patch. It requires only Python 3 and the exact original raw Track 2 listed in the root README.
 
 ```powershell
-python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-successor264.lfxpatch
+python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.8.lfxpatch
 ```
 
 The applier:
@@ -58,7 +58,7 @@ disc-set creation, original-file preservation, and existing-output rejection.
 Maintainers with both the legally obtained supported original and the exact verified Korean target may regenerate the delta:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-successor264.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.8.lfxpatch
 ```
 
 Requirements:
@@ -78,9 +78,9 @@ The inspected working tree has a large historical successor chain. The newest se
 src/patch_pipeline/build_successor261_shop_hud.py
 ```
 
-Despite its filename, its declared output stem is successor263. It requires an exact successor260 directory containing cooked/raw media and supporting payloads. Those inputs are not public because they include a fully patched game product.
+The filename reflects an internal development-stage identifier. It requires an exact private cumulative directory containing cooked/raw media and supporting payloads. Those inputs are not public because they include a fully patched game product.
 
-Consequently, the public candidate does not provide a working command that rebuilds successor263 directly from the untouched Japanese disc. The selected source is supplied for technical review and future consolidation, not as a claim of clean full reproducibility.
+Consequently, the public candidate does not provide a working command that rebuilds v0.8 directly from the untouched Japanese disc. The selected source is supplied for technical review and future consolidation, not as a claim of clean full reproducibility.
 
 Required future work for a true public primary build:
 

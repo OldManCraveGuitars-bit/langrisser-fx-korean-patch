@@ -72,14 +72,14 @@ No empty `screenshots/` or generic `assets/` directory was created because no re
 Prepared local upload artifact:
 
 ```text
-Langrisser_FX_Korean_Patch_successor264-pre-release.zip
-SHA-256: 7DC3D145F699FB71FB36804CE31ADE419EC44E9BCDB068001BD63EBB91D375A8
+Langrisser_FX_Korean_Patch_v0.8.zip
+SHA-256: D0FF5B9037198F354C367E3D964D8260ACA9FE5A157C5D017EBF9C362AD58E84
 ```
 
 The ZIP contains only:
 
 - `Langrisser-FX-KR-Auto-Patcher.exe`
-- `Langrisser-FX-KR-successor264.lfxpatch`
+- `Langrisser-FX-KR-v0.8.lfxpatch`
 - `langrisser_fx_auto_patcher.py`
 - `apply_patch.py`
 - `Langrisser-FX-KR.cue`
