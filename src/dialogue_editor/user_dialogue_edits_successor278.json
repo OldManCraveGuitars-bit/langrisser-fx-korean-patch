@@ -1,0 +1,9 @@
+{
+  "schema": "langrisser-fx-selected-user-dialogue-edits/v1",
+  "source_snapshot": "analysis/user-editor-snapshot-20260908-001309.json",
+  "source_snapshot_sha256": "287D445A2A733CD790D786830DD06F46BB88F5B146440E3709880BA869BD1F27",
+  "edits": {
+    "scenario02/dialogue/164": "‥‥잘...모르겠어요..",
+    "scenario06/dialogue/118": "알겠습니다. \n지금 당장 가겠습니다."
+  }
+}

@@ -2,6 +2,30 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## v0.825
+
+- Fixed the common movie-entry/exit subtitle state so automatic openings and
+  ordinary-play movie callers no longer depend on entering OMAKE first.
+- Standardized Gel Gather labels: detailed character name `겔 게더`, class
+  `겔게더`, and compact lower-HUD/battle name `겔게더`.
+- Repaired victory-condition menu record boundaries responsible for delayed
+  opening, corrupt arrows and repeated Cancel presses. Checked all 98 registered
+  field containers without rewriting live condition text or the native menu code.
+- Added the missing Muscle Temple dialogue (the reported Scenario 22 route,
+  native hidden resource 71): 86 nonempty records and one retained empty slot.
+  Technical checks passed; complete human wording review remains pending.
+- Included the maintainer's two saved dialogue edits in Scenarios 2 and 6.
+- Normalized legacy 12×12 Hangul name glyphs, including 삼손, 아돈 and 바란,
+  and Hangul portions of split faction-label cells. Kept 8×8 HUD, 16×16 UI,
+  intentional compact shop text and non-Hangul columns unchanged.
+- Refreshed the cumulative patch, Windows automatic patcher and selected
+  implementation-source snapshot. Original Japanese media remain required;
+  this is not an incremental patch for an older Korean BIN.
+
+This remains a development/pre-release, not a full-campaign or hardware QA
+claim. See [v0.825 release notes](docs/RELEASE_v0.825.md) and
+[verification scope](docs/VERIFICATION_v0.825.md).
+
 ## v0.81
 
 - Fixed corrupted shared combat matchup data, including the Scenario 6 case

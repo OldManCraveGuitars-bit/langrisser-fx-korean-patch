@@ -1,4 +1,4 @@
-LANGRISSER FX KOREAN PATCH v0.81 — PRE-RELEASE INSTALLATION
+LANGRISSER FX KOREAN PATCH v0.825 — PRE-RELEASE INSTALLATION
 
 This package does not contain the original game or a patched disc image.
 You must supply a legally obtained Japanese PC-FX dump.
@@ -10,7 +10,7 @@ Required original Track 2
 
 WINDOWS AUTOMATIC INSTALLATION
 
-1. Run Langrisser-FX-KR-Auto-Patcher-v0.81.exe.
+1. Run Langrisser-FX-KR-Auto-Patcher-v0.825.exe.
 2. Select the original Japanese .cue file. Keep all three original BIN files
    beside that CUE under the filenames referenced by it.
 3. Select an output location and press the build button.
@@ -22,15 +22,15 @@ complete disc set, and never overwrites the originals or an existing output.
 COMMAND-LINE FALLBACK
 
 1. Install Python 3.
-2. Put apply_patch.py and Langrisser-FX-KR-v0.81.lfxpatch together.
+2. Put apply_patch.py and Langrisser-FX-KR-v0.825.lfxpatch together.
 3. Run:
 
-   python apply_patch.py "original Track 2.bin" "Track-2.KR.bin" --patch Langrisser-FX-KR-v0.81.lfxpatch
+   python apply_patch.py "original Track 2.bin" "Track-2.KR.bin" --patch Langrisser-FX-KR-v0.825.lfxpatch
 
 4. A successful run must report:
 
    Size:     762,048,000 bytes
-   SHA-256:  033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594
+   SHA-256:  657F36173A2A1518D0440B4E95C67883C70378D7848C58AD4E620FF44777DA44
 
 5. Copy your unchanged original Track 1 and Track 3 into the same folder,
    named Track-1.bin and Track-3.bin.
@@ -48,7 +48,7 @@ SHA-256이 정확히 일치하는 일본판 RAW Track 2를 직접 준비해야 �
 
 자동 설치
 
-1. Langrisser-FX-KR-Auto-Patcher-v0.81.exe를 실행합니다.
+1. Langrisser-FX-KR-Auto-Patcher-v0.825.exe를 실행합니다.
 2. 원본 일본판 CUE 파일을 선택합니다. CUE가 참조하는 원본 BIN 3개는
    CUE와 같은 폴더에 그대로 두어야 합니다.
 3. 출력 위치를 고르고 ‘한국어판 만들기’를 누릅니다.
@@ -68,15 +68,20 @@ SHA-256이 정확히 일치하는 일본판 RAW Track 2를 직접 준비해야 �
 원본을 덮어쓰지 마십시오. 패처는 지원하지 않는 원본과 이미 존재하는 출력
 파일을 거부합니다.
 
-UPDATING FROM v0.8 / v0.8에서 업데이트
+UPDATING FROM OLDER VERSIONS / 이전 버전에서 업데이트
 
-Apply v0.81 to the supported original Japanese dump, not to a v0.8 patched BIN.
-This is a complete cumulative patch, not an incremental v0.8-to-v0.81 patch.
+Apply v0.825 to the supported original Japanese dump, not to an older Korean BIN.
+This is a complete cumulative patch, not an incremental update patch.
 Back up your SRAM saves. Copy a save to the new emulator save location/name if
 needed; this package does not modify or include save files. Do not carry an
 emulator save state across builds, because it can restore old patched code.
 
-v0.8 한글판 BIN에 덧씌우지 말고 원본 일본판에 v0.81을 새로 적용하세요.
+이전 한글판 BIN에 덧씌우지 말고 원본 일본판에 v0.825를 새로 적용하세요.
 이번 파일은 누적 패치입니다. SRAM 세이브는 먼저 백업하고 에뮬레이터의
 저장 위치·이름에 맞게 옮기세요. 기존 버전의 강제 세이브/상태 저장은
 이전 코드까지 복원할 수 있으므로 사용하지 말고 게임 내 저장을 불러오세요.
+
+This is a development/pre-release. Full human review of the new Muscle Temple
+dialogue is pending. See docs/RELEASE_v0.825.md for changes and tested scope.
+근육의 신전 새 번역은 전체 문장 검수 진행 중입니다. 기술 검증과 전체
+번역/완주 검증은 다릅니다. 수정 내역과 한계는 docs/RELEASE_v0.825.md에 있습니다.

@@ -1,117 +1,113 @@
 # Building and verification
 
-## Windows automatic patcher
+## Player-facing patch application
 
-The player-facing Windows GUI source is
-`patch/langrisser_fx_auto_patcher.py`. It accepts the original CUE rather than
-requiring the player to identify Track 2 manually. The installer parses the
-CUE, verifies the exact supported hashes of Tracks 1–3, applies the Track 2
-delta in a staging directory, copies the two unchanged audio tracks, writes a
-fresh CUE and checksum list, and renames the completed staging directory only
-after all checks pass. Existing output directories are rejected.
+Use the Windows automatic patcher with the **original Japanese CUE**. It
+validates all three original tracks, creates a staging directory, applies the
+cumulative Track 2 delta, copies unchanged audio tracks, writes a fresh CUE and
+checksums, and exposes the finished directory only after verification. Original
+files and existing outputs are never overwritten.
 
-Build the single-file executable with:
+Python fallback (standard library only):
+
+```powershell
+python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.825.lfxpatch
+```
+
+The applier rejects an unknown source, validates ordered non-overlapping ranges
+and the final size/hash, and removes only its newly created incomplete output
+on failure. Keep original Tracks 1/3 and use the reviewed CUE template after
+successful application. Full CUE-based Python operation is also available:
+
+```powershell
+python patch/langrisser_fx_auto_patcher.py --apply-cue ORIGINAL.cue --output-parent NEW_OUTPUT_PARENT
+```
+
+## Build the Windows executable
 
 ```powershell
 tools/build_windows_patcher.ps1
 ```
 
-The script creates an ignored local build environment, installs pinned
-PyInstaller 6.16.0, embeds the `.lfxpatch` payload, and writes
-`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.81.exe`. PyInstaller and the
-generated executable are packaging artifacts; they are not required by the
-Python command-line fallback.
+The script uses an ignored local build environment and pinned PyInstaller
+6.16.0. It embeds the v0.825 delta and outputs
+`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.825.exe`.
+The tooling build packages the installer; it does not rebuild the game.
+Python 3.13.15 and contributed hooks 2026.7 were used for this EXE.
 
-## Player-facing patch application
-
-The supported public operation is applying the delta patch. It requires only Python 3 and the exact original raw Track 2 listed in the root README.
-
-```powershell
-python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.81.lfxpatch
-```
-
-The applier:
-
-1. rejects a missing or existing output path;
-2. verifies the original size and SHA-256;
-3. copies the original to a new output;
-4. applies ordered, non-overlapping replacement ranges;
-5. verifies the final size and SHA-256;
-6. removes only the newly created incomplete output if verification fails.
-
-Use the supplied CUE only after successful hash verification.
-
-## Patch-container tests
-
-The patch-format regression tests use small artificial data and do not need copyrighted game files:
+## Patch-container and installer tests
 
 ```powershell
 python -m unittest discover -s tests -v
 ```
 
-They cover sparse changes, file growth, exact round-trip output, wrong-source
-rejection, absence of a leftover output on failure, CUE parsing, full automatic
-disc-set creation, original-file preservation, and existing-output rejection.
+Five synthetic tests need no copyrighted game files. They cover sparse/growing
+round trips, wrong-source rejection, CUE parsing, complete separate output,
+and preservation of an existing output marker.
 
-## Regenerating the Release delta
+## Regenerate the cumulative delta
 
-Maintainers with both the legally obtained supported original and the exact verified Korean target may regenerate the delta:
+Maintainers must supply the supported original and the exact verified target:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.81.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.825.lfxpatch
 ```
 
-Requirements:
+The generator requires NumPy; the applier does not. The output must be new.
+The format records source/target representations, sizes and SHA-256 identities.
+Apply the delta back to the original and compare the whole result with the
+verified target; command success alone is not sufficient.
 
-- Python 3.13 was used for the prepared candidate.
-- NumPy is required only by the generator, not by the player-facing applier.
-- The output path must not already exist.
-- The generator records the source and target hashes in the patch header.
+The v0.825 target hash is
+`657F36173A2A1518D0440B4E95C67883C70378D7848C58AD4E620FF44777DA44`.
+Both Python and packaged EXE application were verified against it.
 
-After generation, run the player-facing applier against the original into a temporary new file and compare that file's SHA-256 to the verified target. The prepared candidate passed this exact check.
+## Package the release
 
-## Full game product build
+After verifying the delta and EXE identities recorded in the packaging script:
 
-The inspected working tree has a large historical successor chain. The public
-source snapshot retained from v0.8 includes this final-stage builder:
-
-```text
-src/patch_pipeline/build_successor261_shop_hud.py
+```powershell
+python tools/package_public_release.py
 ```
 
-The filename reflects an internal development-stage identifier. It requires an exact private cumulative directory containing cooked/raw media and supporting payloads. Those inputs are not public because they include a fully patched game product.
+This creates `release/Langrisser_FX_Korean_Patch_v0.825.zip` using an explicit
+allowlist, stable ZIP metadata, member checksums and CRC verification. It
+refuses an existing ZIP. Existing releases remain unchanged. No game image,
+save, BIOS, emulator, extracted media or private evidence is allowlisted.
 
-The v0.81 game target adds the combat/result fixes described in
-[release notes](RELEASE_v0.81.md). The historical public pipeline snapshot is not
-silently presented as its complete builder. Consequently, this repository does
-not provide a working command that rebuilds the whole v0.81 game directly from
-the untouched Japanese disc. The selected source is supplied for technical
-review and future consolidation, not as a claim of clean full reproducibility.
+## Full game product build: current boundary
 
-Required future work for a true public primary build:
+The selected source snapshots are inspectable implementation code, not a
+complete publicly runnable game authoring pipeline. See
+[implementation notes](IMPLEMENTATION_v0.825.md) for the new modules.
 
-1. Identify one authoritative source profile and configuration manifest.
-2. Replace successor-to-successor inputs with immutable original-disc injection.
-3. Regenerate every Korean text/font/graphics asset from distributable translation data plus licensed font inputs.
-4. Register every source-to-target write in one conflict-checked plan.
-5. Rebuild cooked and raw representations with sector integrity checks.
-6. Generate the delta from the same verified build graph.
-7. Run the complete static suite and required runtime routes on that exact artifact.
+The private primary builder `build_gel_gather_display.py` starts with original
+Japanese Track 2 and the fixed public v0.81 delta (SHA-256
+`AD05ACECDFEA7EC2B3E49D8FD82B74D189E789C7EB645955FA0608C5C2B07511`)
+as its cumulative implementation specification. It reconstructs the baseline
+within that invocation; an old fully patched game output is not a build input.
+It then derives the composed expected writes for labels, movie lifecycle,
+condition boundaries, hidden dialogue, the two user edits and font normalization
+from that immutable baseline. Unknown source bytes, overlap and unexplained
+final differences fail the build.
 
-Until this work is complete, do not describe the selected source snapshot as a one-command source release.
+That builder still requires private source-derived catalogs, supporting
+historical authoring modules and separately obtained font inputs. They are not
+silently bundled here. The new source modules retain their internal development
+identities and imports so readers can trace them to the actual implementation;
+copying them into this curated tree does not satisfy those missing dependencies.
 
-## Recorded verification status
+A fully standalone source build would still need distributable replacements or
+source-extraction procedures for those dependencies, a public manifest, and
+the same artifact/runtime gates. Until then, the supported public reproducible
+operation is **original disc + cumulative delta -> exact verified target**.
 
-The v0.81 target verification records:
+## Verification and review
 
-- target Track 2 SHA-256 `033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594`;
-- native Scenario 5 combat/clear/results and Scenario 6 through turn 4;
-- targeted checks for the shop warning, Scenario 2 events/turn 7, Scenario 3 Hain dialogue, and 35 item-description records;
-- 324 native matchup cells and 1,074 protected private glyph references;
-- preservation of the prior movie/font bootstrap, not a fresh complete movie-playback sweep;
-- no all-scenario or physical-console/iPhone completion claim.
+See [v0.825 verification](VERIFICATION_v0.825.md) for artifact identities,
+application checks, actual consumer routes and limitations. The new hidden
+dialogue retains a needs-human-review state; successful encoding, font and
+runtime checks do not certify every sentence.
 
-The earlier cumulative tooling report recorded 131 checks with 8 known failures
-and 1 known error. v0.81 does not claim those unrelated failures are resolved.
-The public patch reproduces the exact target hash, but patch identity does not
-expand the runtime scope above. See [release artifact verification](VERIFICATION_v0.81.md).
+Historical reports and v0.81 source/patch material are kept as history. The
+v0.81 verification and release documents still describe v0.81, not this target.

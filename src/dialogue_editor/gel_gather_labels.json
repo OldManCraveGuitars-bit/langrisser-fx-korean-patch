@@ -1,0 +1,10 @@
+{
+  "schema": "langrisser-fx-approved-display-labels/v1",
+  "japanese_identity": "ゲルギャザー",
+  "character_name": "겔 게더",
+  "class_name": "겔게더",
+  "compact_name": "겔게더",
+  "compact_authority": "User screenshot correction: lower-right HUD and combat screen must say 겔게더; detailed character name stays 겔 게더",
+  "authority": "User correction: 이름은 겔 게더 / 클래스는 겔게더",
+  "scope": "All common-dictionary replicas, resident class table, and shared lower-HUD records"
+}

@@ -16,6 +16,7 @@ import dialogue_core as dialogue
 import condition_native_codec as native_codec
 import presentation_dictionary as presentation_dict
 import missing_presentations
+from condition_menu_boundaries import required_records as required_menu_records
 
 
 CATALOG = dialogue.ROOT / "analysis/all_scenario_presentations_v84.json"
@@ -1078,7 +1079,10 @@ def plan_menu_condition_states(edits: dict[str, str]) -> tuple[MenuConditionStat
             if record.scenario == state.scenario:
                 rows[record.frame_index] = validate_condition_text(
                     record, edits.get(record.id, record.base_text))
-        packed = b"\0".join(rows).rstrip(b"\0") + b"\0"
+        # Empty records are native renderer inputs, not disposable padding.
+        count=max(state.source_record_count,required_menu_records(state.scenario))
+        rows.extend([b'']*max(0,count-len(rows)))
+        packed = b"\0".join(rows[:count]) + b"\0"
         growth = (max(0, len(packed) - state.allocation) + 3) & ~3
         allocation = state.allocation + growth
         planned.append(replace(
@@ -1255,7 +1259,8 @@ def build_condition_patches(edits: dict[str, str]) -> tuple[
     menu_audit_rows: list[dict] = []
     repaired_menu_records = 0
     for state in menu_states:
-        rows = [b"\0" for _ in range(state.source_record_count)]
+        record_count=max(state.source_record_count,required_menu_records(state.scenario))
+        rows = [b"\0" for _ in range(record_count)]
         dialogue.need(state.source_record_count >= 2,
                       f"{state.label}: 시스템 메뉴 레코드 수 오류")
         rows[0] = b"\x04\x1C\0"
@@ -1272,7 +1277,7 @@ def build_condition_patches(edits: dict[str, str]) -> tuple[
             rows[record.frame_index] = validate_condition_text(
                 record, text
             ) + b"\0"
-        packed = b"".join(rows).rstrip(b"\0") + b"\0"
+        packed = b"".join(rows)
         dialogue.need(
             len(packed) <= state.allocation,
             f"{state.scenario}화 시스템 메뉴 조건 "
