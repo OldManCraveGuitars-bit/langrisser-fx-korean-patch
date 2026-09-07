@@ -8,6 +8,7 @@ $Venv = Join-Path $RepoRoot ".build-tools-venv"
 $PatchDir = Join-Path $RepoRoot "patch"
 $DistDir = Join-Path $RepoRoot "release\windows-patcher"
 $WorkDir = Join-Path $RepoRoot ".pyinstaller-work"
+$ExeName = "Langrisser-FX-KR-Auto-Patcher-v0.81"
 
 if (-not (Test-Path -LiteralPath $Venv)) {
     & $Python -m venv $Venv
@@ -15,18 +16,20 @@ if (-not (Test-Path -LiteralPath $Venv)) {
 
 $VenvPython = Join-Path $Venv "Scripts\python.exe"
 & $VenvPython -m pip install --disable-pip-version-check "pyinstaller==6.16.0"
+if ($LASTEXITCODE -ne 0) { throw "PyInstaller installation failed" }
 
 & $VenvPython -m PyInstaller `
     --noconfirm `
     --clean `
     --onefile `
     --windowed `
-    --name "Langrisser-FX-KR-Auto-Patcher" `
+    --name $ExeName `
     --distpath $DistDir `
     --workpath $WorkDir `
     --specpath $WorkDir `
     --paths $PatchDir `
-    --add-data "$(Join-Path $PatchDir 'Langrisser-FX-KR-v0.8.lfxpatch');." `
+    --add-data "$(Join-Path $PatchDir 'Langrisser-FX-KR-v0.81.lfxpatch');." `
     (Join-Path $PatchDir "langrisser_fx_auto_patcher.py")
+if ($LASTEXITCODE -ne 0) { throw "Automatic patcher build failed" }
 
-Write-Host "Built: $(Join-Path $DistDir 'Langrisser-FX-KR-Auto-Patcher.exe')"
+Write-Host "Built: $(Join-Path $DistDir ($ExeName + '.exe'))"

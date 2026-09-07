@@ -36,7 +36,8 @@ Font binaries and generated game-ready glyph banks are not copied into the publi
 
 ## Current final-stage write path
 
-The selected `src/patch_pipeline/` snapshot contains the dependency closure for the newest final-stage work:
+The selected `src/patch_pipeline/` snapshot retains the final-stage work published
+with v0.8; it is not a complete builder for the subsequent v0.81 target:
 
 1. A pinned private cumulative cooked/raw product is validated by exact hashes.
 2. Shop insufficient-funds dictionary writes and bottom-HUD class-map writes are planned.
@@ -47,6 +48,18 @@ The selected `src/patch_pipeline/` snapshot contains the dependency closure for 
 7. Static and targeted cold-emulator evidence is checked before the private full-image package is made.
 
 This is a reproducible *final stage*, but it is not yet a public primary build from the untouched Japanese source. Earlier adopted changes are embodied in a private cumulative input. Consolidating the full historical chain into one source-to-product graph is still required.
+
+### v0.81 shared combat-data separation
+
+The active relocated MAIN matchup storage also held earlier font/subtitle startup
+code. v0.81 leaves that code intact and stores the native Japanese 648-byte
+matchup table in all 15 complete Resource12 replicas at tail offset `0x5B00`
+(runtime `0x1E9B00`). Both copies of the common row-pointer constructor select it.
+The relocated F8 glyph page ends at `0x5ABC`, the new table ends at `0x5D88`, and
+the continuation helper begins at `0x5E00`. Ownership checks exclude overlap with
+all 1,074 current private glyph references. The damage formula and terrain data
+are not changed. This explanation documents the adopted private implementation;
+it does not claim the historical public source snapshot alone rebuilds it.
 
 ## Editor boundary
 
@@ -61,4 +74,4 @@ The public `LFXPAT01` patch is an ordered collection of zlib-compressed replacem
 - raw-disc representation;
 - chunk count and compression parameters.
 
-Application never edits the source. The applier refuses an existing output, validates non-overlap/bounds, and hashes the complete result. The patch was regenerated from the exact original Track 2 and v0.8 target and independently applied back to the target hash.
+Application never edits the source. The applier refuses an existing output, validates non-overlap/bounds, and hashes the complete result. The v0.81 patch is regenerated from the exact original Track 2 and verified target; application is checked against the complete target hash. See [artifact verification](VERIFICATION_v0.81.md).

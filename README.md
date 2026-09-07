@@ -6,10 +6,14 @@ This repository candidate documents and distributes a Korean translation patch f
 
 ## Project status
 
-The current public version is **v0.8**. It is a development/pre-release
-snapshot, not a final-completion claim. The exact cumulative verification
-record reports 131 checks with 8 known failures and 1 known error, and it does
-not claim an all-scenario playthrough.
+The current public version is **v0.81**. It is a development/pre-release
+snapshot, not a final-completion claim. This update fixes shared combat matchup
+data and result-screen text/graphics. See the [v0.81 release notes](docs/RELEASE_v0.81.md)
+for the fixes and exact verification scope. The earlier cumulative tool baseline
+reported 131 checks with 8 known failures and 1 known error; this update does not
+claim to resolve those unrelated tooling failures or complete an all-scenario playthrough.
+
+Download the automatic patcher from [GitHub Releases](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/v0.81).
 
 The translation editor's current catalogs enumerate these working domains:
 
@@ -47,7 +51,7 @@ You must supply your own legally obtained Japanese game dump. The patch accepts 
 
 ### Windows automatic patcher
 
-Run `Langrisser-FX-KR-Auto-Patcher.exe`, select the original Japanese CUE, and
+Run `Langrisser-FX-KR-Auto-Patcher-v0.81.exe`, select the original Japanese CUE, and
 choose an output location. The program verifies all three original track files
 and creates a complete `Langrisser FX Korean Patch` folder containing the new
 Track 2, unchanged copies of Tracks 1 and 3, a ready-to-use CUE, and checksums.
@@ -61,24 +65,34 @@ rebuild the Windows executable with `tools/build_windows_patcher.ps1`.
 Python 3 is required. The applier uses only the Python standard library.
 
 ```powershell
-python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-v0.8.lfxpatch
+python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-v0.81.lfxpatch
 ```
 
 Successful application produces:
 
 - size: 762,048,000 bytes
-- SHA-256: `E9F3E5D6C6AAD6C15FB554A440F2D8F9D22AE59756D3ABF11E5CF1941D3B04B3`
+- SHA-256: `033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594`
 
 Copy your unchanged original Track 1 and Track 3 into the same directory as `Track-1.bin` and `Track-3.bin`, then use the supplied [CUE sheet](patch/Langrisser-FX-KR.cue). Do not overwrite your original tracks. Full bilingual instructions are in [INSTALL.txt](patch/INSTALL.txt).
 
+Apply this cumulative patch to the **original Japanese dump**, not to a v0.8
+patched image. Back up SRAM saves and load an in-game save after changing builds;
+old emulator save states can restore old patched code.
+
 ## Build and patch generation
 
-The public `src/patch_pipeline/` directory is a curated snapshot of the current final-stage implementation. It shows the adopted PC-FX media logic, V810 helpers, current class/category/HUD/shop fixes, and final write verification. The current working project, however, accumulated through a long chain of private intermediate builds. Its newest builder starts from a pinned private cumulative intermediate rather than rebuilding every historical change from the untouched Japanese disc in one command.
+The public `src/patch_pipeline/` directory is the curated final-stage snapshot
+published with v0.8. It shows PC-FX media logic, V810 helpers, class/category/HUD/shop
+fixes and final write verification; it is not a complete builder for the subsequent
+v0.81 target. The current working project accumulated through a long chain of
+private intermediate builds. Its newest builder starts from a pinned private
+cumulative intermediate rather than rebuilding every historical change from
+the untouched Japanese disc in one command.
 
 For that reason, this candidate does **not** claim a complete clean-room, one-command product build from the original disc. Source-derived catalogs and private intermediates are deliberately excluded. Maintainers who already possess the exact original and exact verified target can regenerate the distributable delta with:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.8.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.81.lfxpatch
 ```
 
 The generator requires NumPy. See [Building and verification](docs/BUILDING.md) for current limitations and consolidation work still needed.
@@ -89,8 +103,9 @@ Project records identify GNU Unifont 17.0.05 as the byte-pinned source for the c
 
 ## Known issues and limits
 
-- The recorded cumulative test baseline is not fully green: 8 known failures and 1 known error remain in the exact v0.8 source-build report.
-- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete v0.8 scope.
+- The earlier cumulative tool baseline was not fully green: 8 known failures and 1 known error were recorded. Their resolution is not claimed by v0.81.
+- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete v0.81 scope.
+- The combat regression round preserves existing movie/subtitle bytes but does not repeat a complete movie-playback sweep.
 - Some editor/build data catalogs contain substantial extracted Japanese text and are withheld pending a rights decision.
 - The public source snapshot cannot reproduce the full patched disc without private/source-derived intermediate data.
 - Emulator compatibility outside the recorded Mednafen/Beetle PC-FX routes is not guaranteed.
@@ -143,9 +158,15 @@ This is an unofficial, non-commercial fan translation. You must own and supply t
 
 이 폴더는 일본 PC-FX판 **데어 랑그릿사 FX** 한국어 패치를 GitHub 공개 후보 형태로 정리한 것입니다. 원본 게임, 완성된 BIN/CUE 디스크, BIOS, 에뮬레이터, 원본 영상·음원·그래픽 추출물은 포함하지 않습니다.
 
-현재 공개 버전은 **v0.8**이며 완성판이 아니라 개발/사전 공개
-후보입니다. 누적 검증 기록에는 131개 검사 중 기존 실패 8개와 오류 1개가
-남아 있으며, 모든 시나리오 완주 검증도 기록되어 있지 않습니다.
+현재 공개 버전은 **v0.81**이며 완성판이 아니라 개발/사전 공개
+후보입니다. 전투 상성 오류, 전과보고 화면의 그래픽과 로우가 이름,
+‘버튼을 눌러주세요’ 표시를 수정했습니다. [수정 내역과 검증 범위](docs/RELEASE_v0.81.md)를 확인하세요.
+이전 누적 도구 검사에서 기록된 실패 8개와 오류 1개의 해결이나 모든 시나리오
+완주 검증을 주장하는 업데이트는 아닙니다.
+
+v0.81은 **원본 일본판에 새로 적용하는 누적 패치**입니다. v0.8 한글판에
+덧씌우지 마세요. SRAM은 백업한 뒤 게임 내 저장을 불러오고, 이전 버전의
+강제 세이브/상태 저장은 사용하지 마세요.
 
 Windows에서는 자동 패처를 실행하여 원본 일본판 CUE와 출력 위치만 선택하면 됩니다. 자동 패처는 세 트랙을 모두 검사한 뒤 별도 폴더에 완성된 한국어판 BIN/CUE 세트를 만들며 원본과 기존 출력은 덮어쓰지 않습니다. 수동 방식에서는 위 표와 정확히 일치하는 원본 일본판 RAW MODE1/2352 Track 2가 필요합니다. `patch/apply_patch.py`는 원본 크기와 SHA-256을 먼저 검사하고, 새 출력 파일만 만든 뒤 결과 전체 SHA-256을 다시 검사합니다.
 

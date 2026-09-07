@@ -1,5 +1,8 @@
 # Publication audit
 
+Historical v0.8 publication audit. Current v0.81 changes and verification are
+listed in [release notes](RELEASE_v0.81.md) and [artifact verification](VERIFICATION_v0.81.md).
+
 This report was prepared before any source file was copied into the public-repository candidate. The private working project was inspected read-only. No file in that working project was deleted, moved, renamed, or overwritten.
 
 ## Scope and current size

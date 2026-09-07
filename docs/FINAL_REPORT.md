@@ -1,5 +1,9 @@
 # GitHub publication preparation — final report
 
+Historical v0.8 preparation record. Publication and v0.81 status are maintained
+in the root README and [v0.81 release notes](RELEASE_v0.81.md); statements below
+about no remote/no push describe the initial preparation, not current GitHub state.
+
 ## Outcome
 
 A separate public-repository candidate was created. The private development tree, original game dump, current patched game, saves, and emulator environment were not modified. A local Git repository was initialized on `main` and prepared with a first commit; no remote was configured and nothing was pushed or published.

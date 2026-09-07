@@ -2,6 +2,24 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## v0.81
+
+- Fixed corrupted shared combat matchup data, including the Scenario 6 case
+  where monks could not properly damage Gel units. Restored the native Japanese
+  matchup values without changing the damage formula or arbitrarily rebalancing units.
+- Separated the matchup table from existing Korean font/subtitle startup storage;
+  covered both common constructor copies and all 15 complete resident-resource copies.
+- Fixed stray graphics on enemy units in the Scenario 5 result screen and the
+  unwanted mark beside Rohga's Korean name.
+- Corrected `버퀴를 눌러주세요` to `버튼을 눌러주세요` across the registered common message copies.
+- Rechecked Scenario 2/3 text and shop warnings, Scenario 5 native combat/clear/results,
+  Scenario 6 through turn 4, and all 35 item-description records (two through a
+  diagnostic-only catalog substitution). No new Korean text defect was observed
+  within those routes; this is not an all-scenario or physical-hardware QA claim.
+- Updated the cumulative source-verified patch and Windows automatic patcher to v0.81.
+
+한국어 수정 내역과 검증 한계: [v0.81 release notes](docs/RELEASE_v0.81.md).
+
 ## Unreleased — GitHub public-repository preparation
 
 - Added a Windows GUI automatic patcher that accepts the original CUE, verifies

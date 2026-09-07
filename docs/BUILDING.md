@@ -18,7 +18,7 @@ tools/build_windows_patcher.ps1
 
 The script creates an ignored local build environment, installs pinned
 PyInstaller 6.16.0, embeds the `.lfxpatch` payload, and writes
-`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher.exe`. PyInstaller and the
+`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.81.exe`. PyInstaller and the
 generated executable are packaging artifacts; they are not required by the
 Python command-line fallback.
 
@@ -27,7 +27,7 @@ Python command-line fallback.
 The supported public operation is applying the delta patch. It requires only Python 3 and the exact original raw Track 2 listed in the root README.
 
 ```powershell
-python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.8.lfxpatch
+python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.81.lfxpatch
 ```
 
 The applier:
@@ -58,7 +58,7 @@ disc-set creation, original-file preservation, and existing-output rejection.
 Maintainers with both the legally obtained supported original and the exact verified Korean target may regenerate the delta:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.8.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.81.lfxpatch
 ```
 
 Requirements:
@@ -72,7 +72,8 @@ After generation, run the player-facing applier against the original into a temp
 
 ## Full game product build
 
-The inspected working tree has a large historical successor chain. The newest selected builder is:
+The inspected working tree has a large historical successor chain. The public
+source snapshot retained from v0.8 includes this final-stage builder:
 
 ```text
 src/patch_pipeline/build_successor261_shop_hud.py
@@ -80,7 +81,12 @@ src/patch_pipeline/build_successor261_shop_hud.py
 
 The filename reflects an internal development-stage identifier. It requires an exact private cumulative directory containing cooked/raw media and supporting payloads. Those inputs are not public because they include a fully patched game product.
 
-Consequently, the public candidate does not provide a working command that rebuilds v0.8 directly from the untouched Japanese disc. The selected source is supplied for technical review and future consolidation, not as a claim of clean full reproducibility.
+The v0.81 game target adds the combat/result fixes described in
+[release notes](RELEASE_v0.81.md). The historical public pipeline snapshot is not
+silently presented as its complete builder. Consequently, this repository does
+not provide a working command that rebuilds the whole v0.81 game directly from
+the untouched Japanese disc. The selected source is supplied for technical
+review and future consolidation, not as a claim of clean full reproducibility.
 
 Required future work for a true public primary build:
 
@@ -96,12 +102,16 @@ Until this work is complete, do not describe the selected source snapshot as a o
 
 ## Recorded verification status
 
-The newest exact report records:
+The v0.81 target verification records:
 
-- target Track 2 SHA-256 `E9F3E5D6C6AAD6C15FB554A440F2D8F9D22AE59756D3ABF11E5CF1941D3B04B3`;
-- targeted cold-emulator checks for the shop warning and Scenario 3 Hain dialogue;
-- separate recorded subtitle checks for Scenario 1 clear/OMAKE and Opening 2;
-- 131 tool checks with 8 known failures and 1 known error;
+- target Track 2 SHA-256 `033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594`;
+- native Scenario 5 combat/clear/results and Scenario 6 through turn 4;
+- targeted checks for the shop warning, Scenario 2 events/turn 7, Scenario 3 Hain dialogue, and 35 item-description records;
+- 324 native matchup cells and 1,074 protected private glyph references;
+- preservation of the prior movie/font bootstrap, not a fresh complete movie-playback sweep;
 - no all-scenario or physical-console/iPhone completion claim.
 
-The public patch reproduces the exact target hash, but patch identity does not expand the runtime scope above.
+The earlier cumulative tooling report recorded 131 checks with 8 known failures
+and 1 known error. v0.81 does not claim those unrelated failures are resolved.
+The public patch reproduces the exact target hash, but patch identity does not
+expand the runtime scope above. See [release artifact verification](VERIFICATION_v0.81.md).
