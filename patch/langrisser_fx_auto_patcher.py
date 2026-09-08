@@ -25,8 +25,8 @@ import uuid
 from apply_patch import PatchError, apply_patch, sha256_file
 
 
-APP_TITLE = "랑그릿사 FX 한국어 자동 패처 v0.825"
-PATCH_FILENAME = "Langrisser-FX-KR-v0.825.lfxpatch"
+APP_TITLE = "랑그릿사 FX 한국어 자동 패처 v0.84"
+PATCH_FILENAME = "Langrisser-FX-KR-v0.84.lfxpatch"
 OUTPUT_DIRECTORY_NAME = "Langrisser FX Korean Patch"
 OUTPUT_CUE_NAME = "Langrisser-FX-KR.cue"
 MIN_FREE_MARGIN = 256 * 1024 * 1024
@@ -50,7 +50,7 @@ EXPECTED_TRACKS = {
 }
 
 OUTPUT_TRACK2_SIZE = 762_048_000
-OUTPUT_TRACK2_SHA256 = "657F36173A2A1518D0440B4E95C67883C70378D7848C58AD4E620FF44777DA44"
+OUTPUT_TRACK2_SHA256 = "2907E3B635BBF95B0A6C0834EE71B61DF708E30B9606FC77914A4377884004EC"
 
 CUE_TEXT = """CATALOG 0000000000000
 FILE "Track-1.bin" BINARY
@@ -255,7 +255,7 @@ class PatcherWindow:
         frame.grid(row=0, column=0, sticky="nsew")
         frame.columnconfigure(1, weight=1)
 
-        ttk.Label(frame, text="Langrisser FX 한국어 패치 v0.825", font=("맑은 고딕", 15, "bold")).grid(
+        ttk.Label(frame, text="Langrisser FX 한국어 패치 v0.84", font=("맑은 고딕", 15, "bold")).grid(
             row=0, column=0, columnspan=3, pady=(0, 4)
         )
         ttk.Label(

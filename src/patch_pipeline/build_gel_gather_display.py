@@ -29,6 +29,10 @@ COMPACT_STEM = 'r80-v081-gel-gather-compact-successor276'
 CONDITION_STEM = 'r80-v081-condition-menu-boundaries-successor277'
 MUSCLE_STEM = 'r80-v081-muscle-temple-user-dialogue-successor278'
 FONT_STEM = 'r80-v081-unified-12x12-names-successor279'
+HIDDEN_CONDITION_STEM = 'r80-v081-muscle-temple-conditions-successor280'
+S7_USER_STEM = 'r80-v081-scenario7-user-dialogue-successor281'
+LOAD_X_STEM = 'r80-v081-load-x-menu-deconflict-successor282'
+HIDDEN_X_STEM = 'r80-v081-hidden-x2-x3-successor283'
 RAW_SHA = '033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594'
 COOKED_SHA = '74B5AA9D0083302D6C74C54CE0BC3B5DAB725E17F576D285B56E1CD550D53B17'
 DELTA_SHA = 'AD05ACECDFEA7EC2B3E49D8FD82B74D189E789C7EB645955FA0608C5C2B07511'
@@ -80,6 +84,14 @@ def main():
                         help='Non-distribution hidden resource 71 translation plus the two selected user edits')
     parser.add_argument('--normalize-12x12',action='store_true',
                         help='Normalize semantic name and split-word Hangul without touching other font sizes')
+    parser.add_argument('--fix-hidden-conditions',action='store_true',
+                        help='Repair resource 71 native menu conditions without shared dictionary or font changes')
+    parser.add_argument('--scenario7-user-edits',action='store_true',
+                        help='Apply the four exact scenario 7 records from the preserved user snapshot')
+    parser.add_argument('--fix-load-x',action='store_true',
+                        help='Separate the native X1 glyph from the Korean field-menu tile owner')
+    parser.add_argument('--hidden-x-review',action='store_true',
+                        help='Review-only X2/X3 dialogue and conditions with append-only glyph supply')
     args=parser.parse_args()
     if args.fix_automatic_movies and args.fix_movie_lifecycle:
         parser.error('Choose one movie implementation')
@@ -91,6 +103,14 @@ def main():
         parser.error('Hidden translation review requires the complete successor277 profile')
     if args.normalize_12x12 and not args.muscle_temple_review:
         parser.error('Current font profile requires the complete successor278 review profile')
+    if args.fix_hidden_conditions and not args.normalize_12x12:
+        parser.error('Hidden conditions require the complete successor279 profile')
+    if args.scenario7_user_edits and not args.fix_hidden_conditions:
+        parser.error('Scenario 7 edits require the complete successor280 profile')
+    if args.fix_load_x and not args.scenario7_user_edits:
+        parser.error('Load X repair requires the complete successor281 profile')
+    if args.hidden_x_review and not args.fix_load_x:
+        parser.error('X2/X3 review requires the complete successor282 profile')
     stem=LIFECYCLE_STEM if args.fix_movie_lifecycle else AUTOMATIC_MOVIE_STEM if args.fix_automatic_movies else STEM
     if args.compact_battle_names:
         stem=COMPACT_STEM
@@ -100,6 +120,14 @@ def main():
         stem=MUSCLE_STEM
     if args.normalize_12x12:
         stem=FONT_STEM
+    if args.fix_hidden_conditions:
+        stem=HIDDEN_CONDITION_STEM
+    if args.scenario7_user_edits:
+        stem=S7_USER_STEM
+    if args.fix_load_x:
+        stem=LOAD_X_STEM
+    if args.hidden_x_review:
+        stem=HIDDEN_X_STEM
     args.out=args.out or ROOT/'work'/stem
     need=labels.need
     need(not args.out.exists(), 'Choose a new immutable output directory')
@@ -152,6 +180,34 @@ def main():
         import font_policy_12x12 as typography
         font_writes,font_audit=typography.plan(source)
         writes=sorted([*writes,*font_writes])
+    hidden_condition_audit=None
+    if args.fix_hidden_conditions:
+        import muscle_temple_conditions as hidden_condition
+        hidden_writes,hidden_condition_audit=hidden_condition.plan(source)
+        writes=sorted([*writes,*hidden_writes])
+    scenario7_audit=None
+    if args.scenario7_user_edits:
+        import scenario7_user_dialogue as scenario7
+        scenario7_writes,scenario7_audit=scenario7.plan(source)
+        writes=sorted([*writes,*scenario7_writes])
+    load_x_audit=None
+    if args.fix_load_x:
+        import load_x_menu_tile as load_x
+        load_x_writes,load_x_audit=load_x.plan(source)
+        writes=sorted([*writes,*load_x_writes])
+    hidden_x_audit=hidden_x_font_audit=None
+    if args.hidden_x_review:
+        import hidden_x_dialogue as hidden_x
+        import hidden_x_font
+        xw,hidden_x_audit=hidden_x.plan(source)
+        fw,hidden_x_font_audit=hidden_x_font.plan(source)
+        # Compose the extended helper once against the same immutable
+        # preimage. Keep the earlier eleven glyph cells and all other owners.
+        replacing=('muscle-temple/helper/','muscle-temple/router-bound/',
+                   'muscle-temple/dispatcher-bound/')
+        retired=[w for w in writes if w[3].startswith(replacing)]
+        need(len(retired)==32,'Unexpected prior font writer population')
+        writes=sorted([*[w for w in writes if not w[3].startswith(replacing)],*xw,*fw])
     for offset,before,after,owner in writes:
         need(len(before)==len(after) and source[offset:offset+len(before)]==before,
              f'Immutable-source expected-write mismatch: {owner}')
@@ -176,8 +232,19 @@ def main():
     if args.fix_condition_menu_boundaries:
         condition_audit['final_verification']=condition.verify(target)
     if args.muscle_temple_review:
-        muscle_audit['final_verification']=muscle.verify(target)
+        muscle_audit['final_verification']=muscle.verify(target,condition_section7=
+            int(hidden_condition_audit['section7_to'],0) if hidden_condition_audit else None,
+            font_profile=hidden_x_font if args.hidden_x_review else None)
         selected.verify(source,target)
+    if args.fix_hidden_conditions:
+        hidden_condition_audit['final_verification']=hidden_condition.verify(target)
+    if args.scenario7_user_edits:
+        scenario7.verify(source,target)
+    if args.fix_load_x:
+        load_x_audit['final_verification']=load_x.verify(source,target)
+    if args.hidden_x_review:
+        hidden_x_audit['final_verification']=hidden_x.verify(target)
+        hidden_x_font_audit['final_verification']=hidden_x_font.verify(target)
     if args.normalize_12x12:
         font_audit['final_verification']=typography.verify(target)
     sectors=sorted({x//2048 for x in expected})
@@ -199,6 +266,10 @@ def main():
         'status':'STATIC_PASS_RUNTIME_REQUIRED', 'stem':stem, 'display_audit':audit,
         'automatic_movie_audit':movie_audit,
         'condition_menu_audit':condition_audit,
+        'hidden_condition_audit':hidden_condition_audit,
+        'scenario7_user_dialogue':scenario7_audit,
+        'field_load_x_audit':load_x_audit,
+        'hidden_x_audit':hidden_x_audit,'hidden_x_font_audit':hidden_x_font_audit,
         'muscle_temple_audit':muscle_audit,'selected_user_dialogue':user_audit,
         'font_12x12_audit':font_audit,
         'distribution_allowed':False if args.muscle_temple_review else None,

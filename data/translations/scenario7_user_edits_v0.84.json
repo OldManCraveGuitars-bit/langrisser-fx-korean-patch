@@ -1,0 +1,12 @@
+{
+  "schema": "langrisser-fx-public-selected-dialogue-view/v1",
+  "status": "read_only_view_of_user_authored_edits",
+  "source_snapshot_sha256": "5207CA9A58F451DB02625D195051B35F605682605EF25D83EE61B9121B54A22C",
+  "manifest": "src/dialogue_editor/user_dialogue_edits_successor281.json",
+  "records": {
+    "scenario07/dialogue/187": "저는…… 갓난아기였을 때 마을\n신전 입구에 버려졌어…….{page}하지만 신전 분들이 부모님을\n대신해 저를 길러 주셨어.{page}모두 정말 친절해서 힘들다고\n생각한 적은 없었어…….",
+    "scenario07/dialogue/189": "{raw:02}…….{page}{raw:02}는 왜 여행을 하는거야?\n괜찮다면 말해줄래?",
+    "scenario07/dialogue/193": "그랬구나……. 미안해.{page}괴로운 일을 떠올리게\n해서…….",
+    "scenario07/dialogue/200": "응……. 잘 자, {raw:02}."
+  }
+}

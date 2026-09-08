@@ -2,6 +2,30 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## v0.84
+
+- Added missing X2 quiz-dungeon dialogue (97 records) and X3 parody-dungeon
+  dialogue (146 nonempty records plus two preserved empty slots).
+- Localized their battle-menu conditions: X2 `우키 격파`, X3 `마녀 격파`,
+  and the original dynamic protagonist's death condition. Preserved eight-row
+  boundaries, quiz option order, original page waits and dynamic-name controls.
+- Fixed the Muscle Temple condition text: `적 전멸` / protagonist `사망`.
+  Removed the unrelated question fragment and untranslated defeat-condition suffix.
+- Applied the maintainer's four saved Scenario 7 dialogue edits unchanged.
+- Fixed the corrupted X in the in-game `X1` load label by separating its tile
+  owner from the Korean system menu. Kept the title-screen `22` display because
+  it matches the original Japanese game; save data and numbering rules are unchanged.
+- Added ten append-only 12×12 Hangul glyphs and reused the existing `닝` glyph.
+  Preserved the prior font cells, F8 safety clone, combat data and continuation code.
+- Verified X2/X3 entry and condition-menu open/cancel cycles. Combat (12), shop
+  (2) and load-menu (24) regression screenshots match the preceding verified build.
+- Refreshed the cumulative delta, automatic Windows patcher and selected sources.
+
+Full wording review and every hidden branch are not complete. The maintainer
+approved publication with these limits as a pre-release, not a final localization.
+See [v0.84 release notes](docs/RELEASE_v0.84.md) and
+[verification scope](docs/VERIFICATION_v0.84.md).
+
 ## v0.825
 
 - Fixed the common movie-entry/exit subtitle state so automatic openings and

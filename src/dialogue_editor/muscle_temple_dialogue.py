@@ -278,15 +278,26 @@ def plan(image):
         'layouts':layouts,'section_offsets_changed':False,'original_page_and_name_tokens_preserved':True}
 
 
-def verify(image):
+def verify(image, *, condition_section7=None, font_profile=None):
     mapping,old_rows,old_bank,new_bank=mapping_and_font()
     records,plains,_=draft_records(mapping)
-    need(tuple(HEADER+n for n in struct.unpack_from('<9I',image,HEADER))==SECTIONS,'Final resource header')
+    expected_sections=list(SECTIONS)
+    if condition_section7 is not None:
+        import muscle_temple_conditions as conditions
+        conditions.verify(image)
+        need(condition_section7==SECTIONS[7]+12,'Undeclared condition extension')
+        expected_sections[7]=condition_section7
+    need(tuple(HEADER+n for n in struct.unpack_from('<9I',image,HEADER))==tuple(expected_sections),'Final resource header')
     drows=dictionary._split_dictionary(image[SECTIONS[4]:SECTIONS[5]])
     rows=split_rows(image[SECTIONS[5]:SECTIONS[6]],87)
     need([expand(r,drows) for r in rows]==plains,'Final dialogue text/control bytes differ')
-    final_helper=build_helper()
-    helper_contract(final_helper,old_rows)
+    final_helper=build_helper() if font_profile is None else font_profile.build_helper()
+    if font_profile is None:
+        helper_contract(final_helper,old_rows)
+    else:
+        # The append-only profile proves every old valid glyph route,
+        # including the eleven resource-71 additions, before final reads.
+        font_profile.contract(final_helper)
     for tail in font.resource12_tails(image):
         need(image[tail:tail+len(final_helper)]==final_helper,'Final helper')
         need(image[tail+0x200:tail+0x200+len(old_bank)]==old_bank,'Final old font bytes')
