@@ -33,6 +33,9 @@ HIDDEN_CONDITION_STEM = 'r80-v081-muscle-temple-conditions-successor280'
 S7_USER_STEM = 'r80-v081-scenario7-user-dialogue-successor281'
 LOAD_X_STEM = 'r80-v081-load-x-menu-deconflict-successor282'
 HIDDEN_X_STEM = 'r80-v081-hidden-x2-x3-successor283'
+S89_USER_STEM = 'r80-v084-scenario8-9-user-dialogue-successor284'
+S9_MORE_USER_STEM = 'r80-v084-scenario9-additional-dialogue-successor285'
+MENU_UNIT_STEM = 'r80-v084-menu-unit-graphics-separated-successor286'
 RAW_SHA = '033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594'
 COOKED_SHA = '74B5AA9D0083302D6C74C54CE0BC3B5DAB725E17F576D285B56E1CD550D53B17'
 DELTA_SHA = 'AD05ACECDFEA7EC2B3E49D8FD82B74D189E789C7EB645955FA0608C5C2B07511'
@@ -92,6 +95,12 @@ def main():
                         help='Separate the native X1 glyph from the Korean field-menu tile owner')
     parser.add_argument('--hidden-x-review',action='store_true',
                         help='Review-only X2/X3 dialogue and conditions with append-only glyph supply')
+    parser.add_argument('--scenario8-9-user-edits',action='store_true',
+                        help='Apply four exact user-authored S8/S9 records from the pinned snapshot')
+    parser.add_argument('--scenario9-additional-edits',action='store_true',
+                        help='Retain the four prior edits and add six exact S9 edits from the next snapshot')
+    parser.add_argument('--fix-menu-unit-graphics', action='store_true',
+                        help='Keep all menu glyphs outside the complete native unit-cache range')
     args=parser.parse_args()
     if args.fix_automatic_movies and args.fix_movie_lifecycle:
         parser.error('Choose one movie implementation')
@@ -111,6 +120,12 @@ def main():
         parser.error('Load X repair requires the complete successor281 profile')
     if args.hidden_x_review and not args.fix_load_x:
         parser.error('X2/X3 review requires the complete successor282 profile')
+    if args.scenario8_9_user_edits and not args.hidden_x_review:
+        parser.error('S8/S9 edits require the complete successor283 profile')
+    if args.scenario9_additional_edits and not args.scenario8_9_user_edits:
+        parser.error('Additional S9 edits require the complete successor284 profile')
+    if args.fix_menu_unit_graphics and not args.scenario9_additional_edits:
+        parser.error('Menu/unit separation requires the complete successor285 profile')
     stem=LIFECYCLE_STEM if args.fix_movie_lifecycle else AUTOMATIC_MOVIE_STEM if args.fix_automatic_movies else STEM
     if args.compact_battle_names:
         stem=COMPACT_STEM
@@ -128,6 +143,12 @@ def main():
         stem=LOAD_X_STEM
     if args.hidden_x_review:
         stem=HIDDEN_X_STEM
+    if args.scenario8_9_user_edits:
+        stem=S89_USER_STEM
+    if args.scenario9_additional_edits:
+        stem=S9_MORE_USER_STEM
+    if args.fix_menu_unit_graphics:
+        stem=MENU_UNIT_STEM
     args.out=args.out or ROOT/'work'/stem
     need=labels.need
     need(not args.out.exists(), 'Choose a new immutable output directory')
@@ -208,6 +229,20 @@ def main():
         retired=[w for w in writes if w[3].startswith(replacing)]
         need(len(retired)==32,'Unexpected prior font writer population')
         writes=sorted([*[w for w in writes if not w[3].startswith(replacing)],*xw,*fw])
+    scenario89_audit=None
+    user_revision=285 if args.scenario9_additional_edits else 284
+    if args.scenario8_9_user_edits:
+        import scenario89_user_dialogue as scenario89
+        scenario89_writes,scenario89_audit=scenario89.plan(source,user_revision)
+        writes=sorted([*writes,*scenario89_writes])
+    menu_unit_audit=None
+    if args.fix_menu_unit_graphics:
+        import menu_unit_graphics_reservation as menu_unit
+        mw,menu_unit_audit=menu_unit.plan(source)
+        retired=[w for w in writes if w[3].startswith('load-x/menu-owner/')]
+        need(len(retired)==10, 'Prior X menu owner population changed')
+        # One composed owner per slot, still against the immutable baseline.
+        writes=sorted([*[w for w in writes if not w[3].startswith('load-x/menu-owner/')],*mw])
     for offset,before,after,owner in writes:
         need(len(before)==len(after) and source[offset:offset+len(before)]==before,
              f'Immutable-source expected-write mismatch: {owner}')
@@ -241,12 +276,18 @@ def main():
     if args.scenario7_user_edits:
         scenario7.verify(source,target)
     if args.fix_load_x:
-        load_x_audit['final_verification']=load_x.verify(source,target)
+        if args.fix_menu_unit_graphics:
+            menu_unit_audit['final_verification']=menu_unit.verify(source,target)
+            load_x_audit['final_verification']={'preserved_by_composed_menu_unit_writer':True}
+        else:
+            load_x_audit['final_verification']=load_x.verify(source,target)
     if args.hidden_x_review:
         hidden_x_audit['final_verification']=hidden_x.verify(target)
         hidden_x_font_audit['final_verification']=hidden_x_font.verify(target)
     if args.normalize_12x12:
         font_audit['final_verification']=typography.verify(target)
+    if args.scenario8_9_user_edits:
+        scenario89.verify(source,target,user_revision)
     sectors=sorted({x//2048 for x in expected})
     raw_audit=integrity.raw_tools.dialogue._repair_raw(cooked,baseline_raw,raw,sectors)
     raw_audit.update(verify_raw(baseline_raw,raw,cooked,sectors))
@@ -268,7 +309,9 @@ def main():
         'condition_menu_audit':condition_audit,
         'hidden_condition_audit':hidden_condition_audit,
         'scenario7_user_dialogue':scenario7_audit,
+        'scenario8_9_user_dialogue':scenario89_audit,
         'field_load_x_audit':load_x_audit,
+        'menu_unit_graphics_audit':menu_unit_audit,
         'hidden_x_audit':hidden_x_audit,'hidden_x_font_audit':hidden_x_font_audit,
         'muscle_temple_audit':muscle_audit,'selected_user_dialogue':user_audit,
         'font_12x12_audit':font_audit,

@@ -2,6 +2,29 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## v0.845
+
+- Applied ten selected maintainer-authored dialogue edits in Scenarios 8 and 9,
+  including Cherie's informal speech. Preserved unselected records, native page
+  waits, dynamic-name controls, existing fonts and section boundaries.
+- Fixed corrupted enemy graphics on the Scenario 10 results screen. Moved six
+  Korean menu scatter entries and their exact menu/settings references outside
+  the complete native unit-cache range, across ten copies of each resource.
+- Audited all 46 cache slots / 414 tiles rather than only the reported roster.
+  The menu correction changes 400 cooked bytes from the preceding dialogue build;
+  executable code, glyph pixels, names, subtitle/audio and gameplay data are unchanged.
+- Verified a cold Scenario 10 SRAM route through native combat, clear events
+  and results. All 88 sampled result frames matched the original Japanese unit
+  graphics for the same roster; lower UI/names matched the preceding build.
+- Retained the earlier X1/X2/X3 load-glyph fix and checked settings, victory/defeat
+  conditions and one-cancel menu return. Other stages received shared-data checks,
+  not a new full-campaign playthrough.
+- Refreshed the cumulative patch, Windows automatic patcher and selected sources.
+
+한국어 수정 내역과 검증 한계: [v0.845 release notes](docs/RELEASE_v0.845.md).
+Full hidden-dialogue wording review, all branches and physical-device QA remain
+unfinished; this continues the project's pre-release status.
+
 ## v0.84
 
 - Added missing X2 quiz-dungeon dialogue (97 records) and X3 parody-dungeon

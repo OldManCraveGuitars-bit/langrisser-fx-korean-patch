@@ -6,17 +6,18 @@ This repository candidate documents and distributes a Korean translation patch f
 
 ## Project status
 
-The current public version is **v0.84**. It is a development/pre-release
-snapshot, not a final-completion claim. Since v0.825, this update adds the missing
-X2/X3 hidden-dungeon dialogue and conditions, repairs the Muscle Temple conditions
-and the in-game load-menu X glyph, and includes four maintainer-authored Scenario 7
-edits. Earlier fixes remain included. The new hidden dialogue still requires full
-human wording review. See the [v0.84 release notes](docs/RELEASE_v0.84.md)
+The current public version is **v0.845**. It is a development/pre-release
+snapshot, not a final-completion claim. Since v0.84, this update includes ten
+maintainer-authored Scenario 8/9 dialogue edits and fixes corrupted enemy graphics
+on the Scenario 10 results screen. Shared Korean menu glyphs are now separated
+from the complete native unit-cache range, with all registered menu/settings
+copies covered. Earlier fixes remain included. Hidden dialogue still requires full
+human wording review. See the [v0.845 release notes](docs/RELEASE_v0.845.md)
 for the fixes and exact verification scope. The earlier cumulative tool baseline
 reported 131 checks with 8 known failures and 1 known error; this update does not
 claim to resolve those unrelated tooling failures or complete an all-scenario playthrough.
 
-Download the automatic patcher from [GitHub Releases](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/v0.84).
+Download the automatic patcher from [GitHub Releases](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/v0.845).
 
 The translation editor's current catalogs enumerate these working domains:
 
@@ -57,7 +58,7 @@ You must supply your own legally obtained Japanese game dump. The patch accepts 
 
 ### Windows automatic patcher
 
-Run `Langrisser-FX-KR-Auto-Patcher-v0.84.exe`, select the original Japanese CUE, and
+Run `Langrisser-FX-KR-Auto-Patcher-v0.845.exe`, select the original Japanese CUE, and
 choose an output location. The program verifies all three original track files
 and creates a complete `Langrisser FX Korean Patch` folder containing the new
 Track 2, unchanged copies of Tracks 1 and 3, a ready-to-use CUE, and checksums.
@@ -71,13 +72,13 @@ rebuild the Windows executable with `tools/build_windows_patcher.ps1`.
 Python 3 is required. The applier uses only the Python standard library.
 
 ```powershell
-python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-v0.84.lfxpatch
+python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-v0.845.lfxpatch
 ```
 
 Successful application produces:
 
 - size: 762,048,000 bytes
-- SHA-256: `2907E3B635BBF95B0A6C0834EE71B61DF708E30B9606FC77914A4377884004EC`
+- SHA-256: `18652F60B9156BFA40DF8A3A638749D05D0A68898D938A86A2C7A2A38D8A927D`
 
 Copy your unchanged original Track 1 and Track 3 into the same directory as `Track-1.bin` and `Track-3.bin`, then use the supplied [CUE sheet](patch/Langrisser-FX-KR.cue). Do not overwrite your original tracks. Full bilingual instructions are in [INSTALL.txt](patch/INSTALL.txt).
 
@@ -88,8 +89,8 @@ old emulator save states can restore old patched code.
 ## Build and patch generation
 
 The public source is a curated implementation snapshot, now including the
-v0.84 hidden-dialogue, condition, menu-tile and append-only font modules, alongside
-the earlier display and subtitle-lifecycle work.
+v0.845 selected Scenario 8/9 dialogue and complete menu/unit-cache separation
+modules, alongside earlier hidden-dialogue, font, display and subtitle work.
 Its private primary build starts with the immutable Japanese Track 2 and the
 hash-pinned v0.81 cumulative delta specification, reconstructs that baseline
 within the build, then applies a conflict-checked composed write plan. Existing
@@ -100,7 +101,7 @@ snapshots are for inspection, not a complete standalone source build.
 For that reason, this candidate does **not** claim a complete clean-room, one-command product build from the original disc. Source-derived catalogs and private intermediates are deliberately excluded. Maintainers who already possess the exact original and exact verified target can regenerate the distributable delta with:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.84.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.845.lfxpatch
 ```
 
 The generator requires NumPy. See [Building and verification](docs/BUILDING.md) for current limitations and consolidation work still needed.
@@ -111,11 +112,12 @@ Project records identify GNU Unifont 17.0.05 as the byte-pinned source for the c
 
 ## Known issues and limits
 
-- The earlier cumulative tool baseline was not fully green: 8 known failures and 1 known error were recorded. Their resolution is not claimed by v0.84.
+- The earlier cumulative tool baseline was not fully green: 8 known failures and 1 known error were recorded. Their resolution is not claimed by v0.845.
 - The new Muscle Temple and X2/X3 dialogue passes the recorded technical checks, but full human wording review and all hidden branches remain unfinished.
-- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete v0.84 scope.
-- The v0.84 target was checked through X2/X3 introductions and condition menus, plus shop, native combat and load-menu regression routes. Earlier automatic-opening evidence is documented with v0.825; automatic openings and every natural movie trigger were not replayed for v0.84.
-- Previously recorded condition-text issues in other internal fields 74–98 were not repaired by the X2/X3 change. This is not a claim that every hidden field is complete.
+- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete v0.845 scope.
+- The v0.845 target was checked through a cold Scenario 10 SRAM load, native combat, clear events and results, plus settings, condition and load-menu checks. Other-stage coverage is a shared-data boundary audit, not a fresh playthrough of every stage. See [verification](docs/VERIFICATION_v0.845.md).
+- X2/X3 introduction and earlier combat/shop/load evidence remains attributed to v0.84; automatic-opening evidence remains attributed to v0.825. Every natural movie trigger was not replayed for v0.845. The new menu fix does not change movie/subtitle bytes.
+- Previously recorded condition-text issues in other internal fields 74–98 were not repaired by this update. Internal field/container counts are not counts of additional playable scenarios.
 - Some editor/build data catalogs contain substantial extracted Japanese text and are withheld pending a rights decision.
 - The public source snapshot cannot reproduce the full patched disc without private/source-derived intermediate data.
 - Emulator compatibility outside the recorded Mednafen/Beetle PC-FX routes is not guaranteed.
@@ -168,16 +170,17 @@ This is an unofficial, non-commercial fan translation. You must own and supply t
 
 이 폴더는 일본 PC-FX판 **데어 랑그릿사 FX** 한국어 패치를 GitHub 공개 후보 형태로 정리한 것입니다. 원본 게임, 완성된 BIN/CUE 디스크, BIOS, 에뮬레이터, 원본 영상·음원·그래픽 추출물은 포함하지 않습니다.
 
-현재 공개 버전은 **v0.84**이며 완성판이 아니라 개발/사전 공개
-버전입니다. v0.825 이후 X2·X3의 누락 대사와 승리·패배 조건, 근육의 신전
-조건 누락, 전투 중 불러오기 X 글자 깨짐을 수정하고 7화 사용자 대사 4개를
-반영했습니다. 이전 수정도 누적 포함합니다. 새 숨은 던전 번역은 기술 검증을
+현재 공개 버전은 **v0.845**이며 완성판이 아니라 개발/사전 공개
+버전입니다. v0.84 이후 8·9화 사용자 대사 수정 10개와 시나리오 10 결과창의
+적 그래픽 깨짐 수정을 반영했습니다. 공통 메뉴 글자와 유닛 그래픽의 전체
+공유 범위를 분리하고 모든 등록 메뉴·설정 사본을 검사했습니다.
+이전 수정도 누적 포함합니다. 숨은 던전 번역은 기술 검증을
 통과했지만 전체 문장 검수와 모든 분기 플레이는 아직 완료되지 않았습니다.
-[수정 내역과 검증 범위](docs/RELEASE_v0.84.md)를 확인하세요.
+[수정 내역과 검증 범위](docs/RELEASE_v0.845.md)를 확인하세요.
 이전 누적 도구 검사에서 기록된 실패 8개와 오류 1개의 해결이나 모든 시나리오
 완주 검증을 주장하는 업데이트는 아닙니다.
 
-v0.84는 **원본 일본판에 새로 적용하는 누적 패치**입니다. 이전 한글판에
+v0.845는 **원본 일본판에 새로 적용하는 누적 패치**입니다. 이전 한글판에
 덧씌우지 마세요. SRAM은 백업한 뒤 게임 내 저장을 불러오고, 이전 버전의
 강제 세이브/상태 저장은 사용하지 마세요.
 

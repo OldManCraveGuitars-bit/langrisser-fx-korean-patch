@@ -1,0 +1,17 @@
+{
+  "schema": "langrisser-fx-public-korean-dialogue-delta/v1",
+  "version": "v0.845",
+  "note": "Ten selected maintainer-authored edits; original Japanese records and private editor snapshots are excluded.",
+  "dialogue_edits": {
+    "scenario08/dialogue/011": "적의 비행부대는\n조심하는 게 좋아.{page}이동 속도가 빠르니까, 쉽게\n뒤로 돌아올 수 있어.",
+    "scenario08/dialogue/092": "하지만,\n조사할 시간은 별로 없다구.",
+    "scenario08/dialogue/093": "알고 있어.{page}하지만 혹시 제국과의 싸움을\n유리하게 만들 무언가가\n있을지도 몰라.",
+    "scenario09/dialogue/023": "아직 요새는 함락되지\n않았어! 서두르자!",
+    "scenario09/dialogue/105": "정말, 든든해.",
+    "scenario09/dialogue/146": "{raw:02}…….{page}미안. 이렇게 늦은\n밤에…….",
+    "scenario09/dialogue/150": "{raw:02}…….{page}나, 나를 어떻게 생각해?",
+    "scenario09/dialogue/152": "{raw:02}를 생각하면 가슴이\n벅차올라서…….{page}이 마음을 전하고\n싶었어…….",
+    "scenario09/dialogue/154": "미안……. ……{page}곤란하게 해서……….",
+    "scenario09/dialogue/161": "미안해...\n눈물이 멈추지 않아서……."
+  }
+}
