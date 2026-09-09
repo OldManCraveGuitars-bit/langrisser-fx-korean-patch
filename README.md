@@ -11,6 +11,15 @@ PC-FX 일본판 **Der Langrisser FX**의 한국어 패치입니다. 영문·숫�
 [수정 내역](CHANGELOG.md) ·
 [**버그·번역 오류 제보**](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/issues)
 
+**패치 적용 후 Track 2 확인값 — v0.855**
+
+```text
+Size:     762,048,000 bytes
+SHA-256:  6E6DE32054CE408BF3F91843E0C0D4645955C2E24E7E34A4810523B623204F5D
+```
+
+원본 게임이나 다운로드 ZIP이 아닌, 패치 적용 후 생성된 `Track-2.KR.bin`의 값입니다.
+
 현재는 **사전 공개 버전**입니다. 번역 누락·오탈자·글자 깨짐·진행 오류 등
 버그가 남아 있을 수 있습니다. 문제가 보이면 아래 안내에 따라 **GitHub Issues에
 등록해 주세요.** 한글화 범위 소개가 모든 시나리오·분기의 무오류를 보장하지는 않습니다.
