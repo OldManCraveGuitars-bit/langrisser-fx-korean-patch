@@ -13,6 +13,15 @@ PC-FX 일본판 **Der Langrisser FX**의 한국어 패치입니다. 영문·숫�
 [수정 내역](CHANGELOG.md) ·
 [**버그·번역 오류 제보**](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/issues)
 
+**원본 일본판 Track 2 확인값**
+
+```text
+Size:     755,535,312 bytes
+SHA-256:  1013D1AECCD42BB46DEA36CF3BD088CAE02FAC5D25BF4BC0187821ACAB9F8AD0
+```
+
+225섹터 프리갭을 포함한 원본 RAW MODE1/2352 Track 2 BIN 기준입니다.
+
 **패치 적용 후 Track 2 확인값 — v0.855**
 
 ```text
