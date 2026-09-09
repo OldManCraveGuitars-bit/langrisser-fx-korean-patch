@@ -32,3 +32,14 @@ by the maintainer as before/after defect evidence. They contain original game
 art and UI and are **not** relicensed under MIT. Their inclusion does not grant
 rights to the underlying game graphics or trademarks. No extracted sprite,
 font sheet, audio/video, game image or save accompanies these captures.
+
+## Project showcase screenshots
+
+The 13 JPEG files under `screenshots/showcase/` were supplied and explicitly
+selected by the maintainer for the project introduction. They are unedited
+gameplay photos illustrating the Korean title, text, menus and movie subtitles.
+They are not a new all-scenario verification claim. As with the diagnostic
+captures, underlying game art, characters, text and trademarks remain outside
+the MIT License; inclusion does not grant rights to that material. See the
+[gallery record](screenshots/showcase/README.md). Existing versioned Release
+archives and their license notices are not replaced by this documentation update.

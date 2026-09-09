@@ -1,6 +1,150 @@
-<img width="1254" height="1254" alt="랑그_new" src="https://github.com/user-attachments/assets/f134092a-949d-47f3-b475-7084703d791f" />
+# 데어 랑그릿사 FX 한국어 패치
 
-# Langrisser FX Korean Translation Patch
+**영문·숫자는 그대로, 나머지 게임 텍스트는 한글로.**
+
+PC-FX 일본판 **Der Langrisser FX**의 한국어 패치입니다. 영문·숫자 표기를 제외한
+게임 전반의 한글화를 위한 프로젝트로, **메인화면·대사·메뉴 용어를 한글로 옮기고
+동영상에는 한국어 자막을 추가**했습니다.
+
+[**v0.855 다운로드**](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/v0.855) ·
+[설치 안내](patch/INSTALL.txt) ·
+[수정 내역](CHANGELOG.md) ·
+[**버그·번역 오류 제보**](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/issues)
+
+현재는 **사전 공개 버전**입니다. 번역 누락·오탈자·글자 깨짐·진행 오류 등
+버그가 남아 있을 수 있습니다. 문제가 보이면 아래 안내에 따라 **GitHub Issues에
+등록해 주세요.** 한글화 범위 소개가 모든 시나리오·분기의 무오류를 보장하지는 않습니다.
+
+## 한글화 범위
+
+- **메인화면 한글화** — 타이틀 로고, 시작하기·불러오기 등 시작 화면.
+- **대사 한글화** — 인물 대사, 시나리오 제목과 나레이션.
+- **메뉴 관련 용어 한글화** — 출격 준비, 저장·불러오기, 승리·패배 조건, 게임 설정 등 메뉴 전반.
+- **동영상 한국어 자막 추가** — 원본 음성을 유지하고 영상에 한국어 자막 표시.
+
+`LOAD`, `SCENARIO`, `TURN`과 능력치 약어 등 **영문·숫자 표기는 유지**합니다.
+아래는 사용자가 제공한 실제 플레이 화면입니다. 특정 빌드의 전체 검증을 대신하는
+자료는 아닙니다.
+
+## 스크린샷
+
+### 메인화면과 불러오기
+
+| 한글 타이틀·시작 메뉴 | 타이틀 불러오기 |
+| --- | --- |
+| ![한글 타이틀과 시작하기·불러오기 메뉴](screenshots/showcase/01-title.jpg) | ![타이틀 화면의 불러오기 목록](screenshots/showcase/02-title-load.jpg) |
+
+### 대사·시나리오 한글화
+
+![레아드의 한국어 대사와 하단 정보창](screenshots/showcase/06-dialogue.jpg)
+
+| 시나리오 제목 | 시나리오 나레이션 |
+| --- | --- |
+| ![시나리오 15 마리오네트 제목](screenshots/showcase/03-scenario-title.jpg) | ![한국어로 표시되는 시나리오 나레이션](screenshots/showcase/04-narration.jpg) |
+
+### 메뉴·설정 한글화
+
+| 출격 준비 | 게임 중 시스템 메뉴 |
+| --- | --- |
+| ![병사배속·아이템 장비·지휘관배치·출격 메뉴](screenshots/showcase/05-deployment.jpg) | ![저장하기·불러오기·승리조건·게임설정·턴 종료 메뉴](screenshots/showcase/07-system-menu.jpg) |
+
+| 승리·패배 조건 | 게임 설정 |
+| --- | --- |
+| ![한국어 승리조건과 패배조건](screenshots/showcase/08-victory-conditions.jpg) | ![게임속도·표시속도·전투연출·배경음악·빠른전투 설정](screenshots/showcase/09-settings.jpg) |
+
+<details>
+<summary>게임 중 불러오기 화면 보기</summary>
+
+![게임 중 데이터를 불러올까요 확인창과 저장 목록](screenshots/showcase/10-in-game-load.jpg)
+
+</details>
+
+### 동영상 한국어 자막
+
+| 자막 예시 1 | 자막 예시 2 |
+| --- | --- |
+| ![동영상에 표시된 엘윈… 한국어 자막](screenshots/showcase/11-movie-subtitles.jpg) | ![동영상에 표시된 간다! 한국어 자막](screenshots/showcase/12-movie-subtitles.jpg) |
+
+![동영상에 표시된 여기입니다, 폐하. 한국어 자막](screenshots/showcase/13-movie-subtitles.jpg)
+
+사진은 보정·재압축 없이 제공된 원본 그대로 사용했습니다.
+[사진 출처와 이용 범위](screenshots/showcase/README.md)
+
+## 패치 적용 방법
+
+1. [v0.855 Release](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/v0.855)에서 **Langrisser_FX_Korean_Patch_v0.855.zip**을 내려받아 압축을 풉니다.
+2. **Langrisser-FX-KR-Auto-Patcher-v0.855.exe**를 실행합니다.
+3. 지원되는 **원본 일본판 CUE**와 새 출력 위치를 선택합니다. 원본 BIN 3개는 CUE와 함께 두세요.
+4. 완성된 `Langrisser FX Korean Patch` 폴더의 `Langrisser-FX-KR.cue`를 실행합니다.
+
+**이전 한글판 BIN에 덧씌우지 말고 원본 일본판에 새로 적용하세요.**
+자동 패처는 원본과 기존 출력을 덮어쓰지 않습니다. 원본 게임·BIOS·세이브는
+제공하지 않으며, 지원되는 원본 게임을 직접 준비해야 합니다.
+
+SRAM은 백업하고 게임 내 저장을 불러오세요. 이전 빌드의 강제 상태 저장은
+옛 코드까지 복원할 수 있으므로 사용하지 않는 것을 권장합니다.
+원본 조건·체크섬과 Python 수동 적용 방법은 [설치 안내](patch/INSTALL.txt)에 있습니다.
+
+## 버그·번역 오류 제보
+
+**번역 누락, 어색한 대사, 글자 깨짐, 자막 누락, 멈춤 등의 문제가 있으면
+[GitHub Issues에 등록해 주세요.](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/issues/new)**
+
+가능하면 다음 정보를 함께 적어 주시면 확인에 도움이 됩니다.
+
+- 사용한 패치 버전과 에뮬레이터·기기
+- 시나리오 번호, 턴, 해당 인물이나 메뉴
+- 문제가 발생하기까지의 조작 순서
+- 기대한 내용과 실제로 나온 내용, 스크린샷
+- 재현용 게임 내 세이브가 있다면 첨부 가능 여부
+
+원본 게임 이미지·BIOS·개인정보는 이슈에 올리지 마세요.
+이미 등록된 같은 문제가 있는지도 먼저 확인해 주세요.
+
+## 현재 상태와 개발 자료
+
+v0.855에는 13·14화 대사 검수와 15화 사용자 수정, 앞선 하단 이름 및 전투 프리징
+수정이 누적 포함되어 있습니다. 일본판 페이지 넘김 규칙을 유지하며 검수하고 있습니다.
+
+숨은 분기와 일부 조건 문구의 검수, 전 시나리오 플레이 확인은 아직 남아 있습니다.
+기존 누적 도구 검사의 실패 8개·오류 1개를 해결했다는 뜻도 아닙니다.
+정확한 적용·검증 범위와 남은 사항은 아래 문서를 확인해 주세요.
+
+- [v0.855 수정 리포트](docs/RELEASE_v0.855.md)
+- [v0.855 검증 범위와 알려진 한계](docs/VERIFICATION_v0.855.md)
+- [기술 구조](docs/ARCHITECTURE.md) · [빌드·패치 생성 방법](docs/BUILDING.md)
+- [폰트 등 제3자 자료](docs/THIRD_PARTY.md)
+
+공개 저장소에는 직접 작성한 코드·문서·번역 자료의 선별본과 패치가 있습니다.
+원본 추출 자료 등 일부 의존 파일이 제외되어 있어 전체 게임을 소스만으로
+한 번에 빌드하는 환경은 아닙니다.
+
+## 제작 및 권리 안내
+
+**기타 깎는 노인 (GiKakNo)**와 기여자들이 번역·개발·검증을 진행합니다.
+프로젝트가 권리를 보유한 코드·문서·번역 기여분에는 [MIT 라이선스](LICENSE)를 적용합니다.
+원작 게임·캐릭터·그래픽·영상·상표 및 스크린샷 속 원작 자료에는 적용되지 않습니다.
+[라이선스 적용 범위](LICENSE_SCOPE.md)를 확인해 주세요.
+
+비공식 팬 번역 프로젝트입니다. 원본 게임이나 패치 적용이 끝난 게임 이미지를
+재배포하지 마세요.
+
+---
+
+## English
+
+This project translates the game's Japanese text into Korean while retaining
+English labels and numbers. It covers the title screen, dialogue, narration and
+menus, and adds Korean movie subtitles while retaining the original audio.
+The screenshots above were supplied by the maintainer.
+
+**Bugs, untranslated text, wording issues or missing subtitles may remain.**
+Please report them through [GitHub Issues](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/issues),
+including the patch version, emulator/device, scenario, reproduction steps and
+screenshots. Do not upload original game images, BIOS files or personal data.
+
+<details>
+<summary>English project status, installation, technical details and credits</summary>
 
 This repository candidate documents and distributes a Korean translation patch for the Japanese PC-FX release of **Der Langrisser FX**. It contains a source-verified delta patch, a dependency-free patch applier, selected project-authored source code, and technical documentation. It does **not** contain the original game, a fully patched disc image, PC-FX BIOS files, emulator binaries, or extracted game media.
 
@@ -146,7 +290,8 @@ patch/               delta patch, applier, CUE, and installation guide
 src/dialogue_editor/ translation editor source snapshot
 src/patch_pipeline/  current final-stage build/source snapshot
 tests/               patch-container regression tests
-screenshots/v0.851/   unedited before/after defect evidence (not MIT game art)
+screenshots/showcase/ maintainer-provided gameplay introduction photos
+screenshots/v0.851/   historical before/after defect evidence (not MIT game art)
 third_party/         retained third-party license notices
 tools/               maintainer-only delta generator
 release/             local GitHub Release upload candidate (ignored by Git)
@@ -172,32 +317,6 @@ boundary.
 
 This is an unofficial, non-commercial fan translation. You must own and supply the supported original game dump. No warranty is provided. Do not distribute original or fully patched disc images.
 
----
+[Earlier project cover image](https://github.com/user-attachments/assets/f134092a-949d-47f3-b475-7084703d791f)
 
-# 한국어 안내
-
-이 폴더는 일본 PC-FX판 **데어 랑그릿사 FX** 한국어 패치를 GitHub 공개 후보 형태로 정리한 것입니다. 원본 게임, 완성된 BIN/CUE 디스크, BIOS, 에뮬레이터, 원본 영상·음원·그래픽 추출물은 포함하지 않습니다.
-
-현재 공개 버전은 **v0.855**(내부 빌드 293)이며 개발/사전 공개 버전입니다.
-13·14화 대사 검수, 중복된 “네가” 수정, 직접 저장하신 15화 조사 수정을 포함합니다.
-일본판의 페이지 넘김·이름 치환 명령을 유지했습니다. v0.851 대비 변경은
-13·14화 대사 영역과 15화 한 글자에 한정되며 글꼴·전투·메뉴·영상 자막은 그대로입니다.
-이전 엔젤→피닉스 프리징 및 리아나 하단 이름 오염 수정도 누적 포함합니다.
-[수정 리포트](docs/RELEASE_v0.855.md)와 [검증 범위](docs/VERIFICATION_v0.855.md)를 확인하세요.
-모든 시나리오를 직접 플레이한 것은 아닙니다. 숨은 던전 전체 문장 검수, 모든 분기 검증,
-이전 누적 도구 검사 실패 8개·오류 1개의 해결도 완료를 주장하지 않습니다.
-
-v0.855는 **원본 일본판에 새로 적용하는 누적 패치**입니다. 이전 한글판에
-덧씌우지 마세요. SRAM은 백업한 뒤 게임 내 저장을 불러오고, 이전 버전의
-강제 세이브/상태 저장은 사용하지 마세요.
-
-Windows에서는 자동 패처를 실행하여 원본 일본판 CUE와 출력 위치만 선택하면 됩니다. 자동 패처는 세 트랙을 모두 검사한 뒤 별도 폴더에 완성된 한국어판 BIN/CUE 세트를 만들며 원본과 기존 출력은 덮어쓰지 않습니다. 수동 방식에서는 위 표와 정확히 일치하는 원본 일본판 RAW MODE1/2352 Track 2가 필요합니다. `patch/apply_patch.py`는 원본 크기와 SHA-256을 먼저 검사하고, 새 출력 파일만 만든 뒤 결과 전체 SHA-256을 다시 검사합니다.
-
-공개 소스는 편집기 및 이번 수정의 구현을 보여 주는 선별본입니다. 비공개 빌드는 원본 일본판과 고정된 v0.81 누적 패치 명세에서 시작하지만, 원본 추출 표 등 일부 의존 자료가 공개본에 없으므로 완전한 단일 명령 소스 빌드는 아직 아닙니다. 원본 게임 데이터와 세이브는 공개하지 않습니다. [빌드 문서](docs/BUILDING.md)와 [공개 감사 보고서](docs/PUBLICATION_AUDIT.md)를 확인하십시오.
-
-프로젝트에서 직접 작성한 코드·스크립트·문서와 한국어 번역 기여분은
-기여자가 보유한 권리 범위 안에서 MIT 라이선스로 공개합니다. 이 라이선스는
-원작 게임 데이터·상표·제3자 자료에는 적용되지 않습니다. 자세한 범위는
-[LICENSE_SCOPE.md](LICENSE_SCOPE.md)를 확인하십시오. 소유한 정품/합법 덤프에
-개인적으로 패치를 적용하고, 원본 또는 완성된 게임 이미지를 재배포하지
-마십시오.
+</details>
