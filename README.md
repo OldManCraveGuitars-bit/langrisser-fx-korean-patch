@@ -1,3 +1,5 @@
+<img width="1254" height="1254" alt="랑그_new" src="https://github.com/user-attachments/assets/7fda6cf6-1189-4002-b570-152072c60272" />
+
 # 데어 랑그릿사 FX 한국어 패치
 
 **영문·숫자는 그대로, 나머지 게임 텍스트는 한글로.**
