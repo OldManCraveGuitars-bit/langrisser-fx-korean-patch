@@ -39,6 +39,10 @@ MENU_UNIT_STEM = 'r80-v084-menu-unit-graphics-separated-successor286'
 HUD_FONT_STEM = 'r80-v0845-hud-galmuri-ro-successor287'
 ARCHIVE_BOUNDARY_STEM = 'r80-v0845-native-archive-boundaries-successor288'
 HUD_PREFIX_STEM = 'r80-v085-hud-name-prefix-context-successor289'
+WORDING_STEM = 'r80-v0851-confrontation-wording-successor290'
+S13_REVIEW_STEM = 'r80-v0851-scenario13-page-faithful-successor291'
+S14_REVIEW_STEM = 'r80-v0851-scenario14-page-faithful-successor292'
+S15_USER_STEM = 'r80-v0855-scenario15-user-dialogue-successor293'
 RAW_SHA = '033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594'
 COOKED_SHA = '74B5AA9D0083302D6C74C54CE0BC3B5DAB725E17F576D285B56E1CD550D53B17'
 DELTA_SHA = 'AD05ACECDFEA7EC2B3E49D8FD82B74D189E789C7EB645955FA0608C5C2B07511'
@@ -110,6 +114,14 @@ def main():
                         help='Restore both native directory sentinels overwritten by obsolete subtitle data')
     parser.add_argument('--fix-hud-name-prefix', action='store_true',
                         help='Clear native name residue even when it aliases SCENARIO digit tiles')
+    parser.add_argument('--fix-confrontation-wording', action='store_true',
+                        help='Remove the user-reported duplicate nega from one confrontation record')
+    parser.add_argument('--review-scenario13', action='store_true',
+                        help='Apply the complete review draft with exact Japanese page/wait controls')
+    parser.add_argument('--review-scenario14', action='store_true',
+                        help='Apply S14 prose corrections without changing Japanese page/wait controls')
+    parser.add_argument('--scenario15-user-edit', action='store_true',
+                        help='Apply the one exact S15 user edit without moving any record')
     args=parser.parse_args()
     if args.fix_automatic_movies and args.fix_movie_lifecycle:
         parser.error('Choose one movie implementation')
@@ -141,6 +153,14 @@ def main():
         parser.error('Native directory repair requires the current successor287 profile')
     if args.fix_hud_name_prefix and not args.fix_native_archive_boundaries:
         parser.error('HUD prefix repair requires the current successor288 profile')
+    if args.fix_confrontation_wording and not args.fix_hud_name_prefix:
+        parser.error('Wording correction requires the current successor289 profile')
+    if args.review_scenario13 and not args.fix_confrontation_wording:
+        parser.error('Scenario 13 review requires the complete successor290 profile')
+    if args.review_scenario14 and not args.review_scenario13:
+        parser.error('Scenario 14 review requires the complete successor291 profile')
+    if args.scenario15_user_edit and not args.review_scenario14:
+        parser.error('Scenario 15 user edit requires the complete successor292 profile')
     stem=LIFECYCLE_STEM if args.fix_movie_lifecycle else AUTOMATIC_MOVIE_STEM if args.fix_automatic_movies else STEM
     if args.compact_battle_names:
         stem=COMPACT_STEM
@@ -170,6 +190,14 @@ def main():
         stem=ARCHIVE_BOUNDARY_STEM
     if args.fix_hud_name_prefix:
         stem=HUD_PREFIX_STEM
+    if args.fix_confrontation_wording:
+        stem=WORDING_STEM
+    if args.review_scenario13:
+        stem=S13_REVIEW_STEM
+    if args.review_scenario14:
+        stem=S14_REVIEW_STEM
+    if args.scenario15_user_edit:
+        stem=S15_USER_STEM
     args.out=args.out or ROOT/'work'/stem
     need=labels.need
     need(not args.out.exists(), 'Choose a new immutable output directory')
@@ -279,6 +307,29 @@ def main():
         import hud_name_prefix
         pw,prefix_audit=hud_name_prefix.plan(source)
         writes=sorted([*writes,*pw])
+    wording_audit=None
+    scenario13_audit=None
+    if args.review_scenario13:
+        # This entire-pool writer includes and preserves the predecessor's
+        # approved one-row repair. Never overlap two ordinal-pool writers.
+        import scenario_dialogue_review as scenario13
+        sw,scenario13_audit=scenario13.plan(source,args.original_track2)
+        writes=sorted([*writes,*sw])
+        wording_audit={'preserved_by':'scenario13/page-faithful-review'}
+    elif args.fix_confrontation_wording:
+        import dialogue_wording_corrections as wording
+        ww,wording_audit=wording.plan(source,args.original_track2)
+        writes=sorted([*writes,*ww])
+    scenario14_audit=None
+    if args.review_scenario14:
+        import scenario14_dialogue_review as scenario14
+        sw,scenario14_audit=scenario14.plan(source,args.original_track2)
+        writes=sorted([*writes,*sw])
+    scenario15_audit=None
+    if args.scenario15_user_edit:
+        import scenario15_user_dialogue as scenario15
+        sw,scenario15_audit=scenario15.plan(source,args.original_track2)
+        writes=sorted([*writes,*sw])
     for offset,before,after,owner in writes:
         need(len(before)==len(after) and source[offset:offset+len(before)]==before,
              f'Immutable-source expected-write mismatch: {owner}')
@@ -330,6 +381,14 @@ def main():
         archive_audit['final_verification']=native_archives.verify(target)
     if args.fix_hud_name_prefix:
         prefix_audit['final_verification']=hud_name_prefix.verify(source,target)
+    if args.review_scenario13:
+        scenario13_audit['final_verification']=scenario13.verify(source,target,args.original_track2)
+    elif args.fix_confrontation_wording:
+        wording_audit['final_verification']=wording.verify(source,target,args.original_track2)
+    if args.review_scenario14:
+        scenario14_audit['final_verification']=scenario14.verify(source,target,args.original_track2)
+    if args.scenario15_user_edit:
+        scenario15_audit['final_verification']=scenario15.verify(source,target,args.original_track2)
     sectors=sorted({x//2048 for x in expected})
     raw_audit=integrity.raw_tools.dialogue._repair_raw(cooked,baseline_raw,raw,sectors)
     raw_audit.update(verify_raw(baseline_raw,raw,cooked,sectors))
@@ -357,6 +416,10 @@ def main():
         'hud_font_audit':hud_font_audit,
         'native_archive_audit':archive_audit,
         'hud_name_prefix_audit':prefix_audit,
+        'dialogue_wording_correction_audit':wording_audit,
+        'scenario13_page_faithful_review':scenario13_audit,
+        'scenario14_page_faithful_review':scenario14_audit,
+        'scenario15_user_dialogue':scenario15_audit,
         'hidden_x_audit':hidden_x_audit,'hidden_x_font_audit':hidden_x_font_audit,
         'muscle_temple_audit':muscle_audit,'selected_user_dialogue':user_audit,
         'font_12x12_audit':font_audit,

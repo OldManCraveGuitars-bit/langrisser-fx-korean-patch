@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package only the explicitly selected v0.851 player-facing release material."""
+"""Package only the explicitly selected v0.855 player-facing release material."""
 from __future__ import annotations
 
 import hashlib
@@ -8,14 +8,14 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "v0.851"
+VERSION = "v0.855"
 sys.path.insert(0, str(ROOT / "patch"))
 import apply_patch
 import langrisser_fx_auto_patcher as auto
 
 FILES = {
-    "Langrisser-FX-KR-Auto-Patcher-v0.851.exe": "release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.851.exe",
-    "Langrisser-FX-KR-v0.851.lfxpatch": "patch/Langrisser-FX-KR-v0.851.lfxpatch",
+    "Langrisser-FX-KR-Auto-Patcher-v0.855.exe": "release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.855.exe",
+    "Langrisser-FX-KR-v0.855.lfxpatch": "patch/Langrisser-FX-KR-v0.855.lfxpatch",
     "apply_patch.py": "patch/apply_patch.py",
     "langrisser_fx_auto_patcher.py": "patch/langrisser_fx_auto_patcher.py",
     "Langrisser-FX-KR.cue": "patch/Langrisser-FX-KR.cue",
@@ -23,13 +23,11 @@ FILES = {
     "CHANGELOG.md": "CHANGELOG.md",
     "LICENSE": "LICENSE",
     "LICENSE_SCOPE.md": "LICENSE_SCOPE.md",
-    "docs/RELEASE_v0.851.md": "docs/RELEASE_v0.851.md",
-    "docs/VERIFICATION_v0.851.md": "docs/VERIFICATION_v0.851.md",
-    "docs/IMPLEMENTATION_v0.851.md": "docs/IMPLEMENTATION_v0.851.md",
-    "docs/PUBLICATION_v0.851.md": "docs/PUBLICATION_v0.851.md",
+    "docs/RELEASE_v0.855.md": "docs/RELEASE_v0.855.md",
+    "docs/VERIFICATION_v0.855.md": "docs/VERIFICATION_v0.855.md",
+    "docs/IMPLEMENTATION_v0.855.md": "docs/IMPLEMENTATION_v0.855.md",
+    "docs/PUBLICATION_v0.855.md": "docs/PUBLICATION_v0.855.md",
     "docs/BUILDING.md": "docs/BUILDING.md",
-    "screenshots/v0.851/liana-before-v0.85.png": "screenshots/v0.851/liana-before-v0.85.png",
-    "screenshots/v0.851/liana-after-v0.851.png": "screenshots/v0.851/liana-after-v0.851.png",
     "docs/THIRD_PARTY.md": "docs/THIRD_PARTY.md",
     "third_party/unifont/LICENSE.txt": "third_party/unifont/LICENSE.txt",
     "third_party/unifont/OFL-1.1.txt": "third_party/unifont/OFL-1.1.txt",
@@ -52,18 +50,18 @@ def main() -> None:
             or VERSION not in header["description"]):
         raise RuntimeError("Installer and patch release identities disagree")
     payloads = {name: (ROOT / source).read_bytes() for name, source in FILES.items()}
-    if digest(payloads[auto.PATCH_FILENAME]) != "402A4506CB9374B30E82C84BC92B56A4A59E15B86D5A490F1AF8DCC066103919":
+    if digest(payloads[auto.PATCH_FILENAME]) != "647709FAC73C9DDB66E51AAB2D023A7429CF867DB066CBD0C5F756ABB98FBD13":
         raise RuntimeError("Delta differs from the verified release")
-    if digest(payloads["Langrisser-FX-KR-Auto-Patcher-v0.851.exe"]) != "632112448FB8101AD66B737EBF52A9B35B65F538A63F0DD266EE1635E00B973C":
+    if digest(payloads["Langrisser-FX-KR-Auto-Patcher-v0.855.exe"]) != "1F007B210168D6941726A08BC6361E401010C2BC55B2DBE69597E552E90958EA":
         raise RuntimeError("EXE differs from the application-verified release")
     payloads["README.txt"] = (
-        "Langrisser FX Korean Patch v0.851 (development/pre-release)\n\n"
-        "Read INSTALL.txt and docs/RELEASE_v0.851.md before applying.\n"
-        "Run Langrisser-FX-KR-Auto-Patcher-v0.851.exe with the original Japanese CUE.\n"
+        "Langrisser FX Korean Patch v0.855 (development/pre-release)\n\n"
+        "Read INSTALL.txt and docs/RELEASE_v0.855.md before applying.\n"
+        "Run Langrisser-FX-KR-Auto-Patcher-v0.855.exe with the original Japanese CUE.\n"
         "Do not apply to an already Korean-patched BIN. Back up SRAM saves.\n"
         "No original or fully patched game images are included.\n\n"
         "New hidden-dungeon wording review and all-branch playthroughs remain incomplete.\n"
-        "설치 방법: INSTALL.txt / 수정 내역: docs/RELEASE_v0.851.md\n"
+        "설치 방법: INSTALL.txt / 수정 내역: docs/RELEASE_v0.855.md\n"
         "원본 일본판 CUE에 새로 적용하세요. 이전 한글판에 덧씌우지 마세요.\n"
     ).encode("utf-8")
     payloads["SHA256SUMS.txt"] = ("\n".join(

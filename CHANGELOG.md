@@ -2,6 +2,26 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## v0.855
+
+- Applied the maintainer's Scenario 15 dialogue 022 correction: the particle
+  after the protagonist token changes from `가` to `이` (default name 엘윈).
+  Only two cooked bytes change from the reviewed successor292; all record
+  boundaries, the other 143 Scenario 15 records, fonts and dictionaries remain intact.
+- Included the Scenario 13 review of 174 dialogue records and Scenario 14 review
+  of 104 records. Both preserve the Japanese page/wait/name topology: 243 and
+  125 pages respectively. Page-local meaning and Korean phrase breaks were reviewed.
+- Included the previously local correction removing duplicate `네가` in the
+  Bernhardt confrontation reported during Scenario 12 (stable catalog ID in S13).
+- 10,129 cooked bytes change from v0.851, only in S13/S14 dialogue and the selected
+  S15 particle. Gameplay, fonts, UI, conditions, subtitle data and audio are unchanged.
+- Refreshed the cumulative delta, Windows automatic patcher, selected source and
+  bilingual change/verification reports. Previous releases are preserved.
+
+[Correction report](docs/RELEASE_v0.855.md) · [Verification and limits](docs/VERIFICATION_v0.855.md).
+This is a maintainer-authorized prerelease review candidate, not a claim of
+complete human review, all-branch testing or final localization quality.
+
 ## v0.851
 
 - Removed stale native tiles before Liana's 8×8 bottom-HUD commander name.

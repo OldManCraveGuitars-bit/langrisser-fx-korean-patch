@@ -11,7 +11,7 @@ files and existing outputs are never overwritten.
 Python fallback (standard library only):
 
 ```powershell
-python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.851.lfxpatch
+python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.855.lfxpatch
 ```
 
 The applier rejects an unknown source, validates ordered non-overlapping ranges
@@ -30,8 +30,8 @@ tools/build_windows_patcher.ps1
 ```
 
 The script uses an ignored local build environment and pinned PyInstaller
-6.16.0. It embeds the v0.851 delta and outputs
-`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.851.exe`.
+6.16.0. It embeds the v0.855 delta and outputs
+`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.855.exe`.
 The tooling build packages the installer; it does not rebuild the game.
 Python 3.13.15 and contributed hooks 2026.7 were used for this EXE.
 
@@ -51,7 +51,7 @@ acceptance/rejection cases.
 Maintainers must supply the supported original and the exact verified target:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.851.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.855.lfxpatch
 ```
 
 The generator requires NumPy; the applier does not. The output must be new.
@@ -59,8 +59,8 @@ The format records source/target representations, sizes and SHA-256 identities.
 Apply the delta back to the original and compare the whole result with the
 verified target; command success alone is not sufficient.
 
-The v0.851 target hash is
-`18DA706AC4D3B5867004EC9BD45FA00B449C5D9DCBA34CBC6CE3A8D54BE2A23B`.
+The v0.855 target hash is
+`6E6DE32054CE408BF3F91843E0C0D4645955C2E24E7E34A4810523B623204F5D`.
 Both Python and packaged EXE application were verified against it.
 
 ## Package the release
@@ -71,17 +71,17 @@ After verifying the delta and EXE identities recorded in the packaging script:
 python tools/package_public_release.py
 ```
 
-This creates `release/Langrisser_FX_Korean_Patch_v0.851.zip` using an explicit
+This creates `release/Langrisser_FX_Korean_Patch_v0.855.zip` using an explicit
 allowlist, stable ZIP metadata, member checksums and CRC verification. It
 refuses an existing ZIP. Existing releases remain unchanged. No game image,
 save, BIOS, emulator, extracted media or private dumps are allowlisted.
-Two unedited native screenshots are explicitly selected as before/after evidence.
+No new game screenshots are included in this release archive.
 
 ## Full game product build: current boundary
 
 The selected source snapshots are inspectable implementation code, not a
 complete publicly runnable game authoring pipeline. See
-[implementation notes](IMPLEMENTATION_v0.851.md) for the new modules.
+[implementation notes](IMPLEMENTATION_v0.855.md) for the new modules.
 
 The private primary builder `build_gel_gather_display.py` starts with original
 Japanese Track 2 and the fixed public v0.81 delta (SHA-256
@@ -92,7 +92,8 @@ It then derives the composed expected writes for labels, movie lifecycle,
 condition boundaries, Muscle Temple and X2/X3 dialogue, selected Scenario 2/6/7
 user edits, selected Scenario 8/9 edits, complete menu/unit-cache separation,
 load-menu tile ownership, HUD Galmuri normalization, both native archive
-terminal-word repairs, context-aware HUD name-prefix cleanup and font normalization/extension
+terminal-word repairs, context-aware HUD name-prefix cleanup, font normalization/extension,
+the Scenario 13/14 dialogue reviews and the selected Scenario 15 particle correction
 from that immutable baseline. Unknown source bytes, overlap and unexplained
 final differences fail the build.
 
@@ -109,12 +110,12 @@ operation is **original disc + cumulative delta -> exact verified target**.
 
 ## Verification and review
 
-See [v0.851 verification](VERIFICATION_v0.851.md) for artifact identities,
+See [v0.855 verification](VERIFICATION_v0.855.md) for artifact identities,
 application checks, actual consumer routes and limitations. The new hidden
 dialogue retains a needs-human-review state; successful encoding, font and
 runtime checks do not certify every sentence.
 
-Historical reports and v0.8/v0.81/v0.825/v0.84/v0.845/v0.85 patch material are kept as history.
+Historical reports and v0.8/v0.81/v0.825/v0.84/v0.845/v0.85/v0.851 patch material are kept as history.
 Their versioned verification and release documents describe their original targets,
-not v0.851. The separate maintainer publication decision does not rewrite the private
+not v0.855. The separate maintainer publication decision does not rewrite the private
 development inputs' needs-human-review or non-distribution historical markers.

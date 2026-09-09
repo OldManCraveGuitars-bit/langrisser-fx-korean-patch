@@ -6,20 +6,21 @@ This repository candidate documents and distributes a Korean translation patch f
 
 ## Project status
 
-The current public version is **v0.851** (internal successor289). This remains
-a development/pre-release, not a final-completion claim. Since v0.85, it fixes
-stray native tiles before the 8×8 bottom-HUD commander name, reproduced with
-Liana in Scenario 12. The shared cleanup now distinguishes a rendered Korean
-name from SCENARIO digits in all 15 field copies. Only 735 cooked bytes change;
-fonts, name records, other text, gameplay and current subtitles are unchanged.
-Earlier fixes, including the Angel-versus-Phoenix freeze repair, remain included.
-See the [correction report and actual before/after screenshots](docs/RELEASE_v0.851.md)
-and [verification scope](docs/VERIFICATION_v0.851.md).
+The current public version is **v0.855** (internal successor293). This remains
+a development/pre-release, not a final-completion claim. It includes the
+Scenario 13 and 14 dialogue reviews, the duplicate “네가” correction, and the
+maintainer's saved Scenario 15 dialogue correction. Japanese page/wait and
+dynamic-name controls are preserved. Compared with v0.851, 10,129 cooked bytes
+change, confined to the Scenario 13/14 dialogue pools and one two-byte glyph
+in Scenario 15. Fonts, gameplay, menus and current subtitles are unchanged.
+Earlier fixes, including the Angel-versus-Phoenix freeze and HUD name-prefix
+repairs, remain included. See the [change report](docs/RELEASE_v0.855.md)
+and [verification scope](docs/VERIFICATION_v0.855.md).
 Full hidden-dialogue wording review and all-scenario playthroughs remain incomplete.
 The earlier cumulative tool baseline recorded 8 failures and 1 error; their
 resolution is not claimed here.
 
-Download the automatic patcher from [GitHub Releases](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/v0.851).
+Download the automatic patcher from [GitHub Releases](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/v0.855).
 
 The translation editor's current catalogs enumerate these working domains:
 
@@ -60,7 +61,7 @@ You must supply your own legally obtained Japanese game dump. The patch accepts 
 
 ### Windows automatic patcher
 
-Run `Langrisser-FX-KR-Auto-Patcher-v0.851.exe`, select the original Japanese CUE, and
+Run `Langrisser-FX-KR-Auto-Patcher-v0.855.exe`, select the original Japanese CUE, and
 choose an output location. The program verifies all three original track files
 and creates a complete `Langrisser FX Korean Patch` folder containing the new
 Track 2, unchanged copies of Tracks 1 and 3, a ready-to-use CUE, and checksums.
@@ -74,13 +75,13 @@ rebuild the Windows executable with `tools/build_windows_patcher.ps1`.
 Python 3 is required. The applier uses only the Python standard library.
 
 ```powershell
-python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-v0.851.lfxpatch
+python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-v0.855.lfxpatch
 ```
 
 Successful application produces:
 
 - size: 762,048,000 bytes
-- SHA-256: `18DA706AC4D3B5867004EC9BD45FA00B449C5D9DCBA34CBC6CE3A8D54BE2A23B`
+- SHA-256: `6E6DE32054CE408BF3F91843E0C0D4645955C2E24E7E34A4810523B623204F5D`
 
 Copy your unchanged original Track 1 and Track 3 into the same directory as `Track-1.bin` and `Track-3.bin`, then use the supplied [CUE sheet](patch/Langrisser-FX-KR.cue). Do not overwrite your original tracks. Full bilingual instructions are in [INSTALL.txt](patch/INSTALL.txt).
 
@@ -91,9 +92,10 @@ old emulator save states can restore old patched code.
 ## Build and patch generation
 
 The public source is a curated implementation snapshot, now including the
-v0.851 context-aware HUD prefix helper and v0.85 native archive-boundary/HUD
-font modules, alongside earlier selected
-dialogue, complete menu/unit-cache separation, hidden-dialogue and subtitle work.
+Scenario 13/14 review modules and the narrowly scoped Scenario 15 writer,
+alongside the v0.851 context-aware HUD prefix helper, v0.85 native
+archive-boundary/HUD font modules and earlier selected dialogue, complete
+menu/unit-cache separation, hidden-dialogue and subtitle work.
 Its private primary build starts with the immutable Japanese Track 2 and the
 hash-pinned v0.81 cumulative delta specification, reconstructs that baseline
 within the build, then applies a conflict-checked composed write plan. Existing
@@ -104,7 +106,7 @@ snapshots are for inspection, not a complete standalone source build.
 For that reason, this candidate does **not** claim a complete clean-room, one-command product build from the original disc. Source-derived catalogs and private intermediates are deliberately excluded. Maintainers who already possess the exact original and exact verified target can regenerate the distributable delta with:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.851.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.855.lfxpatch
 ```
 
 The generator requires NumPy. See [Building and verification](docs/BUILDING.md) for current limitations and consolidation work still needed.
@@ -115,10 +117,11 @@ Project records identify GNU Unifont 17.0.05 as the byte-pinned source for the c
 
 ## Known issues and limits
 
-- The earlier cumulative tool baseline was not fully green: 8 known failures and 1 known error were recorded. Their resolution is not claimed by v0.851.
+- The earlier cumulative tool baseline was not fully green: 8 known failures and 1 known error were recorded. Their resolution is not claimed by v0.855.
 - The new Muscle Temple and X2/X3 dialogue passes the recorded technical checks, but full human wording review and all hidden branches remain unfinished.
-- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete v0.851 scope.
-- v0.851 was cold-tested on Scenario 12 name/menu/empty-ground transitions and Scenario 10 name/SCENARIO transitions. All 167 name IDs, 333 native/alias execution cases and 201 glyphs per bank were checked separately. See [current verification](docs/VERIFICATION_v0.851.md).
+- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete v0.855 scope.
+- The Scenario 13/14 review covers 174/104 records and preserves their 243/125 native pages. Recorded introductory runtime checks do not cover every branch. See [current verification](docs/VERIFICATION_v0.855.md).
+- v0.851 was cold-tested on Scenario 12 name/menu/empty-ground transitions and Scenario 10 name/SCENARIO transitions. All 167 name IDs, 333 native/alias execution cases and 201 glyphs per bank were checked separately. See [historical verification](docs/VERIFICATION_v0.851.md).
 - The earlier v0.85 target was checked through cold SRAM loads for Scenario 12 Angel-versus-Phoenix combat, the Royal Lancer HUD and Scenario 10 combat/results, plus automatic Opening 2 and OMAKE playback. All 629 intervals in the two repaired directories were checked. This is targeted runtime verification and shared-data coverage, not every battle or stage. See [verification](docs/VERIFICATION_v0.85.md).
 - Earlier X2/X3 and menu/shop/load runtime evidence remains attributed to its original version. Every natural movie trigger was not replayed for v0.85; current movie/subtitle bytes are unchanged.
 - Previously recorded condition-text issues in other internal fields 74–98 were not repaired by this update. Internal field/container counts are not counts of additional playable scenarios.
@@ -175,17 +178,16 @@ This is an unofficial, non-commercial fan translation. You must own and supply t
 
 이 폴더는 일본 PC-FX판 **데어 랑그릿사 FX** 한국어 패치를 GitHub 공개 후보 형태로 정리한 것입니다. 원본 게임, 완성된 BIN/CUE 디스크, BIOS, 에뮬레이터, 원본 영상·음원·그래픽 추출물은 포함하지 않습니다.
 
-현재 공개 버전은 **v0.851**(내부 빌드 289)이며 개발/사전 공개 버전입니다.
-시나리오 12 리아나의 하단 8×8 이름 앞에 남던 글자를 제거했습니다.
-이름과 SCENARIO 숫자를 구분하는 공통 처리를 15개 필드 복사본에 적용했습니다.
-v0.85 대비 735바이트만 변경했고 글꼴·이름 표·대사·전투 수치·영상 자막은 유지했습니다.
-이전 엔젤→피닉스 전투 프리징 수정도 누적 포함합니다.
-[수정 리포트와 실제 수정 전후 스샷](docs/RELEASE_v0.851.md)을 함께 제공합니다.
-시나리오 12·10 실동작과 전체 이름/글꼴 데이터를 검사했지만 모든 시나리오를
-직접 플레이한 것은 아닙니다. 숨은 던전 전체 문장 검수, 모든 분기 검증,
+현재 공개 버전은 **v0.855**(내부 빌드 293)이며 개발/사전 공개 버전입니다.
+13·14화 대사 검수, 중복된 “네가” 수정, 직접 저장하신 15화 조사 수정을 포함합니다.
+일본판의 페이지 넘김·이름 치환 명령을 유지했습니다. v0.851 대비 변경은
+13·14화 대사 영역과 15화 한 글자에 한정되며 글꼴·전투·메뉴·영상 자막은 그대로입니다.
+이전 엔젤→피닉스 프리징 및 리아나 하단 이름 오염 수정도 누적 포함합니다.
+[수정 리포트](docs/RELEASE_v0.855.md)와 [검증 범위](docs/VERIFICATION_v0.855.md)를 확인하세요.
+모든 시나리오를 직접 플레이한 것은 아닙니다. 숨은 던전 전체 문장 검수, 모든 분기 검증,
 이전 누적 도구 검사 실패 8개·오류 1개의 해결도 완료를 주장하지 않습니다.
 
-v0.851은 **원본 일본판에 새로 적용하는 누적 패치**입니다. 이전 한글판에
+v0.855는 **원본 일본판에 새로 적용하는 누적 패치**입니다. 이전 한글판에
 덧씌우지 마세요. SRAM은 백업한 뒤 게임 내 저장을 불러오고, 이전 버전의
 강제 세이브/상태 저장은 사용하지 마세요.
 

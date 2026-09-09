@@ -8,7 +8,7 @@ $Venv = Join-Path $RepoRoot ".build-tools-venv"
 $PatchDir = Join-Path $RepoRoot "patch"
 $DistDir = Join-Path $RepoRoot "release\windows-patcher"
 $WorkDir = Join-Path $RepoRoot ".pyinstaller-work"
-$ExeName = "Langrisser-FX-KR-Auto-Patcher-v0.851"
+$ExeName = "Langrisser-FX-KR-Auto-Patcher-v0.855"
 
 if (Test-Path -LiteralPath (Join-Path $DistDir ($ExeName + '.exe'))) {
     throw "Preserve the existing versioned executable; use a new output version"
@@ -32,7 +32,7 @@ if ($LASTEXITCODE -ne 0) { throw "PyInstaller installation failed" }
     --workpath $WorkDir `
     --specpath $WorkDir `
     --paths $PatchDir `
-    --add-data "$(Join-Path $PatchDir 'Langrisser-FX-KR-v0.851.lfxpatch');." `
+    --add-data "$(Join-Path $PatchDir 'Langrisser-FX-KR-v0.855.lfxpatch');." `
     (Join-Path $PatchDir "langrisser_fx_auto_patcher.py")
 if ($LASTEXITCODE -ne 0) { throw "Automatic patcher build failed" }
 

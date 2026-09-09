@@ -1,0 +1,8 @@
+{
+  "schema": "langrisser-fx-public-user-dialogue-selection/v1",
+  "version": "v0.855",
+  "status": "maintainer_authored_apply_requested",
+  "edits": {
+    "scenario15/dialogue/022": "……알고 있어…….\n{raw:02}이…… 그……\n{name:01}를 좋아한다는 걸."
+  }
+}

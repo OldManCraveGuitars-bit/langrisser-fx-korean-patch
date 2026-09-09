@@ -1,0 +1,7 @@
+{
+  "schema": "langrisser-fx-selected-user-dialogue-snapshot/v1",
+  "status": "user_authored_apply_requested",
+  "source_snapshot": "analysis/publication-v0855/user-edits.snapshot.json",
+  "source_snapshot_sha256": "D501936F17739C44A0DAED51ECEB7F6782CF1F31681A882680E353CBAA4CAFD6",
+  "edit_ids": ["scenario15/dialogue/022"]
+}
