@@ -38,6 +38,7 @@ S9_MORE_USER_STEM = 'r80-v084-scenario9-additional-dialogue-successor285'
 MENU_UNIT_STEM = 'r80-v084-menu-unit-graphics-separated-successor286'
 HUD_FONT_STEM = 'r80-v0845-hud-galmuri-ro-successor287'
 ARCHIVE_BOUNDARY_STEM = 'r80-v0845-native-archive-boundaries-successor288'
+HUD_PREFIX_STEM = 'r80-v085-hud-name-prefix-context-successor289'
 RAW_SHA = '033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594'
 COOKED_SHA = '74B5AA9D0083302D6C74C54CE0BC3B5DAB725E17F576D285B56E1CD550D53B17'
 DELTA_SHA = 'AD05ACECDFEA7EC2B3E49D8FD82B74D189E789C7EB645955FA0608C5C2B07511'
@@ -107,6 +108,8 @@ def main():
                         help='Restore shared HUD 로 to the adopted 8x8 Galmuri7 glyph')
     parser.add_argument('--fix-native-archive-boundaries', action='store_true',
                         help='Restore both native directory sentinels overwritten by obsolete subtitle data')
+    parser.add_argument('--fix-hud-name-prefix', action='store_true',
+                        help='Clear native name residue even when it aliases SCENARIO digit tiles')
     args=parser.parse_args()
     if args.fix_automatic_movies and args.fix_movie_lifecycle:
         parser.error('Choose one movie implementation')
@@ -136,6 +139,8 @@ def main():
         parser.error('HUD font normalization requires the complete successor286 profile')
     if args.fix_native_archive_boundaries and not args.normalize_hud_ro:
         parser.error('Native directory repair requires the current successor287 profile')
+    if args.fix_hud_name_prefix and not args.fix_native_archive_boundaries:
+        parser.error('HUD prefix repair requires the current successor288 profile')
     stem=LIFECYCLE_STEM if args.fix_movie_lifecycle else AUTOMATIC_MOVIE_STEM if args.fix_automatic_movies else STEM
     if args.compact_battle_names:
         stem=COMPACT_STEM
@@ -163,6 +168,8 @@ def main():
         stem=HUD_FONT_STEM
     if args.fix_native_archive_boundaries:
         stem=ARCHIVE_BOUNDARY_STEM
+    if args.fix_hud_name_prefix:
+        stem=HUD_PREFIX_STEM
     args.out=args.out or ROOT/'work'/stem
     need=labels.need
     need(not args.out.exists(), 'Choose a new immutable output directory')
@@ -267,6 +274,11 @@ def main():
         import native_archive_boundaries as native_archives
         aw,archive_audit=native_archives.plan(source,args.original_track2)
         writes=sorted([*writes,*aw])
+    prefix_audit=None
+    if args.fix_hud_name_prefix:
+        import hud_name_prefix
+        pw,prefix_audit=hud_name_prefix.plan(source)
+        writes=sorted([*writes,*pw])
     for offset,before,after,owner in writes:
         need(len(before)==len(after) and source[offset:offset+len(before)]==before,
              f'Immutable-source expected-write mismatch: {owner}')
@@ -316,6 +328,8 @@ def main():
         hud_font_audit['final_verification']=hud_font.verify(source,target)
     if args.fix_native_archive_boundaries:
         archive_audit['final_verification']=native_archives.verify(target)
+    if args.fix_hud_name_prefix:
+        prefix_audit['final_verification']=hud_name_prefix.verify(source,target)
     sectors=sorted({x//2048 for x in expected})
     raw_audit=integrity.raw_tools.dialogue._repair_raw(cooked,baseline_raw,raw,sectors)
     raw_audit.update(verify_raw(baseline_raw,raw,cooked,sectors))
@@ -342,6 +356,7 @@ def main():
         'menu_unit_graphics_audit':menu_unit_audit,
         'hud_font_audit':hud_font_audit,
         'native_archive_audit':archive_audit,
+        'hud_name_prefix_audit':prefix_audit,
         'hidden_x_audit':hidden_x_audit,'hidden_x_font_audit':hidden_x_font_audit,
         'muscle_temple_audit':muscle_audit,'selected_user_dialogue':user_audit,
         'font_12x12_audit':font_audit,

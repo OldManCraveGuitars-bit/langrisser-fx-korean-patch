@@ -2,6 +2,26 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## v0.851
+
+- Removed stale native tiles before Liana's 8×8 bottom-HUD commander name.
+  The shared helper now checks the rendered Korean name context before treating
+  a residual tile as a SCENARIO digit. Applied to all 15 field copies.
+- Retained numeric behavior outside name rows. Fonts, name/class records, tile
+  positions, dialogue, gameplay and subtitle bytes are unchanged; only 735
+  cooked bytes differ from v0.85.
+- Checked all 65,536 prefix descriptors in each context, 167 native name IDs,
+  333 native/alias executions and all 201 glyphs in every bank.
+- Verified cold Scenario 12 name/menu/ground transitions and Scenario 10
+  name/SCENARIO transitions. Five failing frames change only 38 prefix pixels;
+  every other pixel matches the baseline. This is not an all-scenario playtest.
+- Added unedited before/after screenshots, a bilingual correction report,
+  refreshed cumulative delta and Windows automatic patcher. Previous fixes
+  and previous releases are preserved.
+
+한국어 수정 리포트 및 전후 스샷: [v0.851 release notes](docs/RELEASE_v0.851.md).
+Development/pre-release status and existing review limitations remain unchanged.
+
 ## v0.85
 
 - Fixed the Scenario 12 Angel-versus-Phoenix freeze: restored a native resource

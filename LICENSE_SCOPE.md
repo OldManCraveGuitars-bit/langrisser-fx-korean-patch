@@ -24,3 +24,11 @@ game material or replace the user's obligation to obtain the original legally.
 See `third_party/` and [Third-party material](docs/THIRD_PARTY.md) for retained
 notices. This scope statement is an attribution and distribution boundary, not
 legal advice.
+
+## Diagnostic screenshots
+
+The two files under `screenshots/v0.851/` are unedited game captures selected
+by the maintainer as before/after defect evidence. They contain original game
+art and UI and are **not** relicensed under MIT. Their inclusion does not grant
+rights to the underlying game graphics or trademarks. No extracted sprite,
+font sheet, audio/video, game image or save accompanies these captures.
