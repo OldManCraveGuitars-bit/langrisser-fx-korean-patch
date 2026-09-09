@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package only the explicitly selected v0.845 player-facing release material."""
+"""Package only the explicitly selected v0.85 player-facing release material."""
 from __future__ import annotations
 
 import hashlib
@@ -8,14 +8,14 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "v0.845"
+VERSION = "v0.85"
 sys.path.insert(0, str(ROOT / "patch"))
 import apply_patch
 import langrisser_fx_auto_patcher as auto
 
 FILES = {
-    "Langrisser-FX-KR-Auto-Patcher-v0.845.exe": "release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.845.exe",
-    "Langrisser-FX-KR-v0.845.lfxpatch": "patch/Langrisser-FX-KR-v0.845.lfxpatch",
+    "Langrisser-FX-KR-Auto-Patcher-v0.85.exe": "release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.85.exe",
+    "Langrisser-FX-KR-v0.85.lfxpatch": "patch/Langrisser-FX-KR-v0.85.lfxpatch",
     "apply_patch.py": "patch/apply_patch.py",
     "langrisser_fx_auto_patcher.py": "patch/langrisser_fx_auto_patcher.py",
     "Langrisser-FX-KR.cue": "patch/Langrisser-FX-KR.cue",
@@ -23,14 +23,15 @@ FILES = {
     "CHANGELOG.md": "CHANGELOG.md",
     "LICENSE": "LICENSE",
     "LICENSE_SCOPE.md": "LICENSE_SCOPE.md",
-    "docs/RELEASE_v0.845.md": "docs/RELEASE_v0.845.md",
-    "docs/VERIFICATION_v0.845.md": "docs/VERIFICATION_v0.845.md",
-    "docs/IMPLEMENTATION_v0.845.md": "docs/IMPLEMENTATION_v0.845.md",
-    "docs/PUBLICATION_v0.845.md": "docs/PUBLICATION_v0.845.md",
+    "docs/RELEASE_v0.85.md": "docs/RELEASE_v0.85.md",
+    "docs/VERIFICATION_v0.85.md": "docs/VERIFICATION_v0.85.md",
+    "docs/IMPLEMENTATION_v0.85.md": "docs/IMPLEMENTATION_v0.85.md",
+    "docs/PUBLICATION_v0.85.md": "docs/PUBLICATION_v0.85.md",
     "docs/BUILDING.md": "docs/BUILDING.md",
     "docs/THIRD_PARTY.md": "docs/THIRD_PARTY.md",
     "third_party/unifont/LICENSE.txt": "third_party/unifont/LICENSE.txt",
     "third_party/unifont/OFL-1.1.txt": "third_party/unifont/OFL-1.1.txt",
+    "third_party/galmuri/OFL-1.1.md": "third_party/galmuri/OFL-1.1.md",
 }
 
 
@@ -49,18 +50,18 @@ def main() -> None:
             or VERSION not in header["description"]):
         raise RuntimeError("Installer and patch release identities disagree")
     payloads = {name: (ROOT / source).read_bytes() for name, source in FILES.items()}
-    if digest(payloads[auto.PATCH_FILENAME]) != "B1C6E25E5CA0DE9C524F20CA0AEEC3226217340FE30922194067596FA056EC87":
+    if digest(payloads[auto.PATCH_FILENAME]) != "ED4E1B06BC466BAF220DC930D41334626AC1D34BA57EA8E06E242CF775C8C939":
         raise RuntimeError("Delta differs from the verified release")
-    if digest(payloads["Langrisser-FX-KR-Auto-Patcher-v0.845.exe"]) != "66A5D2A1026018267B8146E0FFA883335483559499A54A8E7847B8BD95034725":
+    if digest(payloads["Langrisser-FX-KR-Auto-Patcher-v0.85.exe"]) != "64BC89B6682B0189D6B3B5543E5CE152D3F04EB68185753AF367915DED73ACC1":
         raise RuntimeError("EXE differs from the application-verified release")
     payloads["README.txt"] = (
-        "Langrisser FX Korean Patch v0.845 (development/pre-release)\n\n"
-        "Read INSTALL.txt and docs/RELEASE_v0.845.md before applying.\n"
-        "Run Langrisser-FX-KR-Auto-Patcher-v0.845.exe with the original Japanese CUE.\n"
+        "Langrisser FX Korean Patch v0.85 (development/pre-release)\n\n"
+        "Read INSTALL.txt and docs/RELEASE_v0.85.md before applying.\n"
+        "Run Langrisser-FX-KR-Auto-Patcher-v0.85.exe with the original Japanese CUE.\n"
         "Do not apply to an already Korean-patched BIN. Back up SRAM saves.\n"
         "No original or fully patched game images are included.\n\n"
         "New hidden-dungeon wording review and all-branch playthroughs remain incomplete.\n"
-        "설치 방법: INSTALL.txt / 수정 내역: docs/RELEASE_v0.845.md\n"
+        "설치 방법: INSTALL.txt / 수정 내역: docs/RELEASE_v0.85.md\n"
         "원본 일본판 CUE에 새로 적용하세요. 이전 한글판에 덧씌우지 마세요.\n"
     ).encode("utf-8")
     payloads["SHA256SUMS.txt"] = ("\n".join(

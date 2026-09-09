@@ -2,6 +2,27 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## v0.85
+
+- Fixed the Scenario 12 Angel-versus-Phoenix freeze: restored a native resource
+  directory's terminal word, previously overwritten by an obsolete subtitle
+  allocation. The original six-sector read is restored; battle balance is unchanged.
+- Found and restored one more directory terminal word with the same confirmed
+  data defect. Audited all 629 resource intervals across both directories;
+  no separate gameplay freeze is claimed for that second finding.
+- Restored the shared bottom-HUD `로` glyph to canonical Galmuri7 in all 15 banks.
+  Checked all 201 glyphs per bank. Label spelling, spacing and other glyphs are unchanged.
+- Verified cold Scenario 12 combat and map return, the Royal Lancer HUD, and
+  Scenario 10 combat/results. All 88 sampled result images match v0.845.
+- Rechecked automatic Opening 2 and OMAKE playback: eight matching checkpoints,
+  including Korean subtitles. Only 92 cooked bytes change from v0.845.
+- Refreshed the cumulative delta, automatic Windows patcher, selected sources
+  and a bilingual correction report. Original discs and earlier releases are preserved.
+
+한국어 수정 리포트 및 검증 한계: [v0.85 release notes](docs/RELEASE_v0.85.md).
+This remains a pre-release; full wording review and all-scenario playthroughs
+are not complete.
+
 ## v0.845
 
 - Applied ten selected maintainer-authored dialogue edits in Scenarios 8 and 9,

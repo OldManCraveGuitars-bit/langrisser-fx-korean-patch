@@ -6,18 +6,18 @@ This repository candidate documents and distributes a Korean translation patch f
 
 ## Project status
 
-The current public version is **v0.845**. It is a development/pre-release
-snapshot, not a final-completion claim. Since v0.84, this update includes ten
-maintainer-authored Scenario 8/9 dialogue edits and fixes corrupted enemy graphics
-on the Scenario 10 results screen. Shared Korean menu glyphs are now separated
-from the complete native unit-cache range, with all registered menu/settings
-copies covered. Earlier fixes remain included. Hidden dialogue still requires full
-human wording review. See the [v0.845 release notes](docs/RELEASE_v0.845.md)
+The current public version is **v0.85**. It is a development/pre-release
+snapshot, not a final-completion claim. Since v0.845, this update fixes the
+Scenario 12 Angel-versus-Phoenix battle freeze, repairs a second resource-directory
+boundary damaged by the same historical allocator, and restores the shared
+bottom-HUD syllable `로` to the adopted Galmuri7 shape. Only 92 cooked bytes change
+from v0.845; gameplay balance, dialogue and current subtitle data are unchanged.
+Earlier fixes remain included. Hidden dialogue still requires full human wording review. See the [v0.85 release notes](docs/RELEASE_v0.85.md)
 for the fixes and exact verification scope. The earlier cumulative tool baseline
 reported 131 checks with 8 known failures and 1 known error; this update does not
 claim to resolve those unrelated tooling failures or complete an all-scenario playthrough.
 
-Download the automatic patcher from [GitHub Releases](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/v0.845).
+Download the automatic patcher from [GitHub Releases](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/v0.85).
 
 The translation editor's current catalogs enumerate these working domains:
 
@@ -58,7 +58,7 @@ You must supply your own legally obtained Japanese game dump. The patch accepts 
 
 ### Windows automatic patcher
 
-Run `Langrisser-FX-KR-Auto-Patcher-v0.845.exe`, select the original Japanese CUE, and
+Run `Langrisser-FX-KR-Auto-Patcher-v0.85.exe`, select the original Japanese CUE, and
 choose an output location. The program verifies all three original track files
 and creates a complete `Langrisser FX Korean Patch` folder containing the new
 Track 2, unchanged copies of Tracks 1 and 3, a ready-to-use CUE, and checksums.
@@ -72,13 +72,13 @@ rebuild the Windows executable with `tools/build_windows_patcher.ps1`.
 Python 3 is required. The applier uses only the Python standard library.
 
 ```powershell
-python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-v0.845.lfxpatch
+python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-v0.85.lfxpatch
 ```
 
 Successful application produces:
 
 - size: 762,048,000 bytes
-- SHA-256: `18652F60B9156BFA40DF8A3A638749D05D0A68898D938A86A2C7A2A38D8A927D`
+- SHA-256: `3FF464E484B55064BED49C7451E8DDFAEA24896D3819DA3A3EEFBBD443824B0A`
 
 Copy your unchanged original Track 1 and Track 3 into the same directory as `Track-1.bin` and `Track-3.bin`, then use the supplied [CUE sheet](patch/Langrisser-FX-KR.cue). Do not overwrite your original tracks. Full bilingual instructions are in [INSTALL.txt](patch/INSTALL.txt).
 
@@ -89,8 +89,8 @@ old emulator save states can restore old patched code.
 ## Build and patch generation
 
 The public source is a curated implementation snapshot, now including the
-v0.845 selected Scenario 8/9 dialogue and complete menu/unit-cache separation
-modules, alongside earlier hidden-dialogue, font, display and subtitle work.
+v0.85 native archive-boundary and HUD font modules, alongside earlier selected
+dialogue, complete menu/unit-cache separation, hidden-dialogue and subtitle work.
 Its private primary build starts with the immutable Japanese Track 2 and the
 hash-pinned v0.81 cumulative delta specification, reconstructs that baseline
 within the build, then applies a conflict-checked composed write plan. Existing
@@ -101,22 +101,22 @@ snapshots are for inspection, not a complete standalone source build.
 For that reason, this candidate does **not** claim a complete clean-room, one-command product build from the original disc. Source-derived catalogs and private intermediates are deliberately excluded. Maintainers who already possess the exact original and exact verified target can regenerate the distributable delta with:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.845.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.85.lfxpatch
 ```
 
 The generator requires NumPy. See [Building and verification](docs/BUILDING.md) for current limitations and consolidation work still needed.
 
 ## Fonts and text output
 
-Project records identify GNU Unifont 17.0.05 as the byte-pinned source for the current resident 12×12 Hangul raster. The movie subtitle path uses a separate 12×12 glyph set. Several UI consumers use different physical font resources and mappings, so their code spaces must not be merged. The 8×8 bottom-HUD work references Galmuri7. Font binaries are not bundled in this candidate; only the applicable GNU Unifont license notices are retained. See [Third-party material](docs/THIRD_PARTY.md).
+Project records identify GNU Unifont 17.0.05 as the byte-pinned source for the current resident 12×12 Hangul raster. The movie subtitle path uses a separate 12×12 glyph set. Several UI consumers use different physical font resources and mappings, so their code spaces must not be merged. The 8×8 bottom-HUD work references Galmuri7. Font source files are not bundled; the applicable GNU Unifont and Galmuri license notices are retained. See [Third-party material](docs/THIRD_PARTY.md).
 
 ## Known issues and limits
 
-- The earlier cumulative tool baseline was not fully green: 8 known failures and 1 known error were recorded. Their resolution is not claimed by v0.845.
+- The earlier cumulative tool baseline was not fully green: 8 known failures and 1 known error were recorded. Their resolution is not claimed by v0.85.
 - The new Muscle Temple and X2/X3 dialogue passes the recorded technical checks, but full human wording review and all hidden branches remain unfinished.
-- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete v0.845 scope.
-- The v0.845 target was checked through a cold Scenario 10 SRAM load, native combat, clear events and results, plus settings, condition and load-menu checks. Other-stage coverage is a shared-data boundary audit, not a fresh playthrough of every stage. See [verification](docs/VERIFICATION_v0.845.md).
-- X2/X3 introduction and earlier combat/shop/load evidence remains attributed to v0.84; automatic-opening evidence remains attributed to v0.825. Every natural movie trigger was not replayed for v0.845. The new menu fix does not change movie/subtitle bytes.
+- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete v0.85 scope.
+- The v0.85 target was checked through cold SRAM loads for Scenario 12 Angel-versus-Phoenix combat, the Royal Lancer HUD and Scenario 10 combat/results, plus automatic Opening 2 and OMAKE playback. All 629 intervals in the two repaired directories were checked. This is targeted runtime verification and shared-data coverage, not every battle or stage. See [verification](docs/VERIFICATION_v0.85.md).
+- Earlier X2/X3 and menu/shop/load runtime evidence remains attributed to its original version. Every natural movie trigger was not replayed for v0.85; current movie/subtitle bytes are unchanged.
 - Previously recorded condition-text issues in other internal fields 74–98 were not repaired by this update. Internal field/container counts are not counts of additional playable scenarios.
 - Some editor/build data catalogs contain substantial extracted Japanese text and are withheld pending a rights decision.
 - The public source snapshot cannot reproduce the full patched disc without private/source-derived intermediate data.
@@ -170,17 +170,18 @@ This is an unofficial, non-commercial fan translation. You must own and supply t
 
 이 폴더는 일본 PC-FX판 **데어 랑그릿사 FX** 한국어 패치를 GitHub 공개 후보 형태로 정리한 것입니다. 원본 게임, 완성된 BIN/CUE 디스크, BIOS, 에뮬레이터, 원본 영상·음원·그래픽 추출물은 포함하지 않습니다.
 
-현재 공개 버전은 **v0.845**이며 완성판이 아니라 개발/사전 공개
-버전입니다. v0.84 이후 8·9화 사용자 대사 수정 10개와 시나리오 10 결과창의
-적 그래픽 깨짐 수정을 반영했습니다. 공통 메뉴 글자와 유닛 그래픽의 전체
-공유 범위를 분리하고 모든 등록 메뉴·설정 사본을 검사했습니다.
+현재 공개 버전은 **v0.85**이며 완성판이 아니라 개발/사전 공개
+버전입니다. 시나리오 12 엔젤→피닉스 전투 프리징을 고치고, 같은 원인으로
+손상된 공용 자료 경계 1곳도 복원했습니다. 하단 로열랜서 등에 쓰는
+‘로’ 글꼴을 기존 Galmuri7 규칙에 맞췄습니다. v0.845 대비 실제 게임 데이터
+변경은 92바이트이며 전투 수치·대사·현재 영상 자막 데이터는 유지했습니다.
 이전 수정도 누적 포함합니다. 숨은 던전 번역은 기술 검증을
 통과했지만 전체 문장 검수와 모든 분기 플레이는 아직 완료되지 않았습니다.
-[수정 내역과 검증 범위](docs/RELEASE_v0.845.md)를 확인하세요.
+[수정 내역과 검증 범위](docs/RELEASE_v0.85.md)를 확인하세요.
 이전 누적 도구 검사에서 기록된 실패 8개와 오류 1개의 해결이나 모든 시나리오
 완주 검증을 주장하는 업데이트는 아닙니다.
 
-v0.845는 **원본 일본판에 새로 적용하는 누적 패치**입니다. 이전 한글판에
+v0.85는 **원본 일본판에 새로 적용하는 누적 패치**입니다. 이전 한글판에
 덧씌우지 마세요. SRAM은 백업한 뒤 게임 내 저장을 불러오고, 이전 버전의
 강제 세이브/상태 저장은 사용하지 마세요.
 

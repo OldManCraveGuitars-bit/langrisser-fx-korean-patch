@@ -11,7 +11,7 @@ files and existing outputs are never overwritten.
 Python fallback (standard library only):
 
 ```powershell
-python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.845.lfxpatch
+python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.85.lfxpatch
 ```
 
 The applier rejects an unknown source, validates ordered non-overlapping ranges
@@ -30,8 +30,8 @@ tools/build_windows_patcher.ps1
 ```
 
 The script uses an ignored local build environment and pinned PyInstaller
-6.16.0. It embeds the v0.845 delta and outputs
-`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.845.exe`.
+6.16.0. It embeds the v0.85 delta and outputs
+`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.85.exe`.
 The tooling build packages the installer; it does not rebuild the game.
 Python 3.13.15 and contributed hooks 2026.7 were used for this EXE.
 
@@ -41,16 +41,17 @@ Python 3.13.15 and contributed hooks 2026.7 were used for this EXE.
 python -m unittest discover -s tests -v
 ```
 
-Five synthetic tests need no copyrighted game files. They cover sparse/growing
+Eleven synthetic tests need no copyrighted game files. They cover sparse/growing
 round trips, wrong-source rejection, CUE parsing, complete separate output,
-and preservation of an existing output marker.
+preservation of an existing output marker, and six native-directory boundary
+acceptance/rejection cases.
 
 ## Regenerate the cumulative delta
 
 Maintainers must supply the supported original and the exact verified target:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.845.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.85.lfxpatch
 ```
 
 The generator requires NumPy; the applier does not. The output must be new.
@@ -58,8 +59,8 @@ The format records source/target representations, sizes and SHA-256 identities.
 Apply the delta back to the original and compare the whole result with the
 verified target; command success alone is not sufficient.
 
-The v0.845 target hash is
-`18652F60B9156BFA40DF8A3A638749D05D0A68898D938A86A2C7A2A38D8A927D`.
+The v0.85 target hash is
+`3FF464E484B55064BED49C7451E8DDFAEA24896D3819DA3A3EEFBBD443824B0A`.
 Both Python and packaged EXE application were verified against it.
 
 ## Package the release
@@ -70,7 +71,7 @@ After verifying the delta and EXE identities recorded in the packaging script:
 python tools/package_public_release.py
 ```
 
-This creates `release/Langrisser_FX_Korean_Patch_v0.845.zip` using an explicit
+This creates `release/Langrisser_FX_Korean_Patch_v0.85.zip` using an explicit
 allowlist, stable ZIP metadata, member checksums and CRC verification. It
 refuses an existing ZIP. Existing releases remain unchanged. No game image,
 save, BIOS, emulator, extracted media or private evidence is allowlisted.
@@ -79,7 +80,7 @@ save, BIOS, emulator, extracted media or private evidence is allowlisted.
 
 The selected source snapshots are inspectable implementation code, not a
 complete publicly runnable game authoring pipeline. See
-[implementation notes](IMPLEMENTATION_v0.845.md) for the new modules.
+[implementation notes](IMPLEMENTATION_v0.85.md) for the new modules.
 
 The private primary builder `build_gel_gather_display.py` starts with original
 Japanese Track 2 and the fixed public v0.81 delta (SHA-256
@@ -89,7 +90,8 @@ within that invocation; an old fully patched game output is not a build input.
 It then derives the composed expected writes for labels, movie lifecycle,
 condition boundaries, Muscle Temple and X2/X3 dialogue, selected Scenario 2/6/7
 user edits, selected Scenario 8/9 edits, complete menu/unit-cache separation,
-load-menu tile ownership and font normalization/extension
+load-menu tile ownership, HUD Galmuri normalization, both native archive
+terminal-word repairs and font normalization/extension
 from that immutable baseline. Unknown source bytes, overlap and unexplained
 final differences fail the build.
 
@@ -106,12 +108,12 @@ operation is **original disc + cumulative delta -> exact verified target**.
 
 ## Verification and review
 
-See [v0.845 verification](VERIFICATION_v0.845.md) for artifact identities,
+See [v0.85 verification](VERIFICATION_v0.85.md) for artifact identities,
 application checks, actual consumer routes and limitations. The new hidden
 dialogue retains a needs-human-review state; successful encoding, font and
 runtime checks do not certify every sentence.
 
-Historical reports and v0.8/v0.81/v0.825/v0.84 patch material are kept as history.
+Historical reports and v0.8/v0.81/v0.825/v0.84/v0.845 patch material are kept as history.
 Their versioned verification and release documents describe their original targets,
-not v0.845. The separate maintainer publication decision does not rewrite the private
+not v0.85. The separate maintainer publication decision does not rewrite the private
 development inputs' needs-human-review or non-distribution historical markers.

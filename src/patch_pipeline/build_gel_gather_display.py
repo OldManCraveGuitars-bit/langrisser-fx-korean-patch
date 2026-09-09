@@ -36,6 +36,8 @@ HIDDEN_X_STEM = 'r80-v081-hidden-x2-x3-successor283'
 S89_USER_STEM = 'r80-v084-scenario8-9-user-dialogue-successor284'
 S9_MORE_USER_STEM = 'r80-v084-scenario9-additional-dialogue-successor285'
 MENU_UNIT_STEM = 'r80-v084-menu-unit-graphics-separated-successor286'
+HUD_FONT_STEM = 'r80-v0845-hud-galmuri-ro-successor287'
+ARCHIVE_BOUNDARY_STEM = 'r80-v0845-native-archive-boundaries-successor288'
 RAW_SHA = '033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594'
 COOKED_SHA = '74B5AA9D0083302D6C74C54CE0BC3B5DAB725E17F576D285B56E1CD550D53B17'
 DELTA_SHA = 'AD05ACECDFEA7EC2B3E49D8FD82B74D189E789C7EB645955FA0608C5C2B07511'
@@ -101,6 +103,10 @@ def main():
                         help='Retain the four prior edits and add six exact S9 edits from the next snapshot')
     parser.add_argument('--fix-menu-unit-graphics', action='store_true',
                         help='Keep all menu glyphs outside the complete native unit-cache range')
+    parser.add_argument('--normalize-hud-ro', action='store_true',
+                        help='Restore shared HUD 로 to the adopted 8x8 Galmuri7 glyph')
+    parser.add_argument('--fix-native-archive-boundaries', action='store_true',
+                        help='Restore both native directory sentinels overwritten by obsolete subtitle data')
     args=parser.parse_args()
     if args.fix_automatic_movies and args.fix_movie_lifecycle:
         parser.error('Choose one movie implementation')
@@ -126,6 +132,10 @@ def main():
         parser.error('Additional S9 edits require the complete successor284 profile')
     if args.fix_menu_unit_graphics and not args.scenario9_additional_edits:
         parser.error('Menu/unit separation requires the complete successor285 profile')
+    if args.normalize_hud_ro and not args.fix_menu_unit_graphics:
+        parser.error('HUD font normalization requires the complete successor286 profile')
+    if args.fix_native_archive_boundaries and not args.normalize_hud_ro:
+        parser.error('Native directory repair requires the current successor287 profile')
     stem=LIFECYCLE_STEM if args.fix_movie_lifecycle else AUTOMATIC_MOVIE_STEM if args.fix_automatic_movies else STEM
     if args.compact_battle_names:
         stem=COMPACT_STEM
@@ -149,6 +159,10 @@ def main():
         stem=S9_MORE_USER_STEM
     if args.fix_menu_unit_graphics:
         stem=MENU_UNIT_STEM
+    if args.normalize_hud_ro:
+        stem=HUD_FONT_STEM
+    if args.fix_native_archive_boundaries:
+        stem=ARCHIVE_BOUNDARY_STEM
     args.out=args.out or ROOT/'work'/stem
     need=labels.need
     need(not args.out.exists(), 'Choose a new immutable output directory')
@@ -243,6 +257,16 @@ def main():
         need(len(retired)==10, 'Prior X menu owner population changed')
         # One composed owner per slot, still against the immutable baseline.
         writes=sorted([*[w for w in writes if not w[3].startswith('load-x/menu-owner/')],*mw])
+    hud_font_audit=None
+    if args.normalize_hud_ro:
+        import hud_font_galmuri as hud_font
+        hw,hud_font_audit=hud_font.plan(source)
+        writes=sorted([*writes,*hw])
+    archive_audit=None
+    if args.fix_native_archive_boundaries:
+        import native_archive_boundaries as native_archives
+        aw,archive_audit=native_archives.plan(source,args.original_track2)
+        writes=sorted([*writes,*aw])
     for offset,before,after,owner in writes:
         need(len(before)==len(after) and source[offset:offset+len(before)]==before,
              f'Immutable-source expected-write mismatch: {owner}')
@@ -288,6 +312,10 @@ def main():
         font_audit['final_verification']=typography.verify(target)
     if args.scenario8_9_user_edits:
         scenario89.verify(source,target,user_revision)
+    if args.normalize_hud_ro:
+        hud_font_audit['final_verification']=hud_font.verify(source,target)
+    if args.fix_native_archive_boundaries:
+        archive_audit['final_verification']=native_archives.verify(target)
     sectors=sorted({x//2048 for x in expected})
     raw_audit=integrity.raw_tools.dialogue._repair_raw(cooked,baseline_raw,raw,sectors)
     raw_audit.update(verify_raw(baseline_raw,raw,cooked,sectors))
@@ -312,6 +340,8 @@ def main():
         'scenario8_9_user_dialogue':scenario89_audit,
         'field_load_x_audit':load_x_audit,
         'menu_unit_graphics_audit':menu_unit_audit,
+        'hud_font_audit':hud_font_audit,
+        'native_archive_audit':archive_audit,
         'hidden_x_audit':hidden_x_audit,'hidden_x_font_audit':hidden_x_font_audit,
         'muscle_temple_audit':muscle_audit,'selected_user_dialogue':user_audit,
         'font_12x12_audit':font_audit,
