@@ -43,6 +43,8 @@ WORDING_STEM = 'r80-v0851-confrontation-wording-successor290'
 S13_REVIEW_STEM = 'r80-v0851-scenario13-page-faithful-successor291'
 S14_REVIEW_STEM = 'r80-v0851-scenario14-page-faithful-successor292'
 S15_USER_STEM = 'r80-v0855-scenario15-user-dialogue-successor293'
+S15_MORE_USER_STEM = 'r80-v0855-scenario15-additional-dialogue-successor294'
+S17_REVIEW_STEM = 'r80-v086-scenario17-equipment-message-successor296'
 RAW_SHA = '033D1813DBD570FDABC4B8A0C53FAC7FA8DBEB5EB484F8ED0421B5B5A59EB594'
 COOKED_SHA = '74B5AA9D0083302D6C74C54CE0BC3B5DAB725E17F576D285B56E1CD550D53B17'
 DELTA_SHA = 'AD05ACECDFEA7EC2B3E49D8FD82B74D189E789C7EB645955FA0608C5C2B07511'
@@ -122,6 +124,10 @@ def main():
                         help='Apply S14 prose corrections without changing Japanese page/wait controls')
     parser.add_argument('--scenario15-user-edit', action='store_true',
                         help='Apply the one exact S15 user edit without moving any record')
+    parser.add_argument('--scenario15-additional-edits', action='store_true',
+                        help='Compose the two additional saved S15 layouts with the prior edit')
+    parser.add_argument('--scenario17-review-equipment',action='store_true',
+                        help='Apply reviewed S17 text and actual-recipient equipment message')
     args=parser.parse_args()
     if args.fix_automatic_movies and args.fix_movie_lifecycle:
         parser.error('Choose one movie implementation')
@@ -161,6 +167,10 @@ def main():
         parser.error('Scenario 14 review requires the complete successor291 profile')
     if args.scenario15_user_edit and not args.review_scenario14:
         parser.error('Scenario 15 user edit requires the complete successor292 profile')
+    if args.scenario15_additional_edits and not args.scenario15_user_edit:
+        parser.error('Additional Scenario 15 edits require the complete successor293 profile')
+    if args.scenario17_review_equipment and not args.scenario15_additional_edits:
+        parser.error('S17 review requires the complete successor294 profile')
     stem=LIFECYCLE_STEM if args.fix_movie_lifecycle else AUTOMATIC_MOVIE_STEM if args.fix_automatic_movies else STEM
     if args.compact_battle_names:
         stem=COMPACT_STEM
@@ -198,6 +208,10 @@ def main():
         stem=S14_REVIEW_STEM
     if args.scenario15_user_edit:
         stem=S15_USER_STEM
+    if args.scenario15_additional_edits:
+        stem=S15_MORE_USER_STEM
+    if args.scenario17_review_equipment:
+        stem=S17_REVIEW_STEM
     args.out=args.out or ROOT/'work'/stem
     need=labels.need
     need(not args.out.exists(), 'Choose a new immutable output directory')
@@ -327,9 +341,19 @@ def main():
         writes=sorted([*writes,*sw])
     scenario15_audit=None
     if args.scenario15_user_edit:
-        import scenario15_user_dialogue as scenario15
+        if args.scenario15_additional_edits:
+            import scenario15_additional_dialogue as scenario15
+        else:
+            import scenario15_user_dialogue as scenario15
         sw,scenario15_audit=scenario15.plan(source,args.original_track2)
         writes=sorted([*writes,*sw])
+    scenario17_audit=equipment_audit=None
+    if args.scenario17_review_equipment:
+        import scenario17_dialogue_review as scenario17
+        import event_equipment_message as equipment
+        sw,scenario17_audit=scenario17.plan(source,args.original_track2)
+        ew,equipment_audit=equipment.plan(source,args.original_track2)
+        writes=sorted([*writes,*sw,*ew])
     for offset,before,after,owner in writes:
         need(len(before)==len(after) and source[offset:offset+len(before)]==before,
              f'Immutable-source expected-write mismatch: {owner}')
@@ -389,6 +413,9 @@ def main():
         scenario14_audit['final_verification']=scenario14.verify(source,target,args.original_track2)
     if args.scenario15_user_edit:
         scenario15_audit['final_verification']=scenario15.verify(source,target,args.original_track2)
+    if args.scenario17_review_equipment:
+        scenario17_audit['final_verification']=scenario17.verify(source,target,args.original_track2)
+        equipment_audit['final_verification']=equipment.verify(source,target,args.original_track2)
     sectors=sorted({x//2048 for x in expected})
     raw_audit=integrity.raw_tools.dialogue._repair_raw(cooked,baseline_raw,raw,sectors)
     raw_audit.update(verify_raw(baseline_raw,raw,cooked,sectors))
@@ -420,6 +447,7 @@ def main():
         'scenario13_page_faithful_review':scenario13_audit,
         'scenario14_page_faithful_review':scenario14_audit,
         'scenario15_user_dialogue':scenario15_audit,
+        'scenario17_review':scenario17_audit,'event_equipment_message':equipment_audit,
         'hidden_x_audit':hidden_x_audit,'hidden_x_font_audit':hidden_x_font_audit,
         'muscle_temple_audit':muscle_audit,'selected_user_dialogue':user_audit,
         'font_12x12_audit':font_audit,

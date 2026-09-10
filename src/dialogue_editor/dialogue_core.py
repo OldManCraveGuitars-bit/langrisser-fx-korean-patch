@@ -811,7 +811,16 @@ def load_records(
                  f"{row.id}: 사용자 교정 전 문장이 변경되었습니다.")
             row = replace(row, base_text=change["after"], disc_text=installed_text(row))
         corrected.append(row)
-    return corrected
+    # Separate source-bound reviews own S13/S14 wording and explicit page-local
+    # layout. Do not feed it back through the historical cross-page reflow.
+    import scenario_dialogue_review
+    import scenario14_dialogue_review
+    import scenario15_user_dialogue
+    import scenario15_additional_dialogue
+    import scenario17_dialogue_review
+    return scenario17_dialogue_review.apply_to_editor(scenario15_additional_dialogue.apply_to_editor(scenario15_user_dialogue.apply_to_editor(
+        scenario14_dialogue_review.apply_to_editor(
+            scenario_dialogue_review.apply_to_editor(corrected)))))
 
 
 @lru_cache(maxsize=1)

@@ -2,6 +2,22 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## v0.86
+
+- 17화 전체 129개 레코드를 일본판과 대조하여 28곳의 문구·줄 배치를 수정.
+  일본판 페이지·대기·이름 제어를 유지하고, 로우가가 자기 이름을 말하던 오류 수정.
+- 로우가 처치 후 잘못된 장비 안내를 실제 수령자 + 이/가 + 홀리 로드 표시로 수정.
+  끝 여백은 안내문에서만 제거하며 공용 이름표·글꼴과 장비 이전 규칙은 보존.
+- 사용자가 저장한 15화 116번·131번 추가 수정 적용. 이전 22번 수정도 유지.
+- Updated the cumulative delta, matching Windows installer, selected sources,
+  Korean/English reports and actual before/after screenshots. Earlier releases are preserved.
+- Checked 2,765 formatter cases, 3,360 native effect cases and final whole-image
+  byte ownership. These finite checks are not an all-character gameplay claim.
+
+[수정 내용과 스크린샷 / Report](docs/RELEASE_v0.86.md) ·
+[검증 범위 / Verification](docs/VERIFICATION_v0.86.md).
+Development prerelease; remaining wording/branch/platform limitations are retained.
+
 ## v0.855
 
 - Applied the maintainer's Scenario 15 dialogue 022 correction: the particle

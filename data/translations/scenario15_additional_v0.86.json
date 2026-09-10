@@ -1,0 +1,10 @@
+{
+  "schema": "langrisser-fx-public-selected-dialogue/v1",
+  "version": "v0.86",
+  "status": "maintainer_authored_apply_requested",
+  "scope": "S15/116 and S15/131 only; public wording snapshot, not the full private authoring input",
+  "dialogue_edits": {
+    "scenario15/dialogue/116": "‥‥‥. 내가 광휘의\n후예였기 때문에 드렌을\n죽게 만들고 말았어‥‥. ‥‥{page}드렌은 나를 대신해 죽은\n것이나 다름없어‥‥.{page}앞으로도 나와 관계된 많은\n사람들이 죽어갈지도 몰라.{page}그리고 나는 그들을 지켜주는\n것조차 할 수 없는 걸까‥‥",
+    "scenario15/dialogue/131": "알하자드 부활을 방해하게 \n두지 않는다.{page}우리는 어둠의 세계를 만들기\n위해 {name:15} 님과 그리고\n{name:0f} 님을 지켜드린다!"
+  }
+}
