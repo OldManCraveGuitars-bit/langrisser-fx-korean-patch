@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package only the explicitly selected v0.86 player-facing release material."""
+"""Package only the explicitly selected v0.865 player-facing release material."""
 from __future__ import annotations
 
 import hashlib
@@ -8,14 +8,14 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "v0.86"
+VERSION = "v0.865"
 sys.path.insert(0, str(ROOT / "patch"))
 import apply_patch
 import langrisser_fx_auto_patcher as auto
 
 FILES = {
-    "Langrisser-FX-KR-Auto-Patcher-v0.86.exe": "release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.86.exe",
-    "Langrisser-FX-KR-v0.86.lfxpatch": "patch/Langrisser-FX-KR-v0.86.lfxpatch",
+    "Langrisser-FX-KR-Auto-Patcher-v0.865.exe": "release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.865.exe",
+    "Langrisser-FX-KR-v0.865.lfxpatch": "patch/Langrisser-FX-KR-v0.865.lfxpatch",
     "apply_patch.py": "patch/apply_patch.py",
     "langrisser_fx_auto_patcher.py": "patch/langrisser_fx_auto_patcher.py",
     "Langrisser-FX-KR.cue": "patch/Langrisser-FX-KR.cue",
@@ -23,19 +23,25 @@ FILES = {
     "CHANGELOG.md": "CHANGELOG.md",
     "LICENSE": "LICENSE",
     "LICENSE_SCOPE.md": "LICENSE_SCOPE.md",
-    "docs/RELEASE_v0.86.md": "docs/RELEASE_v0.86.md",
-    "docs/VERIFICATION_v0.86.md": "docs/VERIFICATION_v0.86.md",
-    "docs/IMPLEMENTATION_v0.86.md": "docs/IMPLEMENTATION_v0.86.md",
-    "docs/PUBLICATION_v0.86.md": "docs/PUBLICATION_v0.86.md",
-    "screenshots/v0.86/README.md": "screenshots/v0.86/README.md",
-    "screenshots/v0.86/before-rouga.png": "screenshots/v0.86/before-rouga.png",
-    "screenshots/v0.86/before-equipment.png": "screenshots/v0.86/before-equipment.png",
-    "screenshots/v0.86/japanese-rouga.png": "screenshots/v0.86/japanese-rouga.png",
-    "screenshots/v0.86/after-rouga.png": "screenshots/v0.86/after-rouga.png",
-    "screenshots/v0.86/after-elwin.png": "screenshots/v0.86/after-elwin.png",
-    "screenshots/v0.86/after-sherry.png": "screenshots/v0.86/after-sherry.png",
-    "screenshots/v0.86/after-elwin-map.png": "screenshots/v0.86/after-elwin-map.png",
-    "screenshots/v0.86/after-sherry-map.png": "screenshots/v0.86/after-sherry-map.png",
+    "docs/RELEASE_v0.865.md": "docs/RELEASE_v0.865.md",
+    "docs/VERIFICATION_v0.865.md": "docs/VERIFICATION_v0.865.md",
+    "docs/IMPLEMENTATION_v0.865.md": "docs/IMPLEMENTATION_v0.865.md",
+    "docs/PUBLICATION_v0.865.md": "docs/PUBLICATION_v0.865.md",
+    "screenshots/v0.865/README.md": "screenshots/v0.865/README.md",
+    "screenshots/v0.865/before-death.png": "screenshots/v0.865/before-death.png",
+    "screenshots/v0.865/after-death.png": "screenshots/v0.865/after-death.png",
+    "screenshots/v0.865/japanese-death.png": "screenshots/v0.865/japanese-death.png",
+    "screenshots/v0.865/before-sonia.png": "screenshots/v0.865/before-sonia.png",
+    "screenshots/v0.865/after-sonia.png": "screenshots/v0.865/after-sonia.png",
+    "screenshots/v0.865/before-vampire.png": "screenshots/v0.865/before-vampire.png",
+    "screenshots/v0.865/after-vampire-p1.png": "screenshots/v0.865/after-vampire-p1.png",
+    "screenshots/v0.865/after-vampire-p4.png": "screenshots/v0.865/after-vampire-p4.png",
+    "screenshots/v0.865/after-vampire-p5.png": "screenshots/v0.865/after-vampire-p5.png",
+    "screenshots/v0.865/after-succubus.png": "screenshots/v0.865/after-succubus.png",
+    "screenshots/v0.865/after-est.png": "screenshots/v0.865/after-est.png",
+    "screenshots/v0.865/after-ost.png": "screenshots/v0.865/after-ost.png",
+    "screenshots/v0.865/conditions.png": "screenshots/v0.865/conditions.png",
+    "screenshots/v0.865/map-return.png": "screenshots/v0.865/map-return.png",
     "docs/BUILDING.md": "docs/BUILDING.md",
     "docs/THIRD_PARTY.md": "docs/THIRD_PARTY.md",
     "third_party/unifont/LICENSE.txt": "third_party/unifont/LICENSE.txt",
@@ -59,18 +65,18 @@ def main() -> None:
             or VERSION not in header["description"]):
         raise RuntimeError("Installer and patch release identities disagree")
     payloads = {name: (ROOT / source).read_bytes() for name, source in FILES.items()}
-    if digest(payloads[auto.PATCH_FILENAME]) != "B2403E8E18AB73920963B4A6E43D89E844CD00719D72B63BB043B832E32BAD05":
+    if digest(payloads[auto.PATCH_FILENAME]) != "EB6D3449219EC764EDBE36962C8E35304F221F35C4B8A4663B0AB99578CCB3F5":
         raise RuntimeError("Delta differs from the verified release")
-    if digest(payloads["Langrisser-FX-KR-Auto-Patcher-v0.86.exe"]) != "EB2942B57AB66A81AA11E365A26ECEC3878FA30C5CAEDA1FB83640697A126F96":
+    if digest(payloads["Langrisser-FX-KR-Auto-Patcher-v0.865.exe"]) != "0214870EF4219B25834F5BAF52BF608D6CF456B940425D73463E78ACF336F910":
         raise RuntimeError("EXE differs from the application-verified release")
     payloads["README.txt"] = (
-        "Langrisser FX Korean Patch v0.86 (development/pre-release)\n\n"
-        "Read INSTALL.txt and docs/RELEASE_v0.86.md before applying.\n"
-        "Run Langrisser-FX-KR-Auto-Patcher-v0.86.exe with the original Japanese CUE.\n"
+        "Langrisser FX Korean Patch v0.865 (development/pre-release)\n\n"
+        "Read INSTALL.txt and docs/RELEASE_v0.865.md before applying.\n"
+        "Run Langrisser-FX-KR-Auto-Patcher-v0.865.exe with the original Japanese CUE.\n"
         "Do not apply to an already Korean-patched BIN. Back up SRAM saves.\n"
         "No original or fully patched game images are included.\n\n"
         "New hidden-dungeon wording review and all-branch playthroughs remain incomplete.\n"
-        "설치 방법: INSTALL.txt / 수정 내역: docs/RELEASE_v0.86.md\n"
+        "설치 방법: INSTALL.txt / 수정 내역: docs/RELEASE_v0.865.md\n"
         "원본 일본판 CUE에 새로 적용하세요. 이전 한글판에 덧씌우지 마세요.\n"
     ).encode("utf-8")
     payloads["SHA256SUMS.txt"] = ("\n".join(

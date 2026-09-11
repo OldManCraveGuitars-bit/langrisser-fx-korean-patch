@@ -684,6 +684,11 @@ def load_records(
             (ROOT / "analysis").glob(f"translations_scenario{scenario:02d}_*.json"),
             f"scenario{scenario:02d}/dialogue/",
         )
+        if scenario == 18:
+            # Latin cries, name-only calls and punctuation still consume
+            # native ordinals. Omitting them split one pool into padded runs.
+            import scenario18_dialogue_repair
+            translations.update(scenario18_dialogue_repair.selected_texts())
         rows = source.get("dialogue", [])
         for row in rows:
             record_id = row["id"]
@@ -818,9 +823,10 @@ def load_records(
     import scenario15_user_dialogue
     import scenario15_additional_dialogue
     import scenario17_dialogue_review
-    return scenario17_dialogue_review.apply_to_editor(scenario15_additional_dialogue.apply_to_editor(scenario15_user_dialogue.apply_to_editor(
+    import scenario18_dialogue_repair
+    return scenario18_dialogue_repair.apply_to_editor(scenario17_dialogue_review.apply_to_editor(scenario15_additional_dialogue.apply_to_editor(scenario15_user_dialogue.apply_to_editor(
         scenario14_dialogue_review.apply_to_editor(
-            scenario_dialogue_review.apply_to_editor(corrected)))))
+            scenario_dialogue_review.apply_to_editor(corrected))))))
 
 
 @lru_cache(maxsize=1)
@@ -940,6 +946,11 @@ def all_dialogue_private_mapping() -> dict[str, bytes]:
         code = int(row["code"], 0).to_bytes(2, "big")
         need(character not in result, f"전체 대사 확장 문자가 이미 소유됨: {character}")
         need(code not in result.values(), f"전체 대사 확장 코드가 이미 소유됨: {code.hex()}")
+        result[character] = code
+    extra = load_json(ROOT / 'dialogue_editor/scenario18_repair.json')['font_additions']
+    for character, value in extra.items():
+        code = bytes.fromhex(value)
+        need(character not in result and code not in result.values(), 'S18 appended glyph collision')
         result[character] = code
     need_unique_mapping(result, "전체 대사 확장 문자표")
     return result

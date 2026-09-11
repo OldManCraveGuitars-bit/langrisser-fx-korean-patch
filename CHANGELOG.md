@@ -2,6 +2,22 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## v0.865
+
+- 18화 적 사망·턴 이벤트에서 본문이 비던 24개 대사 항목의 참조 순서를 복구.
+  내용 96개와 원본의 빈 끝 항목 2개, 영문 괴성·이름·말줄임표를 모두 보존.
+- 말줄임표 오염과 감탄사 “홍/흥”을 수정하고 두 항목의 의미상 페이지 구분을
+  일본판에 맞춤. 원본 페이지 수·대기·이름 제어는 유지.
+- “흥” 12×12 한 칸을 예약된 끝 공간에 추가. 기존 글자나 다른 시나리오 데이터를
+  덮어쓰지 않으며 전체 이미지 차이는 선언된 1,362바이트로 한정.
+- Original/full-target checks, both installers, whole S18 record coverage and
+  targeted cold-load runtime screenshots are documented separately from unplayed branches.
+- Cumulative update; v0.86 and all earlier fixes remain included.
+
+[수정 내용과 스크린샷 / Report](docs/RELEASE_v0.865.md) ·
+[검증 범위 / Verification](docs/VERIFICATION_v0.865.md).
+Development prerelease; remaining wording/branch/platform limitations are retained.
+
 ## v0.86
 
 - 17화 전체 129개 레코드를 일본판과 대조하여 28곳의 문구·줄 배치를 수정.
