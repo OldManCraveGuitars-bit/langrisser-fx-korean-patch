@@ -2,6 +2,25 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## V0.96
+
+- successor302-review5 누적 공개. 초 랑그 메뉴를 일반 모드와 맞추고 콜드 저장
+  로드의 메뉴 자원 누락, 7장 실제 승패 조건 22개, 105개 공용 문구 사본을 정리.
+- 초 랑그 대사 977개·나레이션/조건 화면 95개 검수, 제목 7개 중앙 정렬,
+  발드 글자 깨짐·인사말 빈칸·저장 질문·어색한 호칭/문맥 수정.
+- 20화 이후 54개 풀 6,939항목을 원문 대조하고 빈 본문 148개 및 문맥을 교정.
+  전투의 긴 오른쪽 병종명을 왼쪽에 표시하던 오류 수정.
+- 후일담 134개/229페이지 검수와 스코트 숫자 뒤 글자·대기 오류 수정.
+  엔딩 크레딧 한글화, 9개 이름/항목 줄 넘침 수정, 실제 총 턴수와 한글화 표기.
+- 아이템 포화 안내·버리기 문구 한글화 및 누락 사본 복구.
+- 최종 빌드에서 상점·일반 20장 메뉴 회귀와 로우가/소니아 188번 실제 화자,
+  사망 대사·8턴 지도 복귀 확인. 원문 페이지 넘김과 기존 세이브는 보존.
+- Intermittent ending blackscreen remains unresolved and explicitly excluded;
+  no all-branch, complete human-review or physical/iOS certification is claimed.
+
+[수정 전후 29장과 내용](docs/RELEASE_V0.96.md) · [검증과 한계](docs/VERIFICATION_V0.96.md).
+기존 v0.865 및 그 이전 공개 파일·태그는 보존합니다.
+
 ## v0.865
 
 - 18화 적 사망·턴 이벤트에서 본문이 비던 24개 대사 항목의 참조 순서를 복구.

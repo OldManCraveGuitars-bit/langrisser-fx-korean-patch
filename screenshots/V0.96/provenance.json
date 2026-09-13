@@ -1,0 +1,181 @@
+{
+  "version": "V0.96",
+  "screenshots": [
+    {
+      "file": "s20-before-names.png",
+      "baseline": "297",
+      "sha256": "5E75A248E32051140140147E0835C0AB37268007C96D700B5C6B8D72583F6033",
+      "unedited": true
+    },
+    {
+      "file": "s20-after-names.png",
+      "baseline": "298",
+      "sha256": "24310FB6CC71780314D9BE823FA7BA6A04435FCF0E89EEBA003C3E31C72E8DCF",
+      "unedited": true
+    },
+    {
+      "file": "s20-before-death.png",
+      "baseline": "297",
+      "sha256": "801ECB443ED920AD4D1298440526C7EF21F340E100CEC96AF34705E7E903D30C",
+      "unedited": true
+    },
+    {
+      "file": "s20-after-death.png",
+      "baseline": "298",
+      "sha256": "554F57044D1EBFA8F7021ACFA1F0FC39693C94F93DBE26C30B787D898ACBCE23",
+      "unedited": true
+    },
+    {
+      "file": "credits-before-wrap.png",
+      "baseline": "299 rejected",
+      "sha256": "69240C0F544F6BBC986536C95FB0DFFAA6F0DC49F51B42647AF1814FCD1FC0EB",
+      "unedited": true
+    },
+    {
+      "file": "credits-after-wrap.png",
+      "baseline": "300",
+      "sha256": "5F3A5C139894ED93014BAF61102CF480A143FC1CD6F43D143E1F2E54DA122B08",
+      "unedited": true
+    },
+    {
+      "file": "credits-before-footer.png",
+      "baseline": "298",
+      "sha256": "787089CDE4A3F7035E6ADADE0E8825524CEAD3F2DC6F7D08D111A657BD85B5E3",
+      "unedited": true
+    },
+    {
+      "file": "credits-after-footer.png",
+      "baseline": "300",
+      "sha256": "414DFADFDA543AFC48B61F7E5EB2D7DB4AF63A27082C02151FDBA6D07634B1DE",
+      "unedited": true
+    },
+    {
+      "file": "scott-after.png",
+      "baseline": "300",
+      "sha256": "A947780D4367EA1CFEAE736AA638E75675BB3F7C703EADF38C8EB354E87C1F4B",
+      "unedited": true
+    },
+    {
+      "file": "inventory-before.png",
+      "baseline": "298",
+      "sha256": "74E8758E91879E252FC12A81E9B0A4C65CDB98577E29914E3DD0114AC63C981D",
+      "unedited": true
+    },
+    {
+      "file": "inventory-after.png",
+      "baseline": "300",
+      "sha256": "88E263D9A4EF3E7FF118BEE737812DEC024E08085FB97F45F02CC2812FC9F1E6",
+      "unedited": true
+    },
+    {
+      "file": "super-vald-after.png",
+      "baseline": "301-review1",
+      "sha256": "57084C39A871EA5613DE77DC6DD7F60BC1FF092CA6A34C3CEA341AD186AAEF39",
+      "unedited": true
+    },
+    {
+      "file": "super-intro-after.png",
+      "baseline": "301-review1",
+      "sha256": "F58BACE2A80A4A24DE8A11820C625896CBD78574514CA65B8C420FC2F19E9C20",
+      "unedited": true
+    },
+    {
+      "file": "super-title-after.png",
+      "baseline": "302-review5 native-selector checkpoint",
+      "sha256": "333E8F1C66A303990230D6E167AA85F576926DADC486516AEAEA37C14991D629",
+      "unedited": true
+    },
+    {
+      "file": "menu-before.png",
+      "baseline": "302 first candidate",
+      "sha256": "9B72EF6C4AD1CE08A7C3AAB16DCD18D64D75D6ACB7153ACF9C11CF771221361E",
+      "unedited": true
+    },
+    {
+      "file": "menu-after.png",
+      "baseline": "302-review5",
+      "sha256": "F1D4E00DFAFD6E3245A9EEF34A39B4B15C35B81C40CA44F91B0C4913E1B30401",
+      "unedited": true
+    },
+    {
+      "file": "conditions-before.png",
+      "baseline": "302-review4",
+      "sha256": "A8112703D85A044DF8891F524753D8A67B751D5F0A48D086AA7D883EB2C0EAD7",
+      "unedited": true
+    },
+    {
+      "file": "conditions-after.png",
+      "baseline": "302-review5",
+      "sha256": "FBECCEB69BB4D725C58B6E55232DECE8ADED7936177B354E6BB7368EE2D0C567",
+      "unedited": true
+    },
+    {
+      "file": "capacity-before.png",
+      "baseline": "301",
+      "sha256": "67D2F6BBC2F1A6F6B070DB68D8124BB1FE5E3AC1B9788FF11C476EEC821EB8F9",
+      "unedited": true
+    },
+    {
+      "file": "capacity-after.png",
+      "baseline": "302-review5",
+      "sha256": "65C6EB116FE7228D7B8743773BC538A46EFFE479563BC49AAB1C7A86A7731477",
+      "unedited": true
+    },
+    {
+      "file": "purchase-before.png",
+      "baseline": "301",
+      "sha256": "43524F5607ADF6BDFD3090F587F1353EC8D385CCBEB8AD22AD2D64EBB79AFA31",
+      "unedited": true
+    },
+    {
+      "file": "purchase-after.png",
+      "baseline": "302-review5 same-build checkpoint",
+      "sha256": "A002F536C2892A34C7BA12E13B8B95558CCB526464FA8DEE7975766939AC61A9",
+      "unedited": true
+    },
+    {
+      "file": "normal-settings.png",
+      "baseline": "302-review5",
+      "sha256": "41B72FAF245A84A105D487605B6FF121B2AB6E23DA6EB6870264447882AAB4F7",
+      "unedited": true
+    },
+    {
+      "file": "battle-188-p1.png",
+      "baseline": "302-review5",
+      "sha256": "5D80210A8420BEC5E4EB35F9ED8FBF91AE21B95EDDF8D0C11CD3511AC193C124",
+      "unedited": true
+    },
+    {
+      "file": "battle-188-p2.png",
+      "baseline": "302-review5",
+      "sha256": "2AED9FAB2CE2E138F9BC62C181C12A2E80FDF987A3A6EAB85D63F98CD86027FB",
+      "unedited": true
+    },
+    {
+      "file": "battle-189-reply.png",
+      "baseline": "302-review5",
+      "sha256": "7B79FA0C624F173699667FB09613DEB475560DA7F45D2596D4232C2E901EEC8E",
+      "unedited": true
+    },
+    {
+      "file": "lich-death.png",
+      "baseline": "302-review5",
+      "sha256": "8BB62BFE77EEAD7DE3B9AF5E883AA3F18523A9A86FE48B90DC35D0570D09DCFD",
+      "unedited": true
+    },
+    {
+      "file": "rohga-death.png",
+      "baseline": "302-review5",
+      "sha256": "00BCBD625696ADD33007A949F92E42EFD772C4C621E344DBA12D9D736BBF091A",
+      "unedited": true
+    },
+    {
+      "file": "turn8.png",
+      "baseline": "302-review5",
+      "sha256": "7B78FE914A471742B577F71984F85E292AECDF359022B97A9147D9ADF4AEA553",
+      "unedited": true
+    }
+  ],
+  "note": "Actual emulator captures. Older-build comparisons are explicitly labeled; not all pictures are final-build runtime evidence. No image synthesis, retouching or re-encoding.",
+  "rights": "Original game imagery remains with its respective rightsholders; not licensed under the project MIT license."
+}

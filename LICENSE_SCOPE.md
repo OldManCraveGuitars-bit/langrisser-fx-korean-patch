@@ -35,6 +35,12 @@ font sheet, audio/video, game image or save accompanies these captures.
 
 ## Project showcase screenshots
 
+The 29 additional captures under `screenshots/V0.96/` document the cumulative
+late-dialogue, ending and Super Langrisser update. Their exact baseline and
+unedited file hashes are in that directory's provenance record. The same
+original-game/MIT exclusion applies; these are limited diagnostic and change-report
+illustrations, not a license to the underlying game assets.
+
 The 13 JPEG files under `screenshots/showcase/` were supplied and explicitly
 selected by the maintainer for the project introduction. They are unedited
 gameplay photos illustrating the Korean title, text, menus and movie subtitles.

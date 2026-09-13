@@ -1,104 +1,88 @@
 #!/usr/bin/env python3
-"""Package only the explicitly selected v0.865 player-facing release material."""
+"""Package only the explicitly verified V0.96 player-facing release."""
 from __future__ import annotations
-
-import hashlib
+import hashlib,json,sys,zipfile
 from pathlib import Path
-import sys
-import zipfile
 
-ROOT = Path(__file__).resolve().parents[1]
-VERSION = "v0.865"
-sys.path.insert(0, str(ROOT / "patch"))
+ROOT=Path(__file__).resolve().parents[1]
+VERSION="V0.96"
+sys.path.insert(0,str(ROOT/"patch"))
 import apply_patch
 import langrisser_fx_auto_patcher as auto
-
-FILES = {
-    "Langrisser-FX-KR-Auto-Patcher-v0.865.exe": "release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.865.exe",
-    "Langrisser-FX-KR-v0.865.lfxpatch": "patch/Langrisser-FX-KR-v0.865.lfxpatch",
-    "apply_patch.py": "patch/apply_patch.py",
-    "langrisser_fx_auto_patcher.py": "patch/langrisser_fx_auto_patcher.py",
-    "Langrisser-FX-KR.cue": "patch/Langrisser-FX-KR.cue",
-    "INSTALL.txt": "patch/INSTALL.txt",
-    "CHANGELOG.md": "CHANGELOG.md",
-    "LICENSE": "LICENSE",
-    "LICENSE_SCOPE.md": "LICENSE_SCOPE.md",
-    "docs/RELEASE_v0.865.md": "docs/RELEASE_v0.865.md",
-    "docs/VERIFICATION_v0.865.md": "docs/VERIFICATION_v0.865.md",
-    "docs/IMPLEMENTATION_v0.865.md": "docs/IMPLEMENTATION_v0.865.md",
-    "docs/PUBLICATION_v0.865.md": "docs/PUBLICATION_v0.865.md",
-    "screenshots/v0.865/README.md": "screenshots/v0.865/README.md",
-    "screenshots/v0.865/before-death.png": "screenshots/v0.865/before-death.png",
-    "screenshots/v0.865/after-death.png": "screenshots/v0.865/after-death.png",
-    "screenshots/v0.865/japanese-death.png": "screenshots/v0.865/japanese-death.png",
-    "screenshots/v0.865/before-sonia.png": "screenshots/v0.865/before-sonia.png",
-    "screenshots/v0.865/after-sonia.png": "screenshots/v0.865/after-sonia.png",
-    "screenshots/v0.865/before-vampire.png": "screenshots/v0.865/before-vampire.png",
-    "screenshots/v0.865/after-vampire-p1.png": "screenshots/v0.865/after-vampire-p1.png",
-    "screenshots/v0.865/after-vampire-p4.png": "screenshots/v0.865/after-vampire-p4.png",
-    "screenshots/v0.865/after-vampire-p5.png": "screenshots/v0.865/after-vampire-p5.png",
-    "screenshots/v0.865/after-succubus.png": "screenshots/v0.865/after-succubus.png",
-    "screenshots/v0.865/after-est.png": "screenshots/v0.865/after-est.png",
-    "screenshots/v0.865/after-ost.png": "screenshots/v0.865/after-ost.png",
-    "screenshots/v0.865/conditions.png": "screenshots/v0.865/conditions.png",
-    "screenshots/v0.865/map-return.png": "screenshots/v0.865/map-return.png",
-    "docs/BUILDING.md": "docs/BUILDING.md",
-    "docs/THIRD_PARTY.md": "docs/THIRD_PARTY.md",
-    "third_party/unifont/LICENSE.txt": "third_party/unifont/LICENSE.txt",
-    "third_party/unifont/OFL-1.1.txt": "third_party/unifont/OFL-1.1.txt",
-    "third_party/galmuri/OFL-1.1.md": "third_party/galmuri/OFL-1.1.md",
+REPORT=ROOT/"docs/verification_V0.96.json"
+EXE=f"Langrisser-FX-KR-Auto-Patcher-{VERSION}.exe"
+FILES={
+    EXE:f"release/windows-patcher/{EXE}",
+    auto.PATCH_FILENAME:f"patch/{auto.PATCH_FILENAME}",
+    "apply_patch.py":"patch/apply_patch.py",
+    "langrisser_fx_auto_patcher.py":"patch/langrisser_fx_auto_patcher.py",
+    "Langrisser-FX-KR.cue":"patch/Langrisser-FX-KR.cue",
+    "INSTALL.txt":"patch/INSTALL.txt",
+    "patch/INSTALL.txt":"patch/INSTALL.txt",
+    "CHANGELOG.md":"CHANGELOG.md",
+    "LICENSE":"LICENSE",
+    "LICENSE_SCOPE.md":"LICENSE_SCOPE.md",
 }
+for name in (f"RELEASE_{VERSION}.md",f"VERIFICATION_{VERSION}.md",
+             f"IMPLEMENTATION_{VERSION}.md",f"PUBLICATION_{VERSION}.md",
+             f"verification_{VERSION}.json","BUILDING.md","THIRD_PARTY.md"):
+    FILES[f"docs/{name}"]=f"docs/{name}"
+for name in ("third_party/unifont/LICENSE.txt","third_party/unifont/OFL-1.1.txt",
+             "third_party/galmuri/OFL-1.1.md",f"screenshots/{VERSION}/README.md",
+             f"screenshots/{VERSION}/provenance.json"):
+    FILES[name]=name
+provenance=json.loads((ROOT/f"screenshots/{VERSION}/provenance.json").read_bytes())
+for row in provenance["screenshots"]:
+    name=f"screenshots/{VERSION}/{row['file']}"
+    if Path(row["file"]).name!=row["file"] or not row["file"].endswith(".png"):
+        raise RuntimeError("Unsafe screenshot path")
+    FILES[name]=name
 
-
-def digest(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest().upper()
-
-
-def main() -> None:
-    output = ROOT / "release" / f"Langrisser_FX_Korean_Patch_{VERSION}.zip"
-    if output.exists():
-        raise RuntimeError("Preserve existing release archive; output already exists")
-    with (ROOT / "patch" / auto.PATCH_FILENAME).open("rb") as stream:
-        header = apply_patch.read_header(stream)
-    if (header["target_sha256"] != auto.OUTPUT_TRACK2_SHA256
-            or header["source_sha256"] != auto.EXPECTED_TRACKS[2]["sha256"]
-            or VERSION not in header["description"]):
-        raise RuntimeError("Installer and patch release identities disagree")
-    payloads = {name: (ROOT / source).read_bytes() for name, source in FILES.items()}
-    if digest(payloads[auto.PATCH_FILENAME]) != "EB6D3449219EC764EDBE36962C8E35304F221F35C4B8A4663B0AB99578CCB3F5":
-        raise RuntimeError("Delta differs from the verified release")
-    if digest(payloads["Langrisser-FX-KR-Auto-Patcher-v0.865.exe"]) != "0214870EF4219B25834F5BAF52BF608D6CF456B940425D73463E78ACF336F910":
-        raise RuntimeError("EXE differs from the application-verified release")
-    payloads["README.txt"] = (
-        "Langrisser FX Korean Patch v0.865 (development/pre-release)\n\n"
-        "Read INSTALL.txt and docs/RELEASE_v0.865.md before applying.\n"
-        "Run Langrisser-FX-KR-Auto-Patcher-v0.865.exe with the original Japanese CUE.\n"
-        "Do not apply to an already Korean-patched BIN. Back up SRAM saves.\n"
-        "No original or fully patched game images are included.\n\n"
-        "New hidden-dungeon wording review and all-branch playthroughs remain incomplete.\n"
-        "설치 방법: INSTALL.txt / 수정 내역: docs/RELEASE_v0.865.md\n"
-        "원본 일본판 CUE에 새로 적용하세요. 이전 한글판에 덧씌우지 마세요.\n"
-    ).encode("utf-8")
-    payloads["SHA256SUMS.txt"] = ("\n".join(
-        f"{digest(data)} *{name}" for name, data in sorted(payloads.items())
-    ) + "\n").encode("utf-8")
+def digest(data):return hashlib.sha256(data).hexdigest().upper()
+def main():
+    output=ROOT/"release"/f"Langrisser_FX_Korean_Patch_{VERSION}.zip"
+    if output.exists():raise RuntimeError("Preserve existing release archive")
+    report=json.loads(REPORT.read_bytes())
+    if report["status"]!="PASS_ORIGINAL_REBUILD_AND_BOTH_INSTALLERS" or report["version"]!=VERSION:
+        raise RuntimeError("Missing current application verification")
+    with (ROOT/"patch"/auto.PATCH_FILENAME).open("rb") as f:header=apply_patch.read_header(f)
+    if header["target_sha256"]!=auto.OUTPUT_TRACK2_SHA256 or VERSION not in header["description"]:
+        raise RuntimeError("Patcher and delta disagree")
+    payloads={name:(ROOT/source).read_bytes() for name,source in FILES.items()}
+    if digest(payloads[auto.PATCH_FILENAME])!=report["patch"]["sha256"]:
+        raise RuntimeError("Delta changed after full application verification")
+    if digest(payloads[EXE])!=report["windows_exe"]["sha256"]:
+        raise RuntimeError("EXE changed after full application verification")
+    for row in provenance["screenshots"]:
+        if digest(payloads[f"screenshots/{VERSION}/{row['file']}"])!=row["sha256"]:
+            raise RuntimeError("Screenshot provenance mismatch")
+    payloads["README.txt"]=(
+        "데어 랑그릿사 FX 한국어 패치 V0.96 — 사전 공개 버전\n\n"
+        "INSTALL.txt와 docs/RELEASE_V0.96.md를 먼저 읽어 주세요.\n"
+        "Langrisser-FX-KR-Auto-Patcher-V0.96.exe에 원본 일본판 CUE를 선택하세요.\n"
+        "이전 한글판에 덧씌우지 마세요. SRAM을 백업하고 게임 내 저장을 불러오세요.\n"
+        "원본 게임·BIOS·세이브·완성된 게임 이미지는 포함하지 않습니다.\n"
+        "간헐적인 엔딩 검은 화면은 미해결입니다. 모든 분기/실기 검증은 아닙니다.\n\n"
+        "Development prerelease. Apply to the supported original Japanese disc.\n"
+        "See the release and verification reports for tested routes and limitations.\n"
+    ).encode("utf8")
+    payloads["SHA256SUMS.txt"]=("\n".join(
+        f"{digest(data)} *{name}" for name,data in sorted(payloads.items()))+"\n").encode("utf8")
     for name in payloads:
-        if Path(name).suffix.lower() in {".bin", ".iso", ".rom", ".srm", ".state", ".mp4", ".wav"}:
-            raise RuntimeError(f"Forbidden release asset: {name}")
-    with zipfile.ZipFile(output, "x", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
-        for name, data in sorted(payloads.items()):
-            info = zipfile.ZipInfo(name)  # stable ZIP metadata, not a claimed release date
-            info.compress_type = zipfile.ZIP_DEFLATED
-            archive.writestr(info, data, compresslevel=9)
-    with zipfile.ZipFile(output) as archive:
-        if set(archive.namelist()) != set(payloads) or archive.testzip() is not None:
-            raise RuntimeError("Release member/CRC verification failed")
-        for name, data in payloads.items():
-            if archive.read(name) != data:
-                raise RuntimeError(f"Release payload mismatch: {name}")
-    print(f"PASS: {output.name}; {len(payloads)} allowlisted members; {output.stat().st_size} bytes")
-    print(f"SHA256: {apply_patch.sha256_file(output)}")
-
-
-if __name__ == "__main__":
-    main()
+        if Path(name).suffix.lower() in {".bin",".iso",".rom",".srm",".state",".mp4",".wav",".dmp"}:
+            raise RuntimeError("Forbidden release member")
+    with zipfile.ZipFile(output,"x") as z:
+        for name,data in sorted(payloads.items()):
+            info=zipfile.ZipInfo(name);info.compress_type=zipfile.ZIP_DEFLATED
+            z.writestr(info,data,compresslevel=9)
+    with zipfile.ZipFile(output) as z:
+        if set(z.namelist())!=set(payloads) or z.testzip() is not None:raise RuntimeError("ZIP integrity")
+        for name,data in payloads.items():
+            if z.read(name)!=data:raise RuntimeError("ZIP payload mismatch")
+    checksum=output.with_suffix(output.suffix+".sha256")
+    if checksum.exists():raise RuntimeError("Preserve existing checksum")
+    checksum.write_text(f"{apply_patch.sha256_file(output)} *{output.name}\n",encoding="ascii",newline="\n")
+    print(json.dumps(dict(status="PASS_ALLOWLISTED_PACKAGE",file=output.name,
+        members=len(payloads),screenshots=len(provenance["screenshots"]),
+        bytes=output.stat().st_size,sha256=apply_patch.sha256_file(output))))
+if __name__=="__main__":main()

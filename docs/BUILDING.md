@@ -11,7 +11,7 @@ files and existing outputs are never overwritten.
 Python fallback (standard library only):
 
 ```powershell
-python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-v0.865.lfxpatch
+python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-V0.96.lfxpatch
 ```
 
 The applier rejects an unknown source, validates ordered non-overlapping ranges
@@ -30,8 +30,8 @@ tools/build_windows_patcher.ps1
 ```
 
 The script uses an ignored local build environment and pinned PyInstaller
-6.16.0. It embeds the v0.865 delta and outputs
-`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-v0.865.exe`.
+6.16.0. It embeds the V0.96 delta and outputs
+`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-V0.96.exe`.
 The tooling build packages the installer; it does not rebuild the game.
 Python 3.13.15 and contributed hooks 2026.7 were used for this EXE.
 
@@ -51,7 +51,7 @@ acceptance/rejection cases.
 Maintainers must supply the supported original and the exact verified target:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-v0.865.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-V0.96.lfxpatch
 ```
 
 The generator requires NumPy; the applier does not. The output must be new.
@@ -59,8 +59,8 @@ The format records source/target representations, sizes and SHA-256 identities.
 Apply the delta back to the original and compare the whole result with the
 verified target; command success alone is not sufficient.
 
-The v0.865 target hash is
-`C198548FB9E4288B7DB4D380DECEBD5F1DC77D5CEC1DD37645987A66BEA2C147`.
+The V0.96 target hash is
+`DD054F9B720BC5B460AA6870098AE9F6534229C3C2956B69C4CCBAEC11501EE3`.
 Both Python and packaged EXE application were verified against it.
 
 ## Package the release
@@ -71,7 +71,7 @@ After verifying the delta and EXE identities recorded in the packaging script:
 python tools/package_public_release.py
 ```
 
-This creates `release/Langrisser_FX_Korean_Patch_v0.865.zip` using an explicit
+This creates `release/Langrisser_FX_Korean_Patch_V0.96.zip` using an explicit
 allowlist, stable ZIP metadata, member checksums and CRC verification. It
 refuses an existing ZIP. Existing releases remain unchanged. No game image,
 save, BIOS, emulator, extracted media or private dumps are allowlisted.
@@ -82,9 +82,12 @@ They document the reported defects and are not covered by the project's MIT lice
 
 The selected source snapshots are inspectable implementation code, not a
 complete publicly runnable game authoring pipeline. See
-[implementation notes](IMPLEMENTATION_v0.865.md) for the new modules.
+[implementation notes](IMPLEMENTATION_V0.96.md) for the new modules.
 
-The private primary builder `build_gel_gather_display.py` starts with original
+The current private entry point is `build_super_followup_successor302.py`.
+It reconstructs the 297 baseline, late-dialogue298 and the adopted ending/super
+components in one original-source invocation. The underlying cumulative builder
+`build_gel_gather_display.py` starts with original
 Japanese Track 2 and the fixed public v0.81 delta (SHA-256
 `AD05ACECDFEA7EC2B3E49D8FD82B74D189E789C7EB645955FA0608C5C2B07511`)
 as its cumulative implementation specification. It reconstructs the baseline
@@ -113,12 +116,12 @@ operation is **original disc + cumulative delta -> exact verified target**.
 
 ## Verification and review
 
-See [v0.865 verification](VERIFICATION_v0.865.md) for artifact identities,
+See [V0.96 verification](VERIFICATION_V0.96.md) for artifact identities,
 application checks, actual consumer routes and limitations. The new hidden
 dialogue retains a needs-human-review state; successful encoding, font and
 runtime checks do not certify every sentence.
 
-Historical reports and v0.8/v0.81/v0.825/v0.84/v0.845/v0.85/v0.851/v0.855/v0.86 patch material are kept as history.
+Historical reports and v0.8/v0.81/v0.825/v0.84/v0.845/v0.85/v0.851/v0.855/v0.86/v0.865 patch material are kept as history.
 Their versioned verification and release documents describe their original targets,
-not v0.865. The separate maintainer publication decision does not rewrite the private
+not V0.96. The separate maintainer publication decision does not rewrite the private
 development inputs' needs-human-review or non-distribution historical markers.

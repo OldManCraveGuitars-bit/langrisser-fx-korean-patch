@@ -1,0 +1,110 @@
+{
+  "status": "PASS_ORIGINAL_REBUILD_AND_BOTH_INSTALLERS",
+  "version": "V0.96",
+  "internal_build": "successor302-review5",
+  "prerelease": true,
+  "approved_raw_sha256": "DD054F9B720BC5B460AA6870098AE9F6534229C3C2956B69C4CCBAEC11501EE3",
+  "original_rebuild_exact": true,
+  "outputs": {
+    "track02-r80-v0865-super-followup-successor302.iso": {
+      "bytes": 663091200,
+      "sha256": "F850292C5AC2FFF9F3099922264B6F7369530D830AD97604619CE8682D337104"
+    },
+    "Track-2.r80-v0865-super-followup-successor302.bin": {
+      "bytes": 762048000,
+      "sha256": "DD054F9B720BC5B460AA6870098AE9F6534229C3C2956B69C4CCBAEC11501EE3"
+    },
+    "Langrisser-FX-KR-r80-v0865-super-followup-successor302.cue": {
+      "bytes": 316,
+      "sha256": "D5FD1367D49EF28B6E1A97968C72865CFAC2CC026C841882B8C085C22EB46CC9"
+    },
+    "Track-1.bin": {
+      "bytes": 4106592,
+      "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+    },
+    "Track-3.bin": {
+      "bytes": 17120208,
+      "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+    }
+  },
+  "applied": {
+    "python": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "DD054F9B720BC5B460AA6870098AE9F6534229C3C2956B69C4CCBAEC11501EE3"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      },
+      "cue_sha256": "7D9FE47C59C73BA66A86B5077D5CB49877B0263CBC94CE95F35CAE1F7FA95799"
+    },
+    "exe": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "DD054F9B720BC5B460AA6870098AE9F6534229C3C2956B69C4CCBAEC11501EE3"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      },
+      "cue_sha256": "7D9FE47C59C73BA66A86B5077D5CB49877B0263CBC94CE95F35CAE1F7FA95799"
+    }
+  },
+  "patch": {
+    "file": "Langrisser-FX-KR-V0.96.lfxpatch",
+    "sha256": "64AB696D6697E2A2A554AF10758E474900E6C0722E0B631722608CB657070406",
+    "bytes": 5039331,
+    "chunk_count": 576
+  },
+  "windows_exe": {
+    "file": "Langrisser-FX-KR-Auto-Patcher-V0.96.exe",
+    "sha256": "06FB83E3A5A915D602FD04DF292128CC53B224179F21DBC360A0B626CC7F7A36",
+    "bytes": 16701251,
+    "pyinstaller": "6.16.0",
+    "python": "3.13.15",
+    "contrib_hooks": "2026.7"
+  },
+  "original_tracks_unchanged": true,
+  "user_json_unchanged": true,
+  "source_profiles": {
+    "1": {
+      "size": 4106592,
+      "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9",
+      "output": "Track-1.bin"
+    },
+    "2": {
+      "size": 755535312,
+      "sha256": "1013D1AECCD42BB46DEA36CF3BD088CAE02FAC5D25BF4BC0187821ACAB9F8AD0",
+      "output": "Track-2.KR.bin"
+    },
+    "3": {
+      "size": 17120208,
+      "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D",
+      "output": "Track-3.bin"
+    }
+  },
+  "runtime_reports": {
+    "menu": "E6C9C1E66B065B76BB01FF09F72C0839E63CAFCC8C340B5044347001F4B49626",
+    "battle": "0F3D64B565D347F1A88B85018C35959AE10A0BF7F5CF31C81B7D155B5FE5670C"
+  },
+  "limitations": [
+    "Development prerelease; not a full campaign/hardware certification.",
+    "Intermittent ending blackscreen unresolved and excluded.",
+    "Older screenshots are labeled by actual captured build."
+  ]
+}
