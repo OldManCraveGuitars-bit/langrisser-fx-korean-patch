@@ -35,6 +35,11 @@ font sheet, audio/video, game image or save accompanies these captures.
 
 ## Project showcase screenshots
 
+The 35 images under `screenshots/V0.97/` are unedited diagnostic captures and
+maintainer-provided defect photos. Their provenance distinguishes older builds,
+the final build, a controlled inventory fixture and pre-fix-only images.
+Original game imagery is not covered by MIT, under the same boundary below.
+
 The 29 additional captures under `screenshots/V0.96/` document the cumulative
 late-dialogue, ending and Super Langrisser update. Their exact baseline and
 unedited file hashes are in that directory's provenance record. The same

@@ -1,0 +1,252 @@
+{
+  "version": "V0.97",
+  "screenshots": [
+    {
+      "file": "s05-before.jpg",
+      "baseline": "maintainer report",
+      "caption": "5번 누락 제보 화면; 수정 후 화면 아님",
+      "sha256": "C428F06FD9745DD7A2762F4144AE5B0186DAEC932CE53EEDB7924D510ABD8532",
+      "unedited": true
+    },
+    {
+      "file": "s06-before-warning.png",
+      "baseline": "303",
+      "caption": "6번 경고문 수정 전",
+      "sha256": "6B876B0BD905A1D57D4528037E92D86524A66F299BCB2498F14CC8B720A85161",
+      "unedited": true
+    },
+    {
+      "file": "s06-after-warning.png",
+      "baseline": "304",
+      "caption": "6번 경고문 수정 후",
+      "sha256": "7842A34B8EFFF36E5F75A02BB5176A94C1174FA2B70B451FC0B71FCC3D6E7284",
+      "unedited": true
+    },
+    {
+      "file": "s06-before-term.png",
+      "baseline": "303",
+      "caption": "다크로드 표기 수정 전",
+      "sha256": "E615658319FB9E806032C598A77BDDA36B798ADA0809C60338C1AC3ED81D4CF7",
+      "unedited": true
+    },
+    {
+      "file": "s06-after-term.png",
+      "baseline": "304",
+      "caption": "다크 로드 표기 수정 후",
+      "sha256": "C031F7EED81C1FEE01989F58E1721D980531151F7592F11201C83535AE5B83F4",
+      "unedited": true
+    },
+    {
+      "file": "s38-before.jpg",
+      "baseline": "maintainer report",
+      "caption": "엘윈 라면 제보 화면",
+      "sha256": "3FABD6A786AB66DA573C98DE2ADA9D99C995C9292F68C4CA3F359A00A4AA7B53",
+      "unedited": true
+    },
+    {
+      "file": "s38-entry.png",
+      "baseline": "305",
+      "caption": "38번 진입 확인; 수정 대사 자체의 재현은 아님",
+      "sha256": "104751663108FDFE7AB457B048DC2F89D65F59BA3AC0A98FF79BC98D5427FD1A",
+      "unedited": true
+    },
+    {
+      "file": "s39-before.jpg",
+      "baseline": "maintainer report",
+      "caption": "나는 엘윈 다 제보 화면",
+      "sha256": "27EC7ABA88F378B5FE2729A8893D8932393428CBC3EC4105791A98BBFEB32A88",
+      "unedited": true
+    },
+    {
+      "file": "s39-entry.png",
+      "baseline": "306",
+      "caption": "39번 진입 확인; 자기소개 장면 재현은 아님",
+      "sha256": "914E42250BD200117703C3A2589402C761A243EAE54F7A992CFDEA941311A303",
+      "unedited": true
+    },
+    {
+      "file": "discard-before-warhammer.jpg",
+      "baseline": "maintainer report",
+      "caption": "워해머 폐기 잔여 글자",
+      "sha256": "F5AD7C1F1F36D7D1EAC0C997E49E2A2BEA7CAAF0EF59DF4DA40678635DBD4621",
+      "unedited": true
+    },
+    {
+      "file": "discard-before-greatsword.jpg",
+      "baseline": "maintainer report",
+      "caption": "그레이트 소드 폐기 오른쪽 테두리",
+      "sha256": "99B619B539956122E1427C73684023286D8BB93377FCA5AE53C8398D95AA1107",
+      "unedited": true
+    },
+    {
+      "file": "discard-after-confirm.png",
+      "baseline": "307",
+      "caption": "원본 SRAM 경로의 워해머 폐기 확인",
+      "sha256": "C5095BC8ECF837C6A70FD0F017F96AC61FDB30A90AEF891F8077AA9FDF5ED0BC",
+      "unedited": true
+    },
+    {
+      "file": "discard-after-warhammer.png",
+      "baseline": "307",
+      "caption": "원본 SRAM 경로의 워해머 폐기 완료",
+      "sha256": "ED04CF8D905D74F2094A2B577220C6F6E268273E3718214C71A463004BA13B41",
+      "unedited": true
+    },
+    {
+      "file": "discard-after-greatsword.png",
+      "baseline": "307 equipment-release fixture",
+      "caption": "장비 소유 정보 2바이트를 해제한 별도 테스트 상태; 실제 UI 출력",
+      "sha256": "463017BF7F24AD5D8E56B1FEC925AF57B7C1111B0CC28E8100D3150B26FEA60D",
+      "unedited": true
+    },
+    {
+      "file": "particle-before.jpg",
+      "baseline": "maintainer report",
+      "caption": "엘윈 는 제보 화면",
+      "sha256": "E30242AAA532C90C8CDF9E9E27896F6535E8EB4C36EE9D381479C6D3F7C4D18E",
+      "unedited": true
+    },
+    {
+      "file": "particle-after.png",
+      "baseline": "307",
+      "caption": "셰리 격파 대사 엘윈 은",
+      "sha256": "70EF9A9898CA4BA3D68ED912B547287360E1E8407CC9456ED59C858B4554E8A6",
+      "unedited": true
+    },
+    {
+      "file": "charm-before.png",
+      "baseline": "307",
+      "caption": "수정 전 증 배움",
+      "sha256": "64C7B89E616185A5C73AFE1FC087D6D64A9CCC9E9C7CE781C9207F8F2EDAC1D3",
+      "unedited": true
+    },
+    {
+      "file": "charm-after.png",
+      "baseline": "308",
+      "caption": "참 배움 실제 캡처; 마법 목록/사용 전 과정 검증은 아님",
+      "sha256": "A3FC3626957116FCA189AA5316D314DEFA7094FBFE469892B1D1D4E2D02DD0F5",
+      "unedited": true
+    },
+    {
+      "file": "s50-before-farewell.jpg",
+      "baseline": "maintainer report",
+      "caption": "잘 가 제시카 제보 화면",
+      "sha256": "F372D246C421A94C269793E5A468C845B5C2EC2B818D5003AD3712ED983AE652",
+      "unedited": true
+    },
+    {
+      "file": "s50-after-farewell.png",
+      "baseline": "309",
+      "caption": "안녕히 가세요 제시카 님 실제 확인",
+      "sha256": "D4CF97059BABE6DB5B09A46A09F4A298A81C7E333EA6E0A5CBBC077007DD364B",
+      "unedited": true
+    },
+    {
+      "file": "s50-before-capture.jpg",
+      "baseline": "maintainer report",
+      "caption": "함께 가주셔야겠다 제보 화면",
+      "sha256": "414B2341DC14A6A4FC9ACA3CA2953762C2A0CEF50B882ACBB12FCD48F461DC8B",
+      "unedited": true
+    },
+    {
+      "file": "s50-after-capture.png",
+      "baseline": "309",
+      "caption": "자 함께 가줘야겠어 실제 확인",
+      "sha256": "C7DCBE035B36493C54A5BD4093319DE52C140C0F01E9769836C03523C4BDE79B",
+      "unedited": true
+    },
+    {
+      "file": "s50-before-formal.jpg",
+      "baseline": "maintainer report",
+      "caption": "거예요 어투 제보 화면; 교정 문구는 본문 참조",
+      "sha256": "77096A1968E9BD9A8E55D032275E3D3E1E348C8BBC04229D2FC9ACF856DFED2E",
+      "unedited": true
+    },
+    {
+      "file": "s50-before-jessica.jpg",
+      "baseline": "maintainer report",
+      "caption": "제시카 반말 제보 화면; 교정 문구는 본문 참조",
+      "sha256": "B39D4AC666AE6C303C4C169F415A692B762AE3949B0CB2E3D0B010EB7B0CFC20",
+      "unedited": true
+    },
+    {
+      "file": "rohga-before-linebreak.jpg",
+      "baseline": "maintainer report",
+      "caption": "원망할 거라면 줄바꿈 제보 화면",
+      "sha256": "D09B5861419AA03C9B26483DD7654EE0609883BC54540FC39263455309D84413",
+      "unedited": true
+    },
+    {
+      "file": "master-before.jpg",
+      "baseline": "maintainer report",
+      "caption": "사부님 호칭 제보 화면",
+      "sha256": "A49EE7965FD9C072E22F75E9E4162B0A629A2076FE3A3D8273658FBEC51710F0",
+      "unedited": true
+    },
+    {
+      "file": "master-after-example.png",
+      "baseline": "309",
+      "caption": "다른 장면의 스승님 표기 참고; 제보 장면의 동일 위치 전후 아님",
+      "sha256": "A3CF34822DAA391FF78BBE73C212B4BCB1E1F0E77EE66B5FDE81A9C1B6B30818",
+      "unedited": true
+    },
+    {
+      "file": "mp-before.jpg",
+      "baseline": "maintainer report",
+      "caption": "MP 누락 수정 전; 사용자 요청으로 수정 후 실플레이 생략",
+      "sha256": "2E71536996E3AC390F76C95D79182CB54A53BDFDD6E9D10DC8D1F66F843725A4",
+      "unedited": true
+    },
+    {
+      "file": "ending-first.png",
+      "baseline": "309 same-build checkpoint",
+      "caption": "제국 엔딩 첫 대사",
+      "sha256": "7D80065DDAC75E76E6B25E8A186F4FE0D2754E05C41619E237217900592BBC56",
+      "unedited": true
+    },
+    {
+      "file": "ending-swords.png",
+      "baseline": "309 same-build checkpoint",
+      "caption": "성검과 마검 획득",
+      "sha256": "CC38F3275F887AE88B0C20ED0E5FC3151F367848ED1E1F2869A6D035FA935822",
+      "unedited": true
+    },
+    {
+      "file": "ending-elwin.png",
+      "baseline": "309",
+      "caption": "엘윈 임명 답변",
+      "sha256": "24B1FCA35D06F34A3A35A5D12342F903F7DA55E3A5C89BF3EBABE414EA5C437D",
+      "unedited": true
+    },
+    {
+      "file": "ending-hein.png",
+      "baseline": "309",
+      "caption": "헤인에게 흑룡 마도병단 인계",
+      "sha256": "AC9E2042617F18F95C1154BF65A21019F159211DA74B6954F76E51A157F83E0D",
+      "unedited": true
+    },
+    {
+      "file": "ending-final.png",
+      "baseline": "309",
+      "caption": "베른하르트 마지막 훈시",
+      "sha256": "E401729A4E9F84D4E810AE3B315AB980ED7353A544C82498DA11A011555731CB",
+      "unedited": true
+    },
+    {
+      "file": "ending-movie.png",
+      "baseline": "309",
+      "caption": "후속 영상 진행; 영상 자체는 이번 번역 변경 아님",
+      "sha256": "68B54A0F770269BF0453EC98612C1077DBAF332926428F205B780B525BCBC96A",
+      "unedited": true
+    },
+    {
+      "file": "ending-epilogue.png",
+      "baseline": "309",
+      "caption": "엘윈 후일담 진입; 후일담 내용 보존",
+      "sha256": "B2581AEE4F6E9ACBB334A848C1339A2B9F6FADE007CF3317C965B3C9D0F3306B",
+      "unedited": true
+    }
+  ],
+  "note": "Original unedited captures and maintainer-supplied photos. Build, fixture and pre-fix-only evidence is labeled. No image synthesis or re-encoding.",
+  "rights": "Original game imagery remains with its rights holders; excluded from MIT."
+}

@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Package only the explicitly verified V0.96 player-facing release."""
+"""Package only the explicitly verified V0.97 player-facing release."""
 from __future__ import annotations
 import hashlib,json,sys,zipfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION="V0.96"
+VERSION="V0.97"
 sys.path.insert(0,str(ROOT/"patch"))
 import apply_patch
 import langrisser_fx_auto_patcher as auto
-REPORT=ROOT/"docs/verification_V0.96.json"
+REPORT=ROOT/"docs/verification_V0.97.json"
 EXE=f"Langrisser-FX-KR-Auto-Patcher-{VERSION}.exe"
 FILES={
     EXE:f"release/windows-patcher/{EXE}",
@@ -34,7 +34,7 @@ for name in ("third_party/unifont/LICENSE.txt","third_party/unifont/OFL-1.1.txt"
 provenance=json.loads((ROOT/f"screenshots/{VERSION}/provenance.json").read_bytes())
 for row in provenance["screenshots"]:
     name=f"screenshots/{VERSION}/{row['file']}"
-    if Path(row["file"]).name!=row["file"] or not row["file"].endswith(".png"):
+    if Path(row["file"]).name!=row["file"] or Path(row["file"]).suffix.lower() not in {".png",".jpg"}:
         raise RuntimeError("Unsafe screenshot path")
     FILES[name]=name
 
@@ -57,9 +57,9 @@ def main():
         if digest(payloads[f"screenshots/{VERSION}/{row['file']}"])!=row["sha256"]:
             raise RuntimeError("Screenshot provenance mismatch")
     payloads["README.txt"]=(
-        "데어 랑그릿사 FX 한국어 패치 V0.96 — 사전 공개 버전\n\n"
-        "INSTALL.txt와 docs/RELEASE_V0.96.md를 먼저 읽어 주세요.\n"
-        "Langrisser-FX-KR-Auto-Patcher-V0.96.exe에 원본 일본판 CUE를 선택하세요.\n"
+        "데어 랑그릿사 FX 한국어 패치 V0.97 — 사전 공개 버전\n\n"
+        "INSTALL.txt와 docs/RELEASE_V0.97.md를 먼저 읽어 주세요.\n"
+        "Langrisser-FX-KR-Auto-Patcher-V0.97.exe에 원본 일본판 CUE를 선택하세요.\n"
         "이전 한글판에 덧씌우지 마세요. SRAM을 백업하고 게임 내 저장을 불러오세요.\n"
         "원본 게임·BIOS·세이브·완성된 게임 이미지는 포함하지 않습니다.\n"
         "간헐적인 엔딩 검은 화면은 미해결입니다. 모든 분기/실기 검증은 아닙니다.\n\n"

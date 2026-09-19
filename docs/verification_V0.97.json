@@ -1,0 +1,110 @@
+{
+  "status": "PASS_ORIGINAL_REBUILD_AND_BOTH_INSTALLERS",
+  "version": "V0.97",
+  "internal_build": "successor309",
+  "prerelease": true,
+  "approved_raw_sha256": "6616EE3B5D544E9183A5A6E44BFF1BB8FC77F75D95696EEAE6DB157CD55390A8",
+  "original_rebuild_exact": true,
+  "outputs": {
+    "track02-r80-v096-scenario50-ending-mp-successor309.iso": {
+      "bytes": 663091200,
+      "sha256": "C257BD326AE49B88DF20CE1265D518EA5CA631458AC9EBB5ABBDD21E44EC4102"
+    },
+    "Track-2.r80-v096-scenario50-ending-mp-successor309.bin": {
+      "bytes": 762048000,
+      "sha256": "6616EE3B5D544E9183A5A6E44BFF1BB8FC77F75D95696EEAE6DB157CD55390A8"
+    },
+    "Langrisser-FX-KR-r80-v096-scenario50-ending-mp-successor309.cue": {
+      "bytes": 321,
+      "sha256": "F35CD1C43A9A6194CD9EABFE26826FE770C2748CFA02EDB9DD82A927C69051EC"
+    },
+    "Track-1.bin": {
+      "bytes": 4106592,
+      "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+    },
+    "Track-3.bin": {
+      "bytes": 17120208,
+      "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+    }
+  },
+  "applied": {
+    "python": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "6616EE3B5D544E9183A5A6E44BFF1BB8FC77F75D95696EEAE6DB157CD55390A8"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      },
+      "cue_sha256": "7D9FE47C59C73BA66A86B5077D5CB49877B0263CBC94CE95F35CAE1F7FA95799"
+    },
+    "exe": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "6616EE3B5D544E9183A5A6E44BFF1BB8FC77F75D95696EEAE6DB157CD55390A8"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      },
+      "cue_sha256": "7D9FE47C59C73BA66A86B5077D5CB49877B0263CBC94CE95F35CAE1F7FA95799"
+    }
+  },
+  "patch": {
+    "file": "Langrisser-FX-KR-V0.97.lfxpatch",
+    "sha256": "D2A1C237C3048C346A2D9386296FCFA62F151C55F584547382428E71C7365E11",
+    "bytes": 5065523,
+    "chunk_count": 557
+  },
+  "windows_exe": {
+    "file": "Langrisser-FX-KR-Auto-Patcher-V0.97.exe",
+    "sha256": "208B073D7E433CCC0434DDD9243A2990A521EEBF7B82194673857180E46D794F",
+    "bytes": 16728610,
+    "pyinstaller": "6.16.0",
+    "python": "3.13.15",
+    "contrib_hooks": "2026.7"
+  },
+  "original_tracks_unchanged": true,
+  "user_json_unchanged": true,
+  "source_profiles": {
+    "1": {
+      "size": 4106592,
+      "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9",
+      "output": "Track-1.bin"
+    },
+    "2": {
+      "size": 755535312,
+      "sha256": "1013D1AECCD42BB46DEA36CF3BD088CAE02FAC5D25BF4BC0187821ACAB9F8AD0",
+      "output": "Track-2.KR.bin"
+    },
+    "3": {
+      "size": 17120208,
+      "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D",
+      "output": "Track-3.bin"
+    }
+  },
+  "runtime_reports": {
+    "ending_observations": "7AC2CFFE44C77AA01E792174123420B7ECC9FF8F4FDA4093A5DFA94D85702CED"
+  },
+  "runtime_scope": "Prior final309 Empire route: 15 speeches, 14 distinct roots; MP runtime skipped; no new gameplay during publication",
+  "limitations": [
+    "Development prerelease; not a full campaign/hardware certification.",
+    "Intermittent ending blackscreen unresolved and excluded.",
+    "Older screenshots are labeled by actual captured build."
+  ]
+}
