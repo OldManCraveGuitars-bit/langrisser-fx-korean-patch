@@ -35,6 +35,11 @@ font sheet, audio/video, game image or save accompanies these captures.
 
 ## Project showcase screenshots
 
+The five images under `screenshots/V0.972/` are unedited emulator captures
+showing the reported condition-text defect, its fix and menu regression checks.
+Their build identities and exact file hashes are recorded in that directory.
+Underlying game imagery is not covered by MIT; the same exclusion below applies.
+
 The 35 images under `screenshots/V0.97/` are unedited diagnostic captures and
 maintainer-provided defect photos. Their provenance distinguishes older builds,
 the final build, a controlled inventory fixture and pre-fix-only images.

@@ -1,0 +1,133 @@
+{
+  "status": "PASS_APPROVED_TARGET_AND_BOTH_INSTALLERS",
+  "version": "V0.972",
+  "internal_build": "successor310-review2",
+  "prerelease": true,
+  "approved_media_unchanged": true,
+  "outputs": {
+    "track02-r80-v097-all-conditions-successor310.iso": {
+      "bytes": 663091200,
+      "sha256": "A5C120878C0BBE6BBA6C15BCE498F265BB3E67E9BB46D0BFD56717A0BEDA57A5"
+    },
+    "Track-2.r80-v097-all-conditions-successor310.bin": {
+      "bytes": 762048000,
+      "sha256": "397110E066F8CA2C13ABAF607D8AD85D82AAFBB0356FD36051389B1EF5FDD3CC"
+    },
+    "Langrisser-FX-KR-r80-v097-all-conditions-successor310.cue": {
+      "bytes": 315,
+      "sha256": "4E69BFAD2258D59A5ACEDE6DABEA3AFAC5210EDD8A82AE71D41C054059656D81"
+    },
+    "Track-1.bin": {
+      "bytes": 4106592,
+      "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+    },
+    "Track-3.bin": {
+      "bytes": 17120208,
+      "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+    }
+  },
+  "applied": {
+    "python": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "397110E066F8CA2C13ABAF607D8AD85D82AAFBB0356FD36051389B1EF5FDD3CC"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      },
+      "cue_sha256": "7D9FE47C59C73BA66A86B5077D5CB49877B0263CBC94CE95F35CAE1F7FA95799"
+    },
+    "exe": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "397110E066F8CA2C13ABAF607D8AD85D82AAFBB0356FD36051389B1EF5FDD3CC"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      },
+      "cue_sha256": "7D9FE47C59C73BA66A86B5077D5CB49877B0263CBC94CE95F35CAE1F7FA95799"
+    }
+  },
+  "patch": {
+    "file": "Langrisser-FX-KR-V0.972.lfxpatch",
+    "sha256": "85F7DF533F605782E82A9CE2867D8D004117A939F526A7D85E50DAD11DDCF8CA",
+    "bytes": 5066140,
+    "chunk_count": 556
+  },
+  "windows_exe": {
+    "file": "Langrisser-FX-KR-Auto-Patcher-V0.972.exe",
+    "sha256": "BCE128C869B82045133765489E988629F675B37BA999AA9280FCCBA8C7DF494D",
+    "bytes": 16729276,
+    "pyinstaller": "6.16.0",
+    "python": "3.13.15",
+    "contrib_hooks": "2026.7"
+  },
+  "original_tracks_unchanged": true,
+  "user_json_unchanged": true,
+  "source_profiles": {
+    "1": {
+      "size": 4106592,
+      "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9",
+      "output": "Track-1.bin"
+    },
+    "2": {
+      "size": 755535312,
+      "sha256": "1013D1AECCD42BB46DEA36CF3BD088CAE02FAC5D25BF4BC0187821ACAB9F8AD0",
+      "output": "Track-2.KR.bin"
+    },
+    "3": {
+      "size": 17120208,
+      "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D",
+      "output": "Track-3.bin"
+    }
+  },
+  "static": {
+    "all_tables": 98,
+    "menu_slots": 799,
+    "nonempty_menu_rows": 472,
+    "presentation_frames": 142,
+    "changed_tables": 49,
+    "changed_menu_rows": 85,
+    "changed_presentation_frames": 11,
+    "changed_cooked_bytes": 8710,
+    "glyph_routes": 71,
+    "issues": [],
+    "protected_complement_exact": true
+  },
+  "runtime": {
+    "native_scenarios": [
+      77,
+      20
+    ],
+    "original_saves_unchanged": true,
+    "no_ram_edits": true,
+    "no_state_load": true
+  },
+  "source_report_hashes": {
+    "static": "E2B8B50FBEAE826AE554C69E606FA3A88D3AC15DBD96372DCDD89B7C01A13DF2",
+    "runtime": "31F26036EFE50ABDB4290E66C83F30B7CD7FB58503D5BBD7299D5CC23F43C2D3",
+    "build": "1B012DD9E1923D8D603B8796AB2DE57D22E752DCE8A9433E7F17BF784FB5FB67"
+  },
+  "build_origin": "Approved final310 was built from a hash-verified original-derived298 cache through exact309. Publication reuses approved310 and verifies original + cumulative delta with both installers; no separate full authoring rebuild is claimed.",
+  "limitations": [
+    "Development prerelease; no all-scenario/hardware certification.",
+    "Intermittent ending blackscreen unresolved.",
+    "No new gameplay during publication; approved final310 captures retained."
+  ]
+}

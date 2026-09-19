@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Package only the explicitly verified V0.97 player-facing release."""
+"""Package only the explicitly verified V0.972 player-facing release."""
 from __future__ import annotations
 import hashlib,json,sys,zipfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION="V0.97"
+VERSION="V0.972"
 sys.path.insert(0,str(ROOT/"patch"))
 import apply_patch
 import langrisser_fx_auto_patcher as auto
-REPORT=ROOT/"docs/verification_V0.97.json"
+REPORT=ROOT/"docs/verification_V0.972.json"
 EXE=f"Langrisser-FX-KR-Auto-Patcher-{VERSION}.exe"
 FILES={
     EXE:f"release/windows-patcher/{EXE}",
@@ -43,7 +43,7 @@ def main():
     output=ROOT/"release"/f"Langrisser_FX_Korean_Patch_{VERSION}.zip"
     if output.exists():raise RuntimeError("Preserve existing release archive")
     report=json.loads(REPORT.read_bytes())
-    if report["status"]!="PASS_ORIGINAL_REBUILD_AND_BOTH_INSTALLERS" or report["version"]!=VERSION:
+    if report["status"]!="PASS_APPROVED_TARGET_AND_BOTH_INSTALLERS" or report["version"]!=VERSION:
         raise RuntimeError("Missing current application verification")
     with (ROOT/"patch"/auto.PATCH_FILENAME).open("rb") as f:header=apply_patch.read_header(f)
     if header["target_sha256"]!=auto.OUTPUT_TRACK2_SHA256 or VERSION not in header["description"]:
@@ -57,9 +57,9 @@ def main():
         if digest(payloads[f"screenshots/{VERSION}/{row['file']}"])!=row["sha256"]:
             raise RuntimeError("Screenshot provenance mismatch")
     payloads["README.txt"]=(
-        "데어 랑그릿사 FX 한국어 패치 V0.97 — 사전 공개 버전\n\n"
-        "INSTALL.txt와 docs/RELEASE_V0.97.md를 먼저 읽어 주세요.\n"
-        "Langrisser-FX-KR-Auto-Patcher-V0.97.exe에 원본 일본판 CUE를 선택하세요.\n"
+        "데어 랑그릿사 FX 한국어 패치 V0.972 — 사전 공개 버전\n\n"
+        "INSTALL.txt와 docs/RELEASE_V0.972.md를 먼저 읽어 주세요.\n"
+        "Langrisser-FX-KR-Auto-Patcher-V0.972.exe에 원본 일본판 CUE를 선택하세요.\n"
         "이전 한글판에 덧씌우지 마세요. SRAM을 백업하고 게임 내 저장을 불러오세요.\n"
         "원본 게임·BIOS·세이브·완성된 게임 이미지는 포함하지 않습니다.\n"
         "간헐적인 엔딩 검은 화면은 미해결입니다. 모든 분기/실기 검증은 아닙니다.\n\n"

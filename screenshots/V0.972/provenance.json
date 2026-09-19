@@ -1,0 +1,42 @@
+{
+  "version": "V0.972",
+  "screenshots": [
+    {
+      "file": "77-before.png",
+      "baseline": "successor309",
+      "caption": "수정 전: 사용자 저장의 77번 승리·패배조건 미번역",
+      "sha256": "D3854D2BBDD1762DE1EFE88B41F8235A36E189985AC9F1B3429E7BFA4F05FF14",
+      "unedited": true
+    },
+    {
+      "file": "77-after.png",
+      "baseline": "successor310-review2",
+      "caption": "수정 후: 제시카 격파 / 엘윈 사망",
+      "sha256": "4552A97CD0C37EE9DE70391FC6B60D68E10688289F072677F71F4A97A302D736",
+      "unedited": true
+    },
+    {
+      "file": "77-after-settings.png",
+      "baseline": "successor310-review2",
+      "caption": "설정 메뉴 전환 후 조건창 재확인",
+      "sha256": "4552A97CD0C37EE9DE70391FC6B60D68E10688289F072677F71F4A97A302D736",
+      "unedited": true
+    },
+    {
+      "file": "77-save-question.png",
+      "baseline": "successor310-review2",
+      "caption": "기존 저장 질문 정상 표시 확인",
+      "sha256": "681B33ED33CF7C7EF1B27BE1EC09174CB05DB94CE4BEB469B9E3B3E63CE3AF9A",
+      "unedited": true
+    },
+    {
+      "file": "20-regression.png",
+      "baseline": "successor310-review2",
+      "caption": "일반 20화: 베른하르트 격파 / 엘윈 사망 회귀 확인",
+      "sha256": "A0FB45ADD7AFD85F283AC402B882F539F2F19586AB0CA5E93091730FC2A45F10",
+      "unedited": true
+    }
+  ],
+  "note": "Unedited native emulator captures. No RAM edits or cross-build state loads. Not an all-scenario playthrough.",
+  "rights": "Underlying game imagery is excluded from MIT and remains with its rights holders."
+}

@@ -2,6 +2,20 @@
 
 Dates are omitted where the project records do not establish a single release date. This file summarizes only work visible in the inspected source and verification records.
 
+## V0.972 — 2026-09-20
+
+- 검증된 successor310-review2를 누적 공개. 기존 V0.97 수정은 그대로 포함.
+- 셀렉트77(화면 표시21장)의 승리·패배조건 미번역 수정: 제시카 격파 / 엘윈 사망.
+- 전체98개 물리 조건표, 메뉴799슬롯(내용472행), 출격 전 안내142개 전수 검사.
+- 18개 표에 남은 미번역46행을 포함해 총49개 표의 메뉴85행·안내11곳 수정.
+- 주민 전멸, 도착·입수·탈출, 인접·설득, 동시 조건, 대상명 및 표기 교정.
+- 조건 관련8,710바이트만 변경. 실제 승패 로직·기존 대사·폰트·음악 보존.
+- 신고된77번과 일반20화의 메뉴를 실제 확인. 전 시나리오 플레이 검증은 아님.
+- 무편집 전후·회귀 스크린샷5장 첨부. 간헐적 엔딩 검은 화면은 여전히 미해결.
+
+[수정 내역·이미지](docs/RELEASE_V0.972.md) · [검증 범위](docs/VERIFICATION_V0.972.md).
+V0.97 및 이전 릴리스·태그·첨부는 보존합니다.
+
 ## V0.97 — 2026-09-19
 
 - 승인된 successor309 누적 공개. V0.96 이후 successor303~309의 수정 포함.

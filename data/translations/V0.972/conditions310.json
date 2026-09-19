@@ -1,0 +1,1052 @@
+{
+  "version": "V0.972",
+  "physical_tables_audited": 98,
+  "menu_slots_audited": 799,
+  "nonempty_menu_rows_audited": 472,
+  "presentation_frames_audited": 142,
+  "changed_tables": 49,
+  "changed_menu_rows": 85,
+  "changed_presentation_frames": 11,
+  "changes": [
+    {
+      "native": 6,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 5,
+          "after": " ・다크 로드 입수",
+          "widths": [
+            96
+          ]
+        },
+        {
+          "kind": "presentation",
+          "row": 5,
+          "after": "*승리조건\n ・다크 로드 입수\n ・적 전멸{page}{wait:07}",
+          "widths": [
+            60,
+            96,
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 7,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・주민 전멸",
+          "widths": [
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "native": 9,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・주민 전멸",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "presentation",
+          "row": 6,
+          "after": "*패배조건\n ・엘윈 사망\n ・주민 전멸{page}{wait:07}",
+          "widths": [
+            60,
+            68,
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "native": 11,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:0C}이 랑그릿사에",
+          "widths": [
+            116
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 8,
+          "after": "    도착",
+          "widths": [
+            40
+          ]
+        }
+      ]
+    },
+    {
+      "native": 16,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 17,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・홀리로드를 가진 적이",
+          "widths": [
+            132
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 8,
+          "after": "    화면 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 19,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 23,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 25,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 5,
+          "after": "    뱀파이어 로드 격파",
+          "widths": [
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "native": 28,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・주민 전멸",
+          "widths": [
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "native": 29,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 31,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・홀리로드를 가진 적이",
+          "widths": [
+            132
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 8,
+          "after": "    화면 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 33,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・홀리로드를 가진 적이",
+          "widths": [
+            132
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 8,
+          "after": "    화면 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 35,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 38,
+      "changes": [
+        {
+          "kind": "presentation",
+          "row": 5,
+          "after": "*승리조건\n ・셰리 격파\n*패배조건\n ・엘윈 사망{page}{wait:07}",
+          "widths": [
+            60,
+            68,
+            60,
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "native": 39,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 40,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・랑그릿사 입수",
+          "widths": [
+            92
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・랑그릿사를 빼앗김",
+          "widths": [
+            116
+          ]
+        }
+      ]
+    },
+    {
+      "native": 41,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 42,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・적이 화면 위로 탈출",
+          "widths": [
+            124
+          ]
+        }
+      ]
+    },
+    {
+      "native": 44,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:01} 외 전원 격파",
+          "widths": [
+            124
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 5,
+          "after": " ・{name:0F}·{name:01} 인접",
+          "widths": [
+            152
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:01} 사망 또는 탈출",
+          "widths": [
+            136
+          ]
+        }
+      ]
+    },
+    {
+      "native": 46,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 5,
+          "after": "    또는 설득",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "presentation",
+          "row": 6,
+          "after": "*승리조건\n ・소니아 격파 또는 설득\n*패배조건\n ・엘윈 사망{page}{wait:07}",
+          "widths": [
+            60,
+            136,
+            60,
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "native": 49,
+      "changes": [
+        {
+          "kind": "presentation",
+          "row": 4,
+          "after": "*승리조건\n ・셰리 격파\n*패배조건\n ・엘윈 사망{page}{wait:07}",
+          "widths": [
+            60,
+            68,
+            60,
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "native": 53,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 5,
+          "after": "    또는 설득",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "presentation",
+          "row": 5,
+          "after": "*승리조건\n ・소니아 격파 또는 설득{page}{wait:07}",
+          "widths": [
+            60,
+            136
+          ]
+        }
+      ]
+    },
+    {
+      "native": 54,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 56,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 58,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 8,
+          "after": "    화면 위로 탈출",
+          "widths": [
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "native": 59,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:01} 외 전원 격파",
+          "widths": [
+            124
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 5,
+          "after": " ・{name:0B}를 {name:01}에게",
+          "widths": [
+            128
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 6,
+          "after": "    인접시키기",
+          "widths": [
+            76
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:01} 사망 또는 탈출",
+          "widths": [
+            136
+          ]
+        }
+      ]
+    },
+    {
+      "native": 60,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 9,
+          "after": " ・{name:15} 그리고",
+          "widths": [
+            116
+          ]
+        }
+      ]
+    },
+    {
+      "native": 63,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 65,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 67,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・적 전멸",
+          "widths": [
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "native": 74,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:16} 격파",
+          "widths": [
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "native": 75,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:08} 격파",
+          "widths": [
+            80
+          ]
+        }
+      ]
+    },
+    {
+      "native": 76,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:03} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "presentation",
+          "row": 4,
+          "after": "*승리조건\n ・셰리 격파\n*패배조건\n ・엘윈 사망{page}{wait:07}",
+          "widths": [
+            60,
+            68,
+            60,
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "native": 77,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:13} 격파",
+          "widths": [
+            80
+          ]
+        }
+      ]
+    },
+    {
+      "native": 78,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:16} 격파",
+          "widths": [
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "native": 86,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・신도O 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:15} 격파",
+          "widths": [
+            104
+          ]
+        },
+        {
+          "kind": "presentation",
+          "row": 4,
+          "after": "*승리조건\n ・베른하르트 격파\n*패배조건\n ・신도O 사망{page}{wait:07}",
+          "widths": [
+            60,
+            104,
+            60,
+            80
+          ]
+        }
+      ]
+    },
+    {
+      "native": 87,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・신도O 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:15} 격파",
+          "widths": [
+            104
+          ]
+        },
+        {
+          "kind": "presentation",
+          "row": 4,
+          "after": "*승리조건\n ・베른하르트 격파\n*패배조건\n ・신도O 사망{page}{wait:07}",
+          "widths": [
+            60,
+            104,
+            60,
+            80
+          ]
+        }
+      ]
+    },
+    {
+      "native": 88,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:18} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:18} 아래로 탈출",
+          "widths": [
+            108
+          ]
+        },
+        {
+          "kind": "presentation",
+          "row": 6,
+          "after": "*패배조건\n ・신도O 사망{page}{wait:07}",
+          "widths": [
+            60,
+            80
+          ]
+        }
+      ]
+    },
+    {
+      "native": 89,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・신도O 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:45} 격파",
+          "widths": [
+            92
+          ]
+        },
+        {
+          "kind": "presentation",
+          "row": 5,
+          "after": "*승리조건\n ・루시리스 격파\n*패배조건\n ・신도O 사망{page}{wait:07}",
+          "widths": [
+            60,
+            92,
+            60,
+            80
+          ]
+        }
+      ]
+    },
+    {
+      "native": 90,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:01} 화면 아래로 이동",
+          "widths": [
+            148
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:01} 사망",
+          "widths": [
+            80
+          ]
+        }
+      ]
+    },
+    {
+      "native": 91,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:18} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:18} 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 92,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:18} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:18} 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 93,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:18} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:18} 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 94,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:18} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:18} 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 95,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:18} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:18} 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 96,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:18} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:18} 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 97,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:18} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:18} 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    },
+    {
+      "native": 98,
+      "changes": [
+        {
+          "kind": "menu",
+          "row": 3,
+          "after": " ・{raw:02} 사망",
+          "widths": [
+            80
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 4,
+          "after": " ・{name:18} 격파",
+          "widths": [
+            68
+          ]
+        },
+        {
+          "kind": "menu",
+          "row": 7,
+          "after": " ・{name:18} 아래로 탈출",
+          "widths": [
+            108
+          ]
+        }
+      ]
+    }
+  ]
+}

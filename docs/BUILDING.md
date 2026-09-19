@@ -11,7 +11,7 @@ files and existing outputs are never overwritten.
 Python fallback (standard library only):
 
 ```powershell
-python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-V0.97.lfxpatch
+python patch/apply_patch.py ORIGINAL_TRACK_2.bin Track-2.KR.bin --patch patch/Langrisser-FX-KR-V0.972.lfxpatch
 ```
 
 The applier rejects an unknown source, validates ordered non-overlapping ranges
@@ -30,8 +30,8 @@ tools/build_windows_patcher.ps1
 ```
 
 The script uses an ignored local build environment and pinned PyInstaller
-6.16.0. It embeds the V0.97 delta and outputs
-`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-V0.97.exe`.
+6.16.0. It embeds the V0.972 delta and outputs
+`release/windows-patcher/Langrisser-FX-KR-Auto-Patcher-V0.972.exe`.
 The tooling build packages the installer; it does not rebuild the game.
 Python 3.13.15 and contributed hooks 2026.7 were used for this EXE.
 
@@ -51,7 +51,7 @@ acceptance/rejection cases.
 Maintainers must supply the supported original and the exact verified target:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-V0.97.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-V0.972.lfxpatch
 ```
 
 The generator requires NumPy; the applier does not. The output must be new.
@@ -59,8 +59,8 @@ The format records source/target representations, sizes and SHA-256 identities.
 Apply the delta back to the original and compare the whole result with the
 verified target; command success alone is not sufficient.
 
-The V0.97 target hash is
-`6616EE3B5D544E9183A5A6E44BFF1BB8FC77F75D95696EEAE6DB157CD55390A8`.
+The V0.972 target hash is
+`397110E066F8CA2C13ABAF607D8AD85D82AAFBB0356FD36051389B1EF5FDD3CC`.
 Both Python and packaged EXE application were verified against it.
 
 ## Package the release
@@ -71,7 +71,7 @@ After verifying the delta and EXE identities recorded in the packaging script:
 python tools/package_public_release.py
 ```
 
-This creates `release/Langrisser_FX_Korean_Patch_V0.97.zip` using an explicit
+This creates `release/Langrisser_FX_Korean_Patch_V0.972.zip` using an explicit
 allowlist, stable ZIP metadata, member checksums and CRC verification. It
 refuses an existing ZIP. Existing releases remain unchanged. No game image,
 save, BIOS, emulator, extracted media or private dumps are allowlisted.
@@ -82,10 +82,15 @@ They document the reported defects and are not covered by the project's MIT lice
 
 The selected source snapshots are inspectable implementation code, not a
 complete publicly runnable game authoring pipeline. See
-[implementation notes](IMPLEMENTATION_V0.97.md) for the new modules.
+[implementation notes](IMPLEMENTATION_V0.972.md) for the new modules.
 
-The current private entry point is `build_scenario50_ending_successor309.py`.
-It reconstructs the 297 baseline, late-dialogue298, adopted ending/super components
+The current private entry point is `build_all_conditions_successor310.py`.
+It validates the original-derived 298 baseline, reconstructs the exact approved309,
+and applies the bounded310 condition edits. The final review2 build reused a
+hash-verified original-derived298 cache; the publication step reuses the approved310
+media and independently applies the new cumulative delta with both installers.
+It does not claim a separate full game rebuild during publication.
+The underlying309 entry point reconstructs the 297 baseline, late-dialogue298, adopted ending/super components
 and 303–309 dialogue/inventory/magic/ending layers in one original-source invocation.
 The underlying cumulative builder
 `build_gel_gather_display.py` starts with original
@@ -117,12 +122,12 @@ operation is **original disc + cumulative delta -> exact verified target**.
 
 ## Verification and review
 
-See [V0.97 verification](VERIFICATION_V0.97.md) for artifact identities,
-application checks, actual consumer routes and limitations. The new hidden
+See [V0.972 verification](VERIFICATION_V0.972.md) for artifact identities,
+application checks, actual consumer routes and limitations. Earlier hidden
 dialogue retains a needs-human-review state; successful encoding, font and
 runtime checks do not certify every sentence.
 
 Historical reports and v0.8/v0.81/v0.825/v0.84/v0.845/v0.85/v0.851/v0.855/v0.86/v0.865/V0.96 patch material are kept as history.
 Their versioned verification and release documents describe their original targets,
-not V0.97. The separate maintainer publication decision does not rewrite the private
+not V0.972. V0.97 is also retained unchanged as history. The separate maintainer publication decision does not rewrite the private
 development inputs' needs-human-review or non-distribution historical markers.
