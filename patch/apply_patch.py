@@ -147,7 +147,7 @@ def main() -> int:
     parser.add_argument(
         "--patch",
         type=Path,
-        default=Path(__file__).with_name("Langrisser-FX-KR-V1.05.lfxpatch"),
+        default=Path(__file__).with_name("Langrisser-FX-KR-V1.1.lfxpatch"),
     )
     args = parser.parse_args()
     try:

@@ -1,0 +1,55 @@
+{
+  "version": "V1.1",
+  "screenshots": [
+    {
+      "file": "narration-before.png",
+      "baseline": "successor324 / V1.1",
+      "caption": "Native narration input wait",
+      "source_record": "analysis/run-skip323/native324-narration/03-narration.png",
+      "sha256": "048A80A788957A9F49256BCF23E9D1FCC04F1B63A763F871BD15C5D1108D0EDF",
+      "unedited": true
+    },
+    {
+      "file": "narration-boundary.png",
+      "baseline": "successor324 / V1.1",
+      "caption": "Victory-condition stop",
+      "source_record": "analysis/run-skip323/native324-narration/08-held-at-boundary.png",
+      "sha256": "9710B8867150F8BBBDF7DF66E8E865AD20D7BD1E9A5C7B1196F00919A760AE48",
+      "unedited": true
+    },
+    {
+      "file": "dialogue-before.png",
+      "baseline": "successor324 / V1.1",
+      "caption": "Bernhardt post-battle dialogue",
+      "source_record": "analysis/run-skip323/native324-field/05-post-battle.png",
+      "sha256": "1D57D0A5EAA9E9417B1E9973F4ECC517160584470CF99A8FEDEEF902C31C7097",
+      "unedited": true
+    },
+    {
+      "file": "dialogue-boundary.png",
+      "baseline": "successor324 / V1.1",
+      "caption": "Dialogue resumes after unit transition",
+      "source_record": "analysis/run-skip323/native324-field/10-rearm-skip.png",
+      "sha256": "95E6022A0B034BC9ACA5B38192D82A9DF7A75A1A0E6DD793B0569DECE9A74810",
+      "unedited": true
+    },
+    {
+      "file": "movie-before.png",
+      "baseline": "successor324 / V1.1",
+      "caption": "Gameplay movie 002; isolated Baldo HP fixture",
+      "source_record": "analysis/run-skip323/native324-game-movie/03-gameplay-movie-ready.png",
+      "sha256": "9D9E7FC602108817ECB6AE652482916A546D514D6F0AE52C5C585B87F27AE5D3",
+      "unedited": true
+    },
+    {
+      "file": "movie-after.png",
+      "baseline": "successor324 / V1.1",
+      "caption": "Native movie cleanup and battle report; same fixture",
+      "source_record": "analysis/run-skip323/native324-game-movie/07-following-sequence-held.png",
+      "sha256": "0F589F68D16C31EA280A049435A469AF6339709728941779926D1B2015C88520",
+      "unedited": true
+    }
+  ],
+  "rights": "Original game imagery belongs to its rights holders; excluded from MIT.",
+  "note": "Unedited final-build captures. Movie entry uses only isolated Baldo HP=0; dialogue/narration use controller inputs."
+}

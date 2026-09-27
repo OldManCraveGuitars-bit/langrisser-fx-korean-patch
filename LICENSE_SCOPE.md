@@ -35,6 +35,11 @@ font sheet, audio/video, game image or save accompanies these captures.
 
 ## Project showcase screenshots
 
+The images under `screenshots/V1.1/` are unedited captures from the final RUN-skip
+build. The movie test uses an isolated enemy-HP fixture, explicitly recorded in
+the provenance file. Static images illustrate the tested screens, not timing
+measurements. Original game imagery is excluded from the MIT License.
+
 The images under `screenshots/V1.05/` are unedited game captures, with actual
 build and controlled-fixture provenance recorded beside them. They illustrate
 the original-game bug fixes, questionnaire repairs and final movie subtitles.

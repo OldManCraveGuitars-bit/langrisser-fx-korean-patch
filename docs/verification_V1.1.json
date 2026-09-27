@@ -1,0 +1,125 @@
+{
+  "status": "PASS_APPROVED_TARGET_AND_BOTH_INSTALLERS",
+  "version": "V1.1",
+  "internal_build": "successor324",
+  "prerelease": false,
+  "full_source_rebuild_claimed": false,
+  "approved_raw_sha256": "198965A8481A97A1E0535FDC80918A0982EE643C4FFD0039F20D2C9697273580",
+  "hold_frames": 72,
+  "fps": 59.94,
+  "seconds_approx": 1.2,
+  "approved_prototype_delta": [
+    [
+      277484,
+      90,
+      72
+    ],
+    [
+      662825964,
+      90,
+      72
+    ]
+  ],
+  "protected_complement_byte_exact": true,
+  "raw_audit": {
+    "existing_sectors_repaired": 35,
+    "appended_sectors": 0,
+    "sectors_checked": 324000,
+    "changed_sectors": 35,
+    "all_unplanned_bytes_identical": true
+  },
+  "instruction_tests": {
+    "status": "PASS_INSTRUCTION_TESTS",
+    "cases": 1537,
+    "hold_frames": 72,
+    "compacted_native_call_args_equal": true,
+    "callee_saved_registers_preserved": true,
+    "frame_threshold_and_release_lock": true,
+    "abandoned_boot_mutated_cave_never_used": true
+  },
+  "public_installer_tests_passed": 11,
+  "applied": {
+    "python": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "198965A8481A97A1E0535FDC80918A0982EE643C4FFD0039F20D2C9697273580"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      }
+    },
+    "exe": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "198965A8481A97A1E0535FDC80918A0982EE643C4FFD0039F20D2C9697273580"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      }
+    }
+  },
+  "source_profiles": {
+    "1": {
+      "size": 4106592,
+      "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9",
+      "output": "Track-1.bin"
+    },
+    "2": {
+      "size": 755535312,
+      "sha256": "1013D1AECCD42BB46DEA36CF3BD088CAE02FAC5D25BF4BC0187821ACAB9F8AD0",
+      "output": "Track-2.KR.bin"
+    },
+    "3": {
+      "size": 17120208,
+      "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D",
+      "output": "Track-3.bin"
+    }
+  },
+  "runtime": {
+    "cold_boot_final_disc": true,
+    "distinct_dialogue_speakers": 6,
+    "faction_states": 3,
+    "dialogue_release_lock": true,
+    "narration_threshold_and_boundary": true,
+    "gameplay_movie_threshold_and_cleanup": true,
+    "omake_original_short_skip": true,
+    "gameplay_movie_qa_fixture": "Baldo HP set to zero in isolated instance before native End Turn; no code/PC/flags changed",
+    "source_save_unchanged": true
+  },
+  "patch": {
+    "file": "Langrisser-FX-KR-V1.1.lfxpatch",
+    "sha256": "85C15DA176BE4B2CA1E3AE0E62252CA365A65AACE37AB62209AA56F187E28B17",
+    "bytes": 5070980,
+    "chunk_count": 580
+  },
+  "windows_exe": {
+    "file": "Langrisser-FX-KR-Auto-Patcher-V1.1.exe",
+    "sha256": "0A06A1E438778F343AFDF28EC022EB209B68FBFC5C676AEDEEBD213B9B8B6C46",
+    "bytes": 16734820,
+    "pyinstaller": "6.16.0",
+    "python": "3.13.15",
+    "contrib_hooks": "2026.7"
+  },
+  "limitations": [
+    "Not all routes, choices, movies, devices or emulators tested.",
+    "Hold starts at eligible input waits; short automatic pages may finish before arming.",
+    "Results/statistics/character epilogues are outside the new skip scope.",
+    "Intermittent ending black screen unresolved; earlier 8 tool failures/1 error not claimed fixed."
+  ]
+}
