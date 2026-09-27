@@ -35,6 +35,11 @@ font sheet, audio/video, game image or save accompanies these captures.
 
 ## Project showcase screenshots
 
+The images under `screenshots/V1.05/` are unedited game captures, with actual
+build and controlled-fixture provenance recorded beside them. They illustrate
+the original-game bug fixes, questionnaire repairs and final movie subtitles.
+Underlying original-game content is not covered by the MIT License.
+
 The five images under `screenshots/V0.972/` are unedited emulator captures
 showing the reported condition-text defect, its fix and menu regression checks.
 Their build identities and exact file hashes are recorded in that directory.

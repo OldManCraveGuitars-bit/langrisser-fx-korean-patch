@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Package only the explicitly verified V0.972 player-facing release."""
+"""Package only the explicitly verified V1.05 player-facing release."""
 from __future__ import annotations
 import hashlib,json,sys,zipfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION="V0.972"
+VERSION="V1.05"
 sys.path.insert(0,str(ROOT/"patch"))
 import apply_patch
 import langrisser_fx_auto_patcher as auto
-REPORT=ROOT/"docs/verification_V0.972.json"
+REPORT=ROOT/"docs/verification_V1.05.json"
 EXE=f"Langrisser-FX-KR-Auto-Patcher-{VERSION}.exe"
 FILES={
     EXE:f"release/windows-patcher/{EXE}",
@@ -31,6 +31,11 @@ for name in ("third_party/unifont/LICENSE.txt","third_party/unifont/OFL-1.1.txt"
              "third_party/galmuri/OFL-1.1.md",f"screenshots/{VERSION}/README.md",
              f"screenshots/{VERSION}/provenance.json"):
     FILES[name]=name
+for folder,names in {
+    'src/review_v105':('README.md','bozel_voice314.py','battle_report319.py','teleport_idle320.py','hud_sherry322.py'),
+    'data/translations/V1.05':('README.md','user-subtitle-edits.json'),
+}.items():
+    for name in names:FILES[f'{folder}/{name}']=f'{folder}/{name}'
 provenance=json.loads((ROOT/f"screenshots/{VERSION}/provenance.json").read_bytes())
 for row in provenance["screenshots"]:
     name=f"screenshots/{VERSION}/{row['file']}"
@@ -57,13 +62,13 @@ def main():
         if digest(payloads[f"screenshots/{VERSION}/{row['file']}"])!=row["sha256"]:
             raise RuntimeError("Screenshot provenance mismatch")
     payloads["README.txt"]=(
-        "데어 랑그릿사 FX 한국어 패치 V0.972 — 사전 공개 버전\n\n"
-        "INSTALL.txt와 docs/RELEASE_V0.972.md를 먼저 읽어 주세요.\n"
-        "Langrisser-FX-KR-Auto-Patcher-V0.972.exe에 원본 일본판 CUE를 선택하세요.\n"
+        "데어 랑그릿사 FX 한국어 패치 V1.05 — 정식판\n\n"
+        "INSTALL.txt와 docs/RELEASE_V1.05.md를 먼저 읽어 주세요.\n"
+        "Langrisser-FX-KR-Auto-Patcher-V1.05.exe에 원본 일본판 CUE를 선택하세요.\n"
         "이전 한글판에 덧씌우지 마세요. SRAM을 백업하고 게임 내 저장을 불러오세요.\n"
         "원본 게임·BIOS·세이브·완성된 게임 이미지는 포함하지 않습니다.\n"
         "간헐적인 엔딩 검은 화면은 미해결입니다. 모든 분기/실기 검증은 아닙니다.\n\n"
-        "Development prerelease. Apply to the supported original Japanese disc.\n"
+        "Stable release. Apply to the supported original Japanese disc.\n"
         "See the release and verification reports for tested routes and limitations.\n"
     ).encode("utf8")
     payloads["SHA256SUMS.txt"]=("\n".join(

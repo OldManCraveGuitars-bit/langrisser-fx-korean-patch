@@ -8,7 +8,7 @@ PC-FX 일본판 **Der Langrisser FX**의 한국어 패치입니다. 영문·숫�
 게임 전반의 한글화를 위한 프로젝트로, **메인화면·대사·메뉴 용어를 한글로 옮기고
 동영상에는 한국어 자막을 추가**했습니다.
 
-[**V0.972 다운로드**](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/V0.972) ·
+[**V1.05 다운로드**](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/V1.05) ·
 [설치 안내](patch/INSTALL.txt) ·
 [수정 내역](CHANGELOG.md) ·
 [**버그·번역 오류 제보**](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/issues)
@@ -22,18 +22,27 @@ SHA-256:  1013D1AECCD42BB46DEA36CF3BD088CAE02FAC5D25BF4BC0187821ACAB9F8AD0
 
 225섹터 프리갭을 포함한 원본 RAW MODE1/2352 Track 2 BIN 기준입니다.
 
-**패치 적용 후 Track 2 확인값 — V0.972**
+**패치 적용 후 Track 2 확인값 — V1.05**
 
 ```text
 Size:     762,048,000 bytes
-SHA-256:  397110E066F8CA2C13ABAF607D8AD85D82AAFBB0356FD36051389B1EF5FDD3CC
+SHA-256:  E5D8E1B42F3309BD3EA16B82863E6F27F85DC2C993202E5A0295BDDD4979B32F
 ```
 
 원본 게임이나 다운로드 ZIP이 아닌, 패치 적용 후 생성된 `Track-2.KR.bin`의 값입니다.
 
-현재는 **사전 공개 버전**입니다. 번역 누락·오탈자·글자 깨짐·진행 오류 등
-버그가 남아 있을 수 있습니다. 문제가 보이면 아래 안내에 따라 **GitHub Issues에
-등록해 주세요.** 한글화 범위 소개가 모든 시나리오·분기의 무오류를 보장하지는 않습니다.
+**V1.05 정식판**입니다. 최신 영상 자막과 누적 대사 교정을 반영했으며,
+**일본판 원작에도 있던 버그 3종까지 수정**했습니다.
+
+- 보젤 대사에서 다크 프린세스 음성이 먼저 나와 두 번 반복되던 문제
+- 전과보고에서 마지막 적군 처리 중 그래픽과 보상 데이터가 깨지던 문제
+- 아군 원거리 병사에게 텔레포트를 쓰면 병사들이 시전자를 공격하던 연출 문제
+
+[**V1.05 변경 내역과 실제 스크린샷**](docs/RELEASE_V1.05.md)
+
+정식 배포 표기는 모든 시나리오·분기·기기의 무오류 보증이 아닙니다.
+알려진 제한은 [검증 안내](docs/VERIFICATION_V1.05.md)에 공개하며,
+문제는 **GitHub Issues**에 제보해 주세요.
 
 ## 한글화 범위
 
@@ -92,8 +101,8 @@ SHA-256:  397110E066F8CA2C13ABAF607D8AD85D82AAFBB0356FD36051389B1EF5FDD3CC
 
 ## 패치 적용 방법
 
-1. [V0.972 Release](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/V0.972)에서 **Langrisser_FX_Korean_Patch_V0.972.zip**을 내려받아 압축을 풉니다.
-2. **Langrisser-FX-KR-Auto-Patcher-V0.972.exe**를 실행합니다.
+1. [V1.05 Release](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/V1.05)에서 **Langrisser_FX_Korean_Patch_V1.05.zip**을 내려받아 압축을 풉니다.
+2. **Langrisser-FX-KR-Auto-Patcher-V1.05.exe**를 실행합니다.
 3. 지원되는 **원본 일본판 CUE**와 새 출력 위치를 선택합니다. 원본 BIN 3개는 CUE와 함께 두세요.
 4. 완성된 `Langrisser FX Korean Patch` 폴더의 `Langrisser-FX-KR.cue`를 실행합니다.
 
@@ -123,21 +132,21 @@ SRAM은 백업하고 게임 내 저장을 불러오세요. 이전 빌드의 강�
 
 ## 현재 상태와 개발 자료
 
-V0.972는 **전체 승리·패배조건을 검수한 successor310-review2**입니다.
-셀렉트 77번의 `제시카 격파 / 엘윈 사망` 누락을 수정하고, 전체 98개 물리 조건표의
-메뉴 799슬롯(문구 472행)·출격 전 안내 142개를 검사했습니다. 미번역·의미·표기
-문제에 대해 총 49개 표의 메뉴 85행과 안내 11곳을 수정했습니다.
-최종 빌드에서 77번과 일반 20화의 조건창·메뉴 전환·필드 복귀를 확인했습니다.
-승패 판정 로직은 바꾸지 않았으며 V0.97의 대사·아이템 UI·마법명·엔딩 수정은 모두 포함합니다.
-[수정 내역과 이미지 5장](docs/RELEASE_V0.972.md)을 확인해 주세요.
+V1.05는 **successor322 정식 배포판**입니다. 8×8 이름 ‘쉐리’를 ‘셰리’로 통일했고, V0.972 이후 대사 줄바꿈,
+시나리오 셀렉트45~77의 원문 중심 교정, 후일담 조사, 루시리스 질문·선택지,
+반각 공백과 페이지 누락, 한글 메뉴 멈춤 수정을 포함합니다.
+사용자가 수정한 영상 자막을 반영해 최종23개 영상에169개 자막을 수록합니다.
+여기에 **원판 버그3종(보젤 음성·전과보고·텔레포트)**을 수정했습니다.
+V0.972의 전체 승패조건 및 그 이전의 아이템·마법명·엔딩 수정도 누적됩니다.
+[변경 내역과 스크린샷](docs/RELEASE_V1.05.md)을 확인해 주세요.
 
 **간헐적인 엔딩 검은 화면은 미해결이며 이번 후속 조사에서 제외했습니다.**
 일부 숨은 대사 문맥 검수와 전 시나리오 플레이 확인은 아직 남아 있습니다.
 기존 누적 도구 검사의 실패 8개·오류 1개를 해결했다는 뜻도 아닙니다.
 정확한 적용·검증 범위와 남은 사항은 아래 문서를 확인해 주세요.
 
-- [V0.972 수정 리포트](docs/RELEASE_V0.972.md)
-- [V0.972 검증 범위와 알려진 한계](docs/VERIFICATION_V0.972.md)
+- [V1.05 수정 리포트](docs/RELEASE_V1.05.md)
+- [V1.05 검증 범위와 알려진 한계](docs/VERIFICATION_V1.05.md)
 - [기술 구조](docs/ARCHITECTURE.md) · [빌드·패치 생성 방법](docs/BUILDING.md)
 - [폰트 등 제3자 자료](docs/THIRD_PARTY.md)
 
@@ -176,19 +185,21 @@ This repository candidate documents and distributes a Korean translation patch f
 
 ## Project status
 
-The current public version is **V0.972** (internal successor310-review2), a development
-prerelease. It audits all 98 physical field condition tables: 799 menu slots,
-472 nonempty rows and 142 pre-battle frames. It fixes 85 menu rows and 11 frames,
-including the untranslated Scenario Select 77 conditions. Final runtime checks
-cover native 77 and normal 20 menus, not an all-scenario playthrough. Win/loss
-logic is unchanged. All V0.97 fixes remain included. The intermittent ending
-black screen remains unresolved. See the [5-image change report](docs/RELEASE_V0.972.md)
-and [verification scope](docs/VERIFICATION_V0.972.md).
+The current public version is **V1.05** (internal successor322), a stable release.
+Sherry's shared 8×8 name now consistently reads 셰리.
+It includes revised movie subtitles, cumulative dialogue/questionnaire/epilogue
+corrections, and **three bugs reproduced in the original Japanese game**:
+Bozel's duplicate/wrong voice, the battle-report enemy-list overflow, and
+ranged allies attacking the caster during Teleport animation. Earlier V0.972
+condition fixes remain included. Stable release status is not an all-route or
+hardware guarantee; the intermittent ending black screen remains unresolved.
+See the [illustrated change report](docs/RELEASE_V1.05.md) and
+[verification scope](docs/VERIFICATION_V1.05.md).
 Full hidden-dialogue wording review and all-scenario playthroughs remain incomplete.
 The earlier cumulative tool baseline recorded 8 failures and 1 error; their
 resolution is not claimed here.
 
-Download the automatic patcher from [GitHub Releases](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/V0.972).
+Download the automatic patcher from [GitHub Releases](https://github.com/OldManCraveGuitars-bit/langrisser-fx-korean-patch/releases/tag/V1.05).
 
 The historical editor catalog inventory (before the 12 S18 entries restored in
 v0.865) enumerated these working domains:
@@ -230,7 +241,7 @@ You must supply your own legally obtained Japanese game dump. The patch accepts 
 
 ### Windows automatic patcher
 
-Run `Langrisser-FX-KR-Auto-Patcher-V0.972.exe`, select the original Japanese CUE, and
+Run `Langrisser-FX-KR-Auto-Patcher-V1.05.exe`, select the original Japanese CUE, and
 choose an output location. The program verifies all three original track files
 and creates a complete `Langrisser FX Korean Patch` folder containing the new
 Track 2, unchanged copies of Tracks 1 and 3, a ready-to-use CUE, and checksums.
@@ -244,13 +255,13 @@ rebuild the Windows executable with `tools/build_windows_patcher.ps1`.
 Python 3 is required. The applier uses only the Python standard library.
 
 ```powershell
-python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-V0.972.lfxpatch
+python patch/apply_patch.py "path/to/original Track 2.bin" "Track-2.KR.bin" --patch patch/Langrisser-FX-KR-V1.05.lfxpatch
 ```
 
 Successful application produces:
 
 - size: 762,048,000 bytes
-- SHA-256: `397110E066F8CA2C13ABAF607D8AD85D82AAFBB0356FD36051389B1EF5FDD3CC`
+- SHA-256: `E5D8E1B42F3309BD3EA16B82863E6F27F85DC2C993202E5A0295BDDD4979B32F`
 
 Copy your unchanged original Track 1 and Track 3 into the same directory as `Track-1.bin` and `Track-3.bin`, then use the supplied [CUE sheet](patch/Langrisser-FX-KR.cue). Do not overwrite your original tracks. Full bilingual instructions are in [INSTALL.txt](patch/INSTALL.txt).
 
@@ -267,17 +278,20 @@ reviews, and the selected Scenario 15 writers,
 alongside the v0.851 context-aware HUD prefix helper, v0.85 native
 archive-boundary/HUD font modules and earlier selected dialogue, complete
 menu/unit-cache separation, hidden-dialogue and subtitle work.
-Its private primary build starts with the immutable Japanese Track 2 and the
+The historical underlying private primary build starts with the immutable Japanese Track 2 and the
 hash-pinned v0.81 cumulative delta specification, reconstructs that baseline
 within the build, then applies a conflict-checked composed write plan. Existing
-patched game outputs are comparison evidence, not its input. Some source-derived
+patched game outputs are comparison evidence, not that historical builder's input.
+The final V1.05 stages instead pin verified320 for subtitle compilation and
+verified321 for the8×8 Sherry correction; both public installers reconstruct322
+directly from the supported original disc and cumulative delta. Some source-derived
 catalogs and historical authoring dependencies remain private, so these source
 snapshots are for inspection, not a complete standalone source build.
 
 For that reason, this candidate does **not** claim a complete clean-room, one-command product build from the original disc. Source-derived catalogs and private intermediates are deliberately excluded. Maintainers who already possess the exact original and exact verified target can regenerate the distributable delta with:
 
 ```powershell
-python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-V0.972.lfxpatch
+python tools/create_lfx_patch.py ORIGINAL_TRACK_2.bin VERIFIED_TARGET_TRACK_2.bin patch/Langrisser-FX-KR-V1.05.lfxpatch
 ```
 
 The generator requires NumPy. See [Building and verification](docs/BUILDING.md) for current limitations and consolidation work still needed.
@@ -288,16 +302,16 @@ Project records identify GNU Unifont 17.0.05 as the byte-pinned source for the c
 
 ## Known issues and limits
 
-- The earlier cumulative tool baseline was not fully green: 8 known failures and 1 known error were recorded. Their resolution is not claimed by V0.972.
+- The earlier cumulative tool baseline was not fully green: 8 known failures and 1 known error were recorded. Their resolution is not claimed by V1.05.
 - The new Muscle Temple and X2/X3 dialogue passes the recorded technical checks, but full human wording review and all hidden branches remain unfinished.
-- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete V0.972 scope.
-- Scenario 18 and later/super scopes have static population checks and targeted runtime checks, not an all-branch playthrough. See [current verification](docs/VERIFICATION_V0.972.md).
+- An all-scenario playthrough and physical-console/iPhone verification are not recorded for the complete V1.05 scope.
+- Scenario 18 and later/super scopes have static population checks and targeted runtime checks, not an all-branch playthrough. See [current verification](docs/VERIFICATION_V1.05.md).
 - v0.86 reviewed Scenario 17 across all 129 records; 28 changes were adopted. Four ambiguous/empty-source records remain unchanged pending further context. Arbitrary player-renamed names and all story branches are not runtime-certified. See [historical verification](docs/VERIFICATION_v0.86.md).
 - The earlier Scenario 13/14 review covers 174/104 records and preserves their 243/125 native pages. Its introductory checks remain historical evidence, not new all-branch playthroughs.
 - v0.851 was cold-tested on Scenario 12 name/menu/empty-ground transitions and Scenario 10 name/SCENARIO transitions. All 167 name IDs, 333 native/alias execution cases and 201 glyphs per bank were checked separately. See [historical verification](docs/VERIFICATION_v0.851.md).
 - The earlier v0.85 target was checked through cold SRAM loads for Scenario 12 Angel-versus-Phoenix combat, the Royal Lancer HUD and Scenario 10 combat/results, plus automatic Opening 2 and OMAKE playback. All 629 intervals in the two repaired directories were checked. This is targeted runtime verification and shared-data coverage, not every battle or stage. See [verification](docs/VERIFICATION_v0.85.md).
-- Earlier X2/X3 and menu/shop/load runtime evidence remains attributed to its original version. Every natural movie trigger was not replayed for v0.85; current movie/subtitle bytes are unchanged.
-- Previously recorded condition-text issues in other internal fields 74–98 were not repaired by this update. Internal field/container counts are not counts of additional playable scenarios.
+- Earlier X2/X3 and menu/shop/load runtime evidence remains attributed to its original version. Every natural movie trigger was not replayed. Current subtitle changes are documented separately for321 and remain unchanged in322.
+- The98-table condition-text corrections from V0.972 remain included. Internal field/container counts are not counts of additional playable scenarios.
 - Some editor/build data catalogs contain substantial extracted Japanese text and are withheld pending a rights decision.
 - The public source snapshot cannot reproduce the full patched disc without private/source-derived intermediate data.
 - Emulator compatibility outside the recorded Mednafen/Beetle PC-FX routes is not guaranteed.
@@ -324,7 +338,8 @@ screenshots/v0.851/   historical before/after defect evidence (not MIT game art)
 screenshots/v0.86/    historical Rouga and equipment-message evidence
 screenshots/V0.96/   Historical late dialogue, ending and super-mode evidence
 screenshots/V0.97/    Earlier dialogue, discard UI, Charm and Empire-ending evidence
-screenshots/V0.972/   Condition-text before/after and menu regression evidence
+screenshots/V0.972/   Historical condition-text and menu regression evidence
+screenshots/V1.05/    Original-game fixes, subtitles, questions and 8x8 Sherry
 third_party/         retained third-party license notices
 tools/               maintainer-only delta generator
 release/             local GitHub Release upload candidate (ignored by Git)

@@ -1,0 +1,285 @@
+{
+  "status": "PASS_APPROVED_TARGET_AND_BOTH_INSTALLERS",
+  "version": "V1.05",
+  "internal_build": "successor322",
+  "prerelease": false,
+  "full_source_rebuild_claimed": false,
+  "approved_raw_sha256": "E5D8E1B42F3309BD3EA16B82863E6F27F85DC2C993202E5A0295BDDD4979B32F",
+  "subtitle_cues": 169,
+  "subtitle_movies": 23,
+  "subtitle_private_glyphs": 323,
+  "subtitle_only_changed_bytes": 5012,
+  "protected_complement_byte_exact": true,
+  "original_tracks_unchanged": true,
+  "user_json_unchanged": true,
+  "raw_audit": {
+    "existing_sectors_repaired": 15,
+    "appended_sectors": 0,
+    "sectors_checked": 324000,
+    "changed_sectors": 15,
+    "all_unplanned_bytes_identical": true
+  },
+  "sherry322": {
+    "name": "셰리",
+    "native_name_id": 4,
+    "record_id": 145,
+    "glyph_id": 170,
+    "copies": 15,
+    "font": "Galmuri7",
+    "font_sha256": "2A6FD090AC6D24F7392D6CC49DB02CE54B9D1C01048BF8C97CBCDBC5A885CB15",
+    "other_records_and_glyph_ids_unchanged": true,
+    "shared_consumers": [
+      "bottom HUD",
+      "recruitment",
+      "combat",
+      "battle report"
+    ]
+  },
+  "sherry_changed_bytes": 90,
+  "subtitle_bytes_unchanged_from321": true,
+  "sherry_runtime": {
+    "status": "PASS_COLD_SHERRY_HUD",
+    "internal_build": "successor322",
+    "cold_boot": true,
+    "ram_patches": false,
+    "state_loaded": false,
+    "source_save_unchanged": true,
+    "source_save_sha256": "A09F7B29528F994FE8999FE4AC32CD15BDBF1813CB7989271B91E1FBA600D767",
+    "live_glyph_equals_compiled": true,
+    "consumer_guard_negative_tests": 3,
+    "actions": [
+      [
+        2700,
+        []
+      ],
+      [
+        6,
+        [
+          "run"
+        ]
+      ],
+      [
+        180,
+        []
+      ],
+      [
+        6,
+        [
+          "i"
+        ]
+      ],
+      [
+        650,
+        []
+      ],
+      [
+        6,
+        [
+          "i"
+        ]
+      ],
+      [
+        1800,
+        []
+      ],
+      [
+        6,
+        [
+          "i"
+        ]
+      ],
+      [
+        250,
+        []
+      ],
+      [
+        6,
+        [
+          "i"
+        ]
+      ],
+      [
+        180,
+        []
+      ],
+      [
+        6,
+        [
+          "ii"
+        ]
+      ],
+      [
+        90,
+        []
+      ],
+      [
+        6,
+        [
+          "right"
+        ]
+      ],
+      [
+        30,
+        []
+      ],
+      [
+        6,
+        [
+          "down"
+        ]
+      ],
+      [
+        30,
+        []
+      ],
+      [
+        6,
+        [
+          "down"
+        ]
+      ],
+      [
+        90,
+        []
+      ]
+    ],
+    "screenshot": "sherry-final.png",
+    "scope": "Actual bottom HUD; shared15 font copies verified statically"
+  },
+  "applied": {
+    "python": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "E5D8E1B42F3309BD3EA16B82863E6F27F85DC2C993202E5A0295BDDD4979B32F"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      }
+    },
+    "exe": {
+      "complete_tracks_byte_identical": true,
+      "tracks": {
+        "1": {
+          "bytes": 4106592,
+          "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9"
+        },
+        "2": {
+          "bytes": 762048000,
+          "sha256": "E5D8E1B42F3309BD3EA16B82863E6F27F85DC2C993202E5A0295BDDD4979B32F"
+        },
+        "3": {
+          "bytes": 17120208,
+          "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D"
+        }
+      }
+    }
+  },
+  "source_profiles": {
+    "1": {
+      "size": 4106592,
+      "sha256": "1E1840205CE98F5E0DF8067BEA8B3336DB62CA071C7B67538A0312C267D9CFA9",
+      "output": "Track-1.bin"
+    },
+    "2": {
+      "size": 755535312,
+      "sha256": "1013D1AECCD42BB46DEA36CF3BD088CAE02FAC5D25BF4BC0187821ACAB9F8AD0",
+      "output": "Track-2.KR.bin"
+    },
+    "3": {
+      "size": 17120208,
+      "sha256": "9D1133A7DDAB061567F6C83F3342C90CBE32DC6A94561AE5309FA74335FDDD8D",
+      "output": "Track-3.bin"
+    }
+  },
+  "patch": {
+    "file": "Langrisser-FX-KR-V1.05.lfxpatch",
+    "sha256": "1CB03EBE1B0BF70224D91EB3B80F01FA2C254AB213D677E21508B64F7298E07F",
+    "bytes": 5067340,
+    "chunk_count": 564
+  },
+  "windows_exe": {
+    "file": "Langrisser-FX-KR-Auto-Patcher-V1.05.exe",
+    "sha256": "5ED9C327BB930271517C5C78CE6002D0739F0481C4ECD93F69042274A9E6D466",
+    "bytes": 16730983,
+    "pyinstaller": "6.16.0",
+    "python": "3.13.15",
+    "contrib_hooks": "2026.7"
+  },
+  "runtime321": {
+    "status": "PASS_TARGETED_MOVIE_PLAYBACK",
+    "cold_boot": true,
+    "no_external_subtitle_card": true,
+    "no_ram_patching": true,
+    "same_build_selector_checkpoint": true,
+    "movies": [
+      {
+        "movie": 6,
+        "immutable_payload_exact": true,
+        "screenshots": [
+          {
+            "clock": 180,
+            "file": "movie006-frame00180.png"
+          },
+          {
+            "clock": 600,
+            "file": "movie006-frame00600.png"
+          }
+        ],
+        "returned": true
+      },
+      {
+        "movie": 15,
+        "immutable_payload_exact": true,
+        "screenshots": [
+          {
+            "clock": 2550,
+            "file": "movie015-frame02550.png"
+          },
+          {
+            "clock": 2940,
+            "file": "movie015-frame02940.png"
+          }
+        ],
+        "returned": true
+      },
+      {
+        "movie": 16,
+        "immutable_payload_exact": true,
+        "screenshots": [
+          {
+            "clock": 720,
+            "file": "movie016-frame00720.png"
+          },
+          {
+            "clock": 840,
+            "file": "movie016-frame00840.png"
+          }
+        ],
+        "returned": true
+      }
+    ],
+    "scope": "Omake movies6,15,16; not all natural ending branches"
+  },
+  "public_installer_tests_passed": 11,
+  "earlier_runtime_evidence": {
+    "field-menu-halt-315/runtime-verification315.json": "8AEEDB980C6777428DB4A377FA609A43017F593BFBEFBEA0371147DB292AE46B",
+    "luciris-pages-318/runtime-verification318.json": "10F8FF3A07E15D782F718BE319325A95B03F1D3584D5F22354F9E7FD63BBFF1D",
+    "report319/runtime-verification.json": "0E0D870BE96B3384F3046D83CBE4D38A7C5B0CF16A57C7DBF14D6E17EF97BD04",
+    "teleport320/runtime-verification.json": "02E4CD0CA3C40CED3B8AEDE80DB3BE70B545B8F0E402E12B23726ED40B4F9FA8"
+  },
+  "limitations": [
+    "Intermittent ending black screen unresolved.",
+    "Not all scenarios, natural endings, devices or unit/options tested.",
+    "Teleport class/HP cases used isolated fixtures.",
+    "Earlier evidence is not a fresh322 playthrough.",
+    "Earlier cumulative tooling failures8/errors1 not claimed resolved."
+  ]
+}

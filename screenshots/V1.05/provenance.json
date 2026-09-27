@@ -1,0 +1,111 @@
+{
+  "version": "V1.05",
+  "screenshots": [
+    {
+      "file": "sherry-8x8.png",
+      "baseline": "successor322 / V1.05",
+      "caption": "실제 하단 정보창 셰리 8×8 표기",
+      "source_record": "analysis/sherry322/runtime/sherry-final.png",
+      "sha256": "E99AEDA642D1AE41B229968514006A86885D3B9AE64D8C0D87C47077A568DAD2",
+      "unedited": true
+    },
+    {
+      "file": "bozel-fixed.png",
+      "baseline": "successor315",
+      "caption": "보젤 두 번째 화면; 음성 검증은 구간 추적/녹음",
+      "source_record": "analysis/field-menu-halt-315/final-field/23-early-bozel-second.png",
+      "sha256": "5674A8D586CE2DB6861AA9E6DB29552406E317CC778E8BB230D37291EF165218",
+      "unedited": true
+    },
+    {
+      "file": "report-original.png",
+      "baseline": "Japanese original",
+      "caption": "동일 제공 저장에서 마지막 적군 깨짐",
+      "source_record": "analysis/report319/japanese/frame-02040.png",
+      "sha256": "BD502891F764900B898242C5E5548DBF512AD6300089C8E91D43E710BABC3E54",
+      "unedited": true
+    },
+    {
+      "file": "report-fixed.png",
+      "baseline": "successor319",
+      "caption": "전과보고 마지막 적군 처리 완료",
+      "source_record": "analysis/report319/final/frame-02700.png",
+      "sha256": "EBDA31A9048A0235A464A23A27C2EC21C2B7F3B60FB87E7CF7466B341345671D",
+      "unedited": true
+    },
+    {
+      "file": "teleport-fixed.png",
+      "baseline": "successor320 controlled class/HP fixture",
+      "caption": "엘프 대상 텔레포트; 최종 코드/격리 병종 및 HP 설정",
+      "source_record": "analysis/teleport320/cold-elf-final/animation-00240.png",
+      "sha256": "352779F918BF3BCE5E901145592A675E73B4C04EB3DC3B2D8D117235C7088F91",
+      "unedited": true
+    },
+    {
+      "file": "questions-spaces.png",
+      "baseline": "successor318",
+      "caption": "질문 선택지 반각 공백",
+      "source_record": "analysis/luciris-pages-318/final-questions/q04-choices.png",
+      "sha256": "202CA5FDB0104E887FDBF6CD23F352D6803D7E96E34F088A85AFCBEDBC4B326B",
+      "unedited": true
+    },
+    {
+      "file": "questions-page.png",
+      "baseline": "successor318",
+      "caption": "정찰대 질문 세 문장 표시",
+      "source_record": "analysis/luciris-pages-318/final-questions/q05-a3-page00.png",
+      "sha256": "6BA5EF489871C5CAFB6D4586D103F7842F547B98A05783EF8F48B382EC7B1A20",
+      "unedited": true
+    },
+    {
+      "file": "subtitle-chaos.png",
+      "baseline": "successor321 / V1.05",
+      "caption": "카오스 수정 자막",
+      "source_record": "analysis/publication-v105/runtime4/movie006-frame00180.png",
+      "sha256": "037CE2956336AADCE2938C10E38A26600A044151658463DA090746D80A4E6ACA",
+      "unedited": true
+    },
+    {
+      "file": "subtitle-chaos-return.png",
+      "baseline": "successor321 / V1.05",
+      "caption": "카오스 어둠으로의 귀환 자막",
+      "source_record": "analysis/publication-v105/runtime4/movie006-frame00600.png",
+      "sha256": "29E27C65233F46128C4A582FF61F317AB5FA7C51DA173FFE3470DE06CEEC9F75",
+      "unedited": true
+    },
+    {
+      "file": "subtitle-liana.png",
+      "baseline": "successor321 / V1.05",
+      "caption": "리아나 수정 자막",
+      "source_record": "analysis/publication-v105/runtime4/movie015-frame02940.png",
+      "sha256": "3031E6E52B05171B1AD85E01838B42F47EECC3CEF83150951E4E04874A2BC8F0",
+      "unedited": true
+    },
+    {
+      "file": "subtitle-liana-added.png",
+      "baseline": "successor321 / V1.05",
+      "caption": "리아나 추가 자막",
+      "source_record": "analysis/publication-v105/runtime4/movie015-frame02550.png",
+      "sha256": "AA519FFE72447F90D90BF51370F1FECF2272C45040CC11C19A0C45F9D1A02873",
+      "unedited": true
+    },
+    {
+      "file": "subtitle-orphanage.png",
+      "baseline": "successor321 / V1.05",
+      "caption": "고아원 추가 자막 첫 문장",
+      "source_record": "analysis/publication-v105/runtime4/movie016-frame00720.png",
+      "sha256": "A03F1DC218FD19226D7C44A74D2866F2C314568FE56D8C56CBA1AAD5A1E8A616",
+      "unedited": true
+    },
+    {
+      "file": "subtitle-orphanage-come.png",
+      "baseline": "successor321 / V1.05",
+      "caption": "고아원 추가 자막 둘째 문장",
+      "source_record": "analysis/publication-v105/runtime4/movie016-frame00840.png",
+      "sha256": "FDC6DFA84634EE33408C2290D91BFB920AA37F93B03582FB479A320C3D6BEE25",
+      "unedited": true
+    }
+  ],
+  "rights": "Original game imagery belongs to its rights holders; excluded from MIT.",
+  "note": "Unedited captures; prior builds and class/HP fixtures labeled."
+}
